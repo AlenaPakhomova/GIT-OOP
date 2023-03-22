@@ -42,9 +42,6 @@ namespace LabRab_1
                 Person person = list1.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
-            
-
-
             Console.WriteLine("\nList № 2");
             int count2 = list2.CountPersonInList();
             for (int i = 0; i < count2; i++)
@@ -53,7 +50,7 @@ namespace LabRab_1
                 Console.WriteLine(person.GetInfo());
             }
 
-
+            Console.ReadKey();
             Console.WriteLine("\nШаг 3. Добавление нового человека в первый список");
             Console.ReadKey();
             list1.AddPerson(new Person("Никита", "Семенов", 23, Gender.Male));
@@ -65,32 +62,13 @@ namespace LabRab_1
                 Console.WriteLine(person.GetInfo());
             }
 
-            
+
             Console.ReadKey();
             Console.WriteLine("\nШаг 4. Копирование второго человека из " +
                 "первого списка в конец второго списка");
             Console.ReadKey();
             Console.WriteLine("\nСкопированный человек находится в двух списках");
             list2.AddPerson(list1.FindPersonByIndex(1));
-            Console.WriteLine("\nList № 1");
-            int count7 = list1.CountPersonInList();
-            for (int i = 0; i < count7; i++)
-            {
-                Person person = list1.FindPersonByIndex(i);
-                Console.WriteLine(person.GetInfo());
-            }
-            Console.WriteLine("\nList № 2");
-            int count8 = list2.CountPersonInList();
-            for (int i = 0; i < count8; i++)
-            {
-                Person person = list2.FindPersonByIndex(i);
-                Console.WriteLine(person.GetInfo());
-            }
-
-
-            Console.WriteLine("\nШаг 5. Удаление второго человека из первого списка");
-            Console.ReadKey();
-            list1.RemovePersonByIndex(1);
             Console.WriteLine("\nList № 1");
             int count4 = list1.CountPersonInList();
             for (int i = 0; i < count4; i++)
@@ -105,6 +83,25 @@ namespace LabRab_1
                 Person person = list2.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
+
+            Console.ReadKey();
+            Console.WriteLine("\nШаг 5. Удаление второго человека из первого списка");
+            Console.ReadKey();
+            list1.RemovePersonByIndex(1);
+            Console.WriteLine("\nList № 1");
+            int count6 = list1.CountPersonInList();
+            for (int i = 0; i < count6; i++)
+            {
+                Person person = list1.FindPersonByIndex(i);
+                Console.WriteLine(person.GetInfo());
+            }
+            Console.WriteLine("\nList № 2");
+            int count7 = list2.CountPersonInList();
+            for (int i = 0; i < count7; i++)
+            {
+                Person person = list2.FindPersonByIndex(i);
+                Console.WriteLine(person.GetInfo());
+            }
             Console.WriteLine("\nУдаление человека из первого списка не привело " +
                 "к уничтожению этого человека во втором списке");
             Console.ReadKey();
@@ -113,13 +110,14 @@ namespace LabRab_1
             Console.ReadKey();
             list2.ClearPerson();
             Console.WriteLine("\nList № 2");
-            int count6 = list2.CountPersonInList();
-            for (int i = 0; i < count6; i++)
+            int count8 = list2.CountPersonInList();
+            for (int i = 0; i < count8; i++)
             {
                 Person person = list2.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
 
+            Console.ReadKey();
             Console.WriteLine("\nШаг 7. Добавление персоны с клавиатуры во второй список");
             Console.ReadKey();
             list2.AddPerson(AddConsolePerson());
@@ -131,6 +129,7 @@ namespace LabRab_1
                 Console.WriteLine(person.GetInfo());
             }
 
+            Console.ReadKey();
             Console.WriteLine("\nШаг 8. Добавление рандомного человека во второй список");
             Console.ReadKey();
             Person randPerson = RandomPerson.GetRandomPerson();
@@ -145,6 +144,7 @@ namespace LabRab_1
 
 
         }
+        
 
         /// <summary>
         /// Добавление людей через консоль
