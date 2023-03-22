@@ -120,6 +120,17 @@ namespace LabRab_1
                 Console.WriteLine(person.GetInfo());
             }
 
+            Console.WriteLine("\nШаг 7. Добавление персоны с клавиатуры во второй список");
+            Console.ReadKey();
+            list2.AddPerson(AddConsolePerson());
+            Console.WriteLine("\nList № 2");
+            int count9 = list2.CountPersonInList();
+            for (int i = 0; i < count9; i++)
+            {
+                Person person = list2.FindPersonByIndex(i);
+                Console.WriteLine(person.GetInfo());
+            }
+
             Console.WriteLine("\nШаг 8. Добавление рандомного человека во второй список");
             Console.ReadKey();
             Person randPerson = RandomPerson.GetRandomPerson();
@@ -135,8 +146,79 @@ namespace LabRab_1
 
         }
 
+        /// <summary>
+        /// Добавление людей через консоль
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static Person AddConsolePerson()
+        {
+            Person newPerson = new Person();
+
+            List<Action> actions = new List<Action>()
+            {
+                new Action(() =>
+                {
+                    Console.Write("Name: ");
+                    newPerson.Name = Console.ReadLine();
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Surname: ");
+                    newPerson.Surname = Console.ReadLine();
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Age: ");
+                    string ageStr = Console.ReadLine();
+                    if(!Int32.TryParse(ageStr, out int age))
+                    {
+                        throw new ArgumentException("Неправильный тип данных!");
+                    }
+                    newPerson.Age = age;
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Sex (0 - Male, 1 - Female): ");
+                    int genderStr = Int32.Parse(Console.ReadLine());
+                    Person.CheckingGender(genderStr);
+                    newPerson.Gender = (Gender)Enum.Parse(typeof(Gender),
+                                       Convert.ToString(genderStr));
+                }),
+
+            };
+            actions.ForEach(SetAction);
+            return newPerson;
+        }
+
+        /// <summary>
+        /// Вывод делегата 
+        /// </summary>
+        /// <param name="action"></param>
+        public static void SetAction(Action action)
+        {
+            while (true)
+            {
+                try
+                {
+                    action.Invoke();
+                    return;
+                }
+                catch (Exception s)
+                {
+                    Console.WriteLine($"\n{s.Message}\n");
+
+                }
+            }
+        }
 
 
 
     }
-}
+} 
+
+
+
+
+
+    
