@@ -120,9 +120,22 @@ namespace LabRab_1
                 Console.WriteLine(person.GetInfo());
             }
 
+            Console.WriteLine("\nШаг 8. Добавление рандомного человека во второй список");
+            Console.ReadKey();
+            Person randPerson = RandomPerson.GetRandomPerson();
+            list2.AddPerson(randPerson);
+            Console.WriteLine("\nList № 2");
+            int count10 = list2.CountPersonInList();
+            for (int i = 0; i < count10; i++)
+            {
+                Person person = list2.FindPersonByIndex(i);
+                Console.WriteLine(person.GetInfo());
+            }
+
+
         }
 
-        
+
 
 
     }
