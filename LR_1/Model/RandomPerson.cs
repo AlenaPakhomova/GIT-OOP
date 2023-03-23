@@ -18,7 +18,6 @@ namespace Model
         public static Person GetRandomPerson()
         {
             Random random = new Random();
-            //TODO: RSDN (исправлен)
             string[] maleNames = new string[]
             {
                 "Tom", "Bob", "Mike",

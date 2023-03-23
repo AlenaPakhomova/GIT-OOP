@@ -38,7 +38,7 @@ namespace Model
             }
             set
             {
-                //TODO: дублирование
+                //TODO: 
                 _name = CorrectNameAndSurname(value);
                 string name1 = ToUpperFirst(_name);
             }
@@ -152,7 +152,6 @@ namespace Model
         /// Минимальный возраст человека
         /// </summary>
         public static int AgeMin = 0;
-        //TODO: AgeMin? (исправлен)
 
         /// <summary>
         /// Проверка возраста 
@@ -166,6 +165,7 @@ namespace Model
             if (number < AgeMin || number > AgeMax)
             {
                 throw new Exception("Возраст должен быть в диапазоне" +
+                    //TODO: AgeMin
                     $"от 0 до {AgeMax} лет!");
             }
             else

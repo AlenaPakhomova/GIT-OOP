@@ -9,7 +9,6 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    //TODO: XML
     /// <summary>
     /// Класс, описывающий абстракцию списка, 
     /// содержащего объекты класса персон
@@ -37,7 +36,6 @@ namespace Model
         /// <returns> Удаление людей </returns>
         public int RemovePersonByName(string name)
         {
-            //TODO: RSDN (исправлен)
             int deleteName = people.RemoveAll(n => n.Name == name);
             return deleteName;
         }
@@ -90,7 +88,6 @@ namespace Model
         /// <returns> индекс </returns>
         public int ReturnIndexOfperson(string name)
         {
-            //TODO: RSDN (исправлен)
             int returnName = people.FindIndex(r => r.Name == name);
             return returnName;
         }

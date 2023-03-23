@@ -32,7 +32,6 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 2. Вывод содержимого списков на экран");
             Console.ReadKey();
 
-            //TODO: RSDN
             list1.AddPerson(new Person() { Name = "Иван", Surname = "Петров",
                 Age = 15, Gender = Gender.Male });
             list1.AddPerson(new Person() { Name = "Вася", 
@@ -46,7 +45,6 @@ namespace LabRab_1
             list2.AddPerson(new Person() { Name = "Кирилл", 
                 Surname = "Абрамов", Age = 28, Gender = Gender.Male });
 
-            //TODO: duplication
             PrintList(list1, "\nList № 1");
             PrintList(list2, "\nList № 2");
             
@@ -55,7 +53,7 @@ namespace LabRab_1
                 "первый список");
             Console.ReadKey();
             list1.AddPerson(new Person("Никита", "Семенов", 23, Gender.Male));
-            //TODO: duplication
+
             PrintList(list1, "\nList № 1");
             
             Console.ReadKey();
@@ -65,9 +63,8 @@ namespace LabRab_1
             Console.WriteLine("\nСкопированный человек находится в " +
                 "двух списках");
             list2.AddPerson(list1.FindPersonByIndex(1));
-            //TODO: duplication
+
             PrintList(list1, "\nList № 1");
-            //TODO: duplication
             PrintList(list2, "\nList № 2");
 
             Console.ReadKey();
@@ -75,9 +72,7 @@ namespace LabRab_1
                 "из первого списка");
             Console.ReadKey();
             list1.RemovePersonByIndex(1);
-            //TODO: duplication
             PrintList(list1, "\nList № 1");
-            //TODO: duplication
             PrintList(list2, "\nList № 2");
             Console.WriteLine("\nУдаление человека из первого списка не " +
                 "привело к уничтожению этого человека во втором списке");
@@ -86,7 +81,6 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 6. Очистка второго списка");
             Console.ReadKey();
             list2.ClearPerson();
-            //TODO: duplication
             PrintList(list2, "\nList № 2");
 
             Console.ReadKey();
@@ -94,7 +88,6 @@ namespace LabRab_1
                 "во второй список");
             Console.ReadKey();
             list2.AddPerson(AddConsolePerson());
-            //TODO: duplication
             PrintList(list2, "\nList № 2");
 
             Console.ReadKey();
@@ -103,7 +96,6 @@ namespace LabRab_1
             Console.ReadKey();
             Person randPerson = RandomPerson.GetRandomPerson();
             list2.AddPerson(randPerson);
-            //TODO: duplication
             PrintList(list2, "\nList № 2");
         }
 
@@ -189,7 +181,6 @@ namespace LabRab_1
             }
         }
 
-        //TODO: remove (перенести в Programm)
         /// <summary>
         /// Проверка пола человека
         /// </summary>
