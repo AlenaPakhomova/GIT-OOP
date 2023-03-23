@@ -10,17 +10,21 @@ using System.Xml.Linq;
 namespace Model
 {
     //TODO: XML
+    /// <summary>
+    /// Класс, описывающий абстракцию списка, 
+    /// содержащего объекты класса персон
+    /// </summary>
     public class PersonList
     {
         /// <summary>
-        /// Список людей.
+        /// Список людей
         /// </summary>
         public List<Person> people = new List<Person>();
 
         /// <summary>
         /// Добавление людей
         /// </summary>
-        /// <param name="person"></param>
+        /// <param name="person"> люди </param>
         public void AddPerson(Person person)
         {
             people.Add(person);
@@ -29,20 +33,21 @@ namespace Model
         /// <summary>
         /// Удаление элементов (имён)
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name"> имя </param>
+        /// <returns> Удаление людей </returns>
         public int RemovePersonByName(string name)
         {
-            //TODO: RSDN
-            int delName = people.RemoveAll(n => n.Name == name);
-            return delName;
+            //TODO: RSDN (исправлен)
+            int deleteName = people.RemoveAll(n => n.Name == name);
+            return deleteName;
         }
 
         /// <summary>
         /// Удаление элементов из списка по индексу
         /// </summary>
-        /// <param name="index"></param>
-        /// <exception cref="IndexOutOfRangeException"></exception>
+        /// <param name="index"> индекс элемента </param>
+        ///  <exception cref="IndexOutOfRangeException">Элементы с
+        ///  несуществующими индексами</exception>
         public void RemovePersonByIndex(int index)
         {
             int indexNumber = people.Count - 1;
@@ -60,9 +65,10 @@ namespace Model
         /// <summary>
         /// Поиск элемента по индексу
         /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        /// <exception cref="IndexOutOfRangeException"></exception>
+        /// <param name="index"> индекс элемента </param>
+        /// <returns> Элемент с определенным индексом </returns>
+        /// <exception cref="IndexOutOfRangeException"> Элементы с 
+        /// несуществующии индексами</exception>
         public Person FindPersonByIndex(int index)
         {
             int indexNumber = people.Count - 1;
@@ -80,25 +86,22 @@ namespace Model
         /// <summary>
         /// Возвращает индекс элемента при наличие его в списке
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name"> имя </param>
+        /// <returns> индекс </returns>
         public int ReturnIndexOfperson(string name)
         {
-            //TODO: RSDN
-            int retName = people.FindIndex(r => r.Name == name);
-            return retName;
+            //TODO: RSDN (исправлен)
+            int returnName = people.FindIndex(r => r.Name == name);
+            return returnName;
         }
-
 
         /// <summary>
         /// Очистка списка
         /// </summary>
-        /// <param name="person"></param>
         public void ClearPerson()
         {
             people.Clear();
         }
-
 
         /// <summary>
         /// Получение количества элементов в списке

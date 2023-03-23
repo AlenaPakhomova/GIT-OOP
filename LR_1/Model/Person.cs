@@ -15,22 +15,17 @@ namespace Model
         /// <summary>
         /// Имя человека.
         /// </summary>
-        public string _name;
+        private string _name;
 
         /// <summary>
         /// Фамилия человека.
         /// </summary>
-        public string _surname;
+        private string _surname;
 
         /// <summary>
         /// Возраст человека.
         /// </summary>
-        public int _age;
-
-        /// <summary>
-        /// Пол человека.
-        /// </summary>
-        public string _gender;
+        private int _age;
 
         /// <summary>
         /// Имя
@@ -43,9 +38,9 @@ namespace Model
             }
             set
             {
-                //TODO:
+                //TODO: дублирование
                 _name = CorrectNameAndSurname(value);
-                _name = ToUpperFirst(value);
+                string name1 = ToUpperFirst(_name);
             }
         }
 
@@ -62,7 +57,7 @@ namespace Model
             {
                 //TODO:
                 _surname = CorrectNameAndSurname(value);
-                _surname = ToUpperFirst(value);
+                string surname1 = ToUpperFirst(_surname);
             }
         }
 
@@ -96,10 +91,10 @@ namespace Model
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>
-        /// <param name="name">//TODO: XML</param>
-        /// <param name="surname"></param>
-        /// <param name="age"></param>
-        /// <param name="gender"></param>
+        /// <param name="name">//TODO: XML имя </param>
+        /// <param name="surname"> фамилия </param>
+        /// <param name="age"> возраст </param>
+        /// <param name="gender"> пол человека </param>
         public Person(string name, string surname, int age, Gender gender)
         {
             Name = name;
@@ -112,8 +107,8 @@ namespace Model
         /// <summary>
         /// Проверка имени и фамилии.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value"> имя или фамилия </param>
+        /// <returns> имя или фамилию </returns>
         public static bool CheckingNameAndSurname(string value)
         {
             var regex = new Regex(@"(^[А-я]+(-| [А-я])?[А-я]*$)" +
@@ -126,9 +121,10 @@ namespace Model
         /// <summary>
         /// Проверка на пустые строки и на непонятные символы
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="value"> имя или фамилия </param>
+        /// <returns> Возвращает имя или фамилию </returns>
+        /// <exception cref="Exception">Проверка на пустую строку
+        /// и неправльные символы</exception>
         public static string CorrectNameAndSurname(string value)
         {
             if (value == string.Empty || value == null)  
@@ -151,17 +147,23 @@ namespace Model
         /// Максимальный возраст человека
         /// </summary>
         public static int AgeMax = 130;
-        //TODO: AgeMin?
+
+        /// <summary>
+        /// Минимальный возраст человека
+        /// </summary>
+        public static int AgeMin = 0;
+        //TODO: AgeMin? (исправлен)
 
         /// <summary>
         /// Проверка возраста 
         /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="number"> возраст </param>
+        /// <returns> возраст </returns>
+        /// <exception cref="Exception"> Входит ли число 
+        /// в диапазон возрастов</exception>
         public static int CheckingAge(int number)
         {
-            if (number < 0 || number > AgeMax)
+            if (number < AgeMin || number > AgeMax)
             {
                 throw new Exception("Возраст должен быть в диапазоне" +
                     $"от 0 до {AgeMax} лет!");
@@ -170,33 +172,13 @@ namespace Model
             {
                 return number;
             }
-        }
-
-        //TODO: remove
-        /// <summary>
-        /// Проверка пола человека
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        public static int CheckingGender(int number)
-        {
-            if (number < 0 || number > 1)
-            {
-                throw new Exception("Введите 0 или 1, где 0 - Male," +
-                    "1 - Female!");
-            }
-            else
-            {
-                return number;
-            }
-        }
+        }     
 
         /// <summary>
-        /// Проебразование в правильные регистры
+        /// Пребразование в правильные регистры
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value"> имя или фамилия </param>
+        /// <returns> Возращает имя или фамилию </returns>
         public static string ToUpperFirst(string value)
         {
             var symbols = new[] { " ", "-" };
@@ -208,8 +190,10 @@ namespace Model
                     string firstword = words[0];
                     string secondword = words[1];
 
-                    firstword = char.ToUpper(firstword[0]) + firstword.Substring(1).ToLower();
-                    secondword = char.ToUpper(secondword[0]) + secondword.Substring(1).ToLower();
+                    firstword = char.ToUpper(firstword[0]) + 
+                        firstword.Substring(1).ToLower();
+                    secondword = char.ToUpper(secondword[0]) + 
+                        secondword.Substring(1).ToLower();
                     string fullword = firstword + symbol + secondword;
 
                     return fullword;
@@ -222,7 +206,7 @@ namespace Model
         /// <summary>
         /// Вывод информации о человеке
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Строку с информацией о человеке</returns>
         public string GetInfo()
         {
             return $"Name: {Name}, Surname: {Surname}," +

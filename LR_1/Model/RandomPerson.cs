@@ -6,29 +6,32 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Класс случайных людей
+    /// </summary>
     public class RandomPerson
     {
         /// <summary>
         /// Генерирует случайного человека.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Возвращает случайного человека</returns>
         public static Person GetRandomPerson()
         {
             Random random = new Random();
-            //TODO: RSDN
-            string[] _maleNames = new string[]
+            //TODO: RSDN (исправлен)
+            string[] maleNames = new string[]
             {
                 "Tom", "Bob", "Mike",
                 "Rick", "Mattew", "Robert"
             };
 
-            string[] _femaleNames = new string[]
+            string[] femaleNames = new string[]
             {
                 "Lyla", "Samanta", "Kate",
                 "Amelia", "Julia", "Anastasia"
             };
 
-            string[] _surnames = new string[]
+            string[] surnames = new string[]
             {
                 "Albertson", "Attwood", "Barlow",
                 "Berrington", "Davis", "Forester"
@@ -40,16 +43,16 @@ namespace Model
             switch (gender)
             {
                 case Gender.Male:
-                    name = _maleNames[random.Next(_maleNames.Length)];
+                    name = maleNames[random.Next(maleNames.Length)];
                     break;
                 case Gender.Female:
-                    name = _femaleNames[random.Next(_femaleNames.Length)];
+                    name = femaleNames[random.Next(femaleNames.Length)];
                     break;
                 default:
                     return new Person("Default", "Person", 2, Gender.Default);
             }
 
-            string surname = _surnames[random.Next(_surnames.Length)];
+            string surname = surnames[random.Next(surnames.Length)];
 
             int age = random.Next(0, Person.AgeMax);
 
