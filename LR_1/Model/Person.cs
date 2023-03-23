@@ -43,6 +43,7 @@ namespace Model
             }
             set
             {
+                //TODO:
                 _name = CorrectNameAndSurname(value);
                 _name = ToUpperFirst(value);
             }
@@ -59,6 +60,7 @@ namespace Model
             }
             set
             {
+                //TODO:
                 _surname = CorrectNameAndSurname(value);
                 _surname = ToUpperFirst(value);
             }
@@ -94,7 +96,7 @@ namespace Model
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">//TODO: XML</param>
         /// <param name="surname"></param>
         /// <param name="age"></param>
         /// <param name="gender"></param>
@@ -104,9 +106,7 @@ namespace Model
             Surname = surname;
             Age = age;
             Gender = gender;
-
         }
-
         
 
         /// <summary>
@@ -151,6 +151,7 @@ namespace Model
         /// Максимальный возраст человека
         /// </summary>
         public static int AgeMax = 130;
+        //TODO: AgeMin?
 
         /// <summary>
         /// Проверка возраста 
@@ -171,6 +172,7 @@ namespace Model
             }
         }
 
+        //TODO: remove
         /// <summary>
         /// Проверка пола человека
         /// </summary>
@@ -226,7 +228,5 @@ namespace Model
             return $"Name: {Name}, Surname: {Surname}," +
                $" Age: {Age}, Gender: {Gender} ";
         }
-
-
     }
 }

@@ -26,6 +26,7 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 2. Вывод содержимого списков на экран");
             Console.ReadKey();
 
+            //TODO: RSDN
             list1.AddPerson(new Person() { Name = "Иван", Surname = "Петров", Age = 15, Gender = Gender.Male });
             list1.AddPerson(new Person() { Name = "Вася", Surname = "Николенко", Age = 20, Gender = Gender.Male });
             list1.AddPerson(new Person() { Name = "Вероника", Surname = "Иванова", Age = 30, Gender = Gender.Female });
@@ -35,6 +36,7 @@ namespace LabRab_1
             list2.AddPerson(new Person() { Name = "Кирилл", Surname = "Абрамов", Age = 28, Gender = Gender.Male });
 
 
+            //TODO: duplication
             Console.WriteLine("\nList № 1");
             int count1 = list1.CountPersonInList();
             for (int i = 0; i < count1; i++)
@@ -42,6 +44,7 @@ namespace LabRab_1
                 Person person = list1.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count2 = list2.CountPersonInList();
             for (int i = 0; i < count2; i++)
@@ -54,6 +57,7 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 3. Добавление нового человека в первый список");
             Console.ReadKey();
             list1.AddPerson(new Person("Никита", "Семенов", 23, Gender.Male));
+            //TODO: duplication
             Console.WriteLine("\nList № 1");
             int count3 = list1.CountPersonInList();
             for (int i = 0; i < count3; i++)
@@ -69,6 +73,7 @@ namespace LabRab_1
             Console.ReadKey();
             Console.WriteLine("\nСкопированный человек находится в двух списках");
             list2.AddPerson(list1.FindPersonByIndex(1));
+            //TODO: duplication
             Console.WriteLine("\nList № 1");
             int count4 = list1.CountPersonInList();
             for (int i = 0; i < count4; i++)
@@ -76,6 +81,7 @@ namespace LabRab_1
                 Person person = list1.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count5 = list2.CountPersonInList();
             for (int i = 0; i < count5; i++)
@@ -88,6 +94,7 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 5. Удаление второго человека из первого списка");
             Console.ReadKey();
             list1.RemovePersonByIndex(1);
+            //TODO: duplication
             Console.WriteLine("\nList № 1");
             int count6 = list1.CountPersonInList();
             for (int i = 0; i < count6; i++)
@@ -95,6 +102,7 @@ namespace LabRab_1
                 Person person = list1.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count7 = list2.CountPersonInList();
             for (int i = 0; i < count7; i++)
@@ -109,6 +117,7 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 6. Очистка второго списка");
             Console.ReadKey();
             list2.ClearPerson();
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count8 = list2.CountPersonInList();
             for (int i = 0; i < count8; i++)
@@ -121,6 +130,7 @@ namespace LabRab_1
             Console.WriteLine("\nШаг 7. Добавление персоны с клавиатуры во второй список");
             Console.ReadKey();
             list2.AddPerson(AddConsolePerson());
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count9 = list2.CountPersonInList();
             for (int i = 0; i < count9; i++)
@@ -134,6 +144,7 @@ namespace LabRab_1
             Console.ReadKey();
             Person randPerson = RandomPerson.GetRandomPerson();
             list2.AddPerson(randPerson);
+            //TODO: duplication
             Console.WriteLine("\nList № 2");
             int count10 = list2.CountPersonInList();
             for (int i = 0; i < count10; i++)
@@ -141,10 +152,7 @@ namespace LabRab_1
                 Person person = list2.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
-
-
         }
-        
 
         /// <summary>
         /// Добавление людей через консоль
@@ -207,18 +215,8 @@ namespace LabRab_1
                 catch (Exception s)
                 {
                     Console.WriteLine($"\n{s.Message}\n");
-
                 }
             }
         }
-
-
-
     }
-} 
-
-
-
-
-
-    
+}

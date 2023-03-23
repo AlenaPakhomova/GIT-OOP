@@ -9,6 +9,7 @@ using System.Xml.Linq;
 
 namespace Model
 {
+    //TODO: XML
     public class PersonList
     {
         /// <summary>
@@ -32,11 +33,10 @@ namespace Model
         /// <returns></returns>
         public int RemovePersonByName(string name)
         {
+            //TODO: RSDN
             int delName = people.RemoveAll(n => n.Name == name);
             return delName;
-
         }
-
 
         /// <summary>
         /// Удаление элементов из списка по индексу
@@ -55,7 +55,6 @@ namespace Model
             {
                 people.RemoveAt(index);
             }
-
         }
 
         /// <summary>
@@ -76,7 +75,6 @@ namespace Model
             {
                 return people[index];
             }
-
         }
 
         /// <summary>
@@ -86,9 +84,9 @@ namespace Model
         /// <returns></returns>
         public int ReturnIndexOfperson(string name)
         {
+            //TODO: RSDN
             int retName = people.FindIndex(r => r.Name == name);
             return retName;
-
         }
 
 
@@ -109,7 +107,5 @@ namespace Model
         {
             return people.Count();
         }
-
-        
     }
 }
