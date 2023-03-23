@@ -39,8 +39,8 @@ namespace Model
             set
             {
                 //TODO: 
-                _name = CorrectNameAndSurname(value);
-                string name1 = ToUpperFirst(_name);
+                CorrectNameAndSurname(value);
+                _name = ToUpperFirst(value);
             }
         }
 
@@ -56,8 +56,8 @@ namespace Model
             set
             {
                 //TODO:
-                _surname = CorrectNameAndSurname(value);
-                string surname1 = ToUpperFirst(_surname);
+                CorrectNameAndSurname(value);
+                _surname = ToUpperFirst(value);
             }
         }
 
@@ -166,7 +166,7 @@ namespace Model
             {
                 throw new Exception("Возраст должен быть в диапазоне" +
                     //TODO: AgeMin
-                    $"от 0 до {AgeMax} лет!");
+                    $"от {AgeMin} до {AgeMax} лет!");
             }
             else
             {
