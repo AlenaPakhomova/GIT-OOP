@@ -39,8 +39,7 @@ namespace Model
             set
             {
                 //TODO: 
-                CorrectNameAndSurname(value);
-                _name = ToUpperFirst(value);
+                _name = ToUpperFirst(CorrectNameAndSurname(value));
             }
         }
 
@@ -56,8 +55,7 @@ namespace Model
             set
             {
                 //TODO:
-                CorrectNameAndSurname(value);
-                _surname = ToUpperFirst(value);
+                _surname = ToUpperFirst(CorrectNameAndSurname(value));
             }
         }
 
