@@ -38,7 +38,6 @@ namespace Model
             }
             set
             {
-                //TODO: 
                 _name = ToUpperFirst(CorrectNameAndSurname(value));
             }
         }
@@ -54,7 +53,6 @@ namespace Model
             }
             set
             {
-                //TODO:
                 _surname = ToUpperFirst(CorrectNameAndSurname(value));
             }
         }
@@ -162,8 +160,7 @@ namespace Model
         {
             if (number < AgeMin || number > AgeMax)
             {
-                throw new Exception("Возраст должен быть в диапазоне" +
-                    //TODO: AgeMin
+                throw new Exception("Возраст должен быть в диапазоне " +
                     $"от {AgeMin} до {AgeMax} лет!");
             }
             else
