@@ -41,6 +41,7 @@ namespace Model
             set
             {
                 _name = ToUpperFirst(CorrectNameAndSurname(value));
+               
                 if (_surname != null)
                 {
                     CheckingLanguage(_name, _surname);
@@ -61,6 +62,7 @@ namespace Model
             set
             {
                 _surname = ToUpperFirst(CorrectNameAndSurname(value));
+               
                 if(_name != null)
                 {
                     CheckingLanguage(_name, _surname);
@@ -88,7 +90,6 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
-
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -110,9 +111,8 @@ namespace Model
             Gender = gender;
         }
 
-
         /// <summary>
-        /// Проверка имени и фамилии.
+        /// Проверка двойного имени и двойной фамилии.
         /// </summary>
         /// <param name="value"> имя или фамилия </param>
         /// <returns> имя или фамилию </returns>
@@ -134,16 +134,14 @@ namespace Model
         /// и неправльные символы</exception>
         public static string CorrectNameAndSurname(string value)
         {
-
             if (value == string.Empty)
             {
                 throw new Exception("Пустая строка!");
             }
-
-            if (!CheckingNameAndSurname(value))
+            else if (!CheckingNameAndSurname(value))
             {
-                throw new Exception("Имя и фамилия должны содержать " +
-                    "только символы латиницы или кириллицы!");
+                throw new Exception("Может содержать символы латиницы или" +
+                    " кириллицы!");
             }
             else
             {
@@ -152,12 +150,12 @@ namespace Model
         }
 
         /// <summary>
-        /// 
+        /// Проверка на совпадение языка в имени и фамилии.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surname"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+        /// <param name="name">имя</param>
+        /// <param name="surname">фамилия</param>
+        /// <returns>Возращает имя и фамилию</returns>
+        /// <exception cref="Exception">Язык различается</exception>
         public void CheckingLanguage(string name, string surname)
         {
 
@@ -165,16 +163,16 @@ namespace Model
             Language surnameLanguege = DefineLanguage(surname);
             if (nameLanguege != surnameLanguege)
             {
-                throw new ArgumentException("Язык имени и фамилии" +
-                    " должен совпадать.");
+                throw new ArgumentException("Язык имени и фамилии " +
+                    "должен совпадать!");
             }
         }
         
         /// <summary>
         /// Проверка на язык.
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns> Languege.</returns>
+        /// <param name="str">имя и фамилия</param>
+        /// <returns>язык</returns>
         private Language DefineLanguage(string word) 
         {
             Regex latin = new Regex(@"[a-zA-Z]");
@@ -190,14 +188,11 @@ namespace Model
             }
             else
             {
-                throw new ArgumentException("Язык не распознан.\n" +
-                    "Разрешено вводить только символы кирицицы и латиницы.");
+                throw new ArgumentException("Разрешено вводить только" +
+                    "символы кирицицы и латиницы!");
             }
         }
         
-
-       
-
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
@@ -209,7 +204,7 @@ namespace Model
         public static int AgeMin = 0;
 
         /// <summary>
-        /// Проверка возраста 
+        /// Проверка возраста.
         /// </summary>
         /// <param name="number"> возраст </param>
         /// <returns> возраст </returns>
