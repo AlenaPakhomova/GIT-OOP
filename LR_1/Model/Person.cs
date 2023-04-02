@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Model
 {
@@ -39,6 +41,11 @@ namespace Model
             set
             {
                 _name = ToUpperFirst(CorrectNameAndSurname(value));
+                if (_surname != null)
+                {
+                    CheckingLanguage(_name, _surname);
+                }
+
             }
         }
 
@@ -54,6 +61,10 @@ namespace Model
             set
             {
                 _surname = ToUpperFirst(CorrectNameAndSurname(value));
+                if(_name != null)
+                {
+                    CheckingLanguage(_name, _surname);
+                }
             }
         }
 
@@ -98,7 +109,7 @@ namespace Model
             Age = age;
             Gender = gender;
         }
-        
+
 
         /// <summary>
         /// Проверка имени и фамилии.
@@ -123,11 +134,13 @@ namespace Model
         /// и неправльные символы</exception>
         public static string CorrectNameAndSurname(string value)
         {
-            if (value == string.Empty || value == null)  
+
+            if (value == string.Empty)
             {
                 throw new Exception("Пустая строка!");
             }
-            else if (!CheckingNameAndSurname(value))
+
+            if (!CheckingNameAndSurname(value))
             {
                 throw new Exception("Имя и фамилия должны содержать " +
                     "только символы латиницы или кириллицы!");
@@ -136,8 +149,54 @@ namespace Model
             {
                 return value;
             }
-
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public void CheckingLanguage(string name, string surname)
+        {
+
+            Language nameLanguege = DefineLanguage(name);
+            Language surnameLanguege = DefineLanguage(surname);
+            if (nameLanguege != surnameLanguege)
+            {
+                throw new ArgumentException("Язык имени и фамилии" +
+                    " должен совпадать.");
+            }
+        }
+        
+        /// <summary>
+        /// Проверка на язык.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns> Languege.</returns>
+        private Language DefineLanguage(string word) 
+        {
+            Regex latin = new Regex(@"[a-zA-Z]");
+            Regex cyrillic = new Regex(@"[а-яА-Я]");
+
+            if (latin.IsMatch(word))
+            {
+                return Language.Latin;
+            }
+            else if (cyrillic.IsMatch(word))
+            {
+                return Language.Cyrillic;
+            }
+            else
+            {
+                throw new ArgumentException("Язык не распознан.\n" +
+                    "Разрешено вводить только символы кирицицы и латиницы.");
+            }
+        }
+        
+
+       
 
         /// <summary>
         /// Максимальный возраст человека
@@ -167,7 +226,7 @@ namespace Model
             {
                 return number;
             }
-        }     
+        }
 
         /// <summary>
         /// Пребразование в правильные регистры
@@ -177,25 +236,24 @@ namespace Model
         public static string ToUpperFirst(string value)
         {
             var symbols = new[] { " ", "-" };
-            foreach(var symbol in symbols)
+            foreach (var symbol in symbols)
             {
                 if (value.Contains(symbol))
                 {
-                    string[] words = value.Split( ' ', '-' );
+                    string[] words = value.Split(' ', '-');
                     string firstword = words[0];
                     string secondword = words[1];
 
-                    firstword = char.ToUpper(firstword[0]) + 
+                    firstword = char.ToUpper(firstword[0]) +
                         firstword.Substring(1).ToLower();
-                    secondword = char.ToUpper(secondword[0]) + 
+                    secondword = char.ToUpper(secondword[0]) +
                         secondword.Substring(1).ToLower();
                     string fullword = firstword + symbol + secondword;
 
                     return fullword;
-                }              
+                }
             }
             return char.ToUpper(value[0]) + value.Substring(1).ToLower();
-
         }
 
         /// <summary>
