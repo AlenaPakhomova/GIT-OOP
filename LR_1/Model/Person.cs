@@ -158,8 +158,8 @@ namespace Model
             }
             else if(!CheckSymbol(value))
             {
-                throw new Exception("Может содержать только один пробел" +
-                    " или один дефис!");
+                throw new Exception("Может содержать буквы," +
+                    " один дефис или один пробел!");
             }
             else if (!CheckingNameAndSurname(value))
             {
