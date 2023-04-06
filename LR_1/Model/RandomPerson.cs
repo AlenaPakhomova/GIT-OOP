@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+
     /// <summary>
     /// Класс случайных людей
     /// </summary>
