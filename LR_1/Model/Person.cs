@@ -40,12 +40,15 @@ namespace Model
             }
             set
             {
-                _name = ToUpperFirst(CorrectNameAndSurname(value));
+                string tmpName = ToUpperFirst(CorrectNameAndSurname(value));
+                
                
                 if (_surname != null)
                 {
-                    CheckingLanguage(_name, _surname);
+                    CheckingLanguage(tmpName, _surname);                   
                 }
+
+                _name = tmpName;
 
             }
         }
@@ -60,13 +63,16 @@ namespace Model
                 return _surname;
             }
             set
-            {
-                _surname = ToUpperFirst(CorrectNameAndSurname(value));
+            { 
+                string tmpSurname = ToUpperFirst(CorrectNameAndSurname(value));
                
                 if(_name != null)
                 {
-                    CheckingLanguage(_name, _surname);
+                    CheckingLanguage(_name, tmpSurname);                   
                 }
+
+                _surname = tmpSurname;
+              
             }
         }
 
@@ -120,10 +126,22 @@ namespace Model
         {
             var regex = new Regex(@"(^[А-я]+(-| [А-я])?[А-я]*$)" +
                 "|(^[A-z]+(-| [A-z])?[A-z]*$)");
-
-            return regex.IsMatch(value);
-
+         
+                return regex.IsMatch(value);                    
         }
+
+
+        /// <summary>
+        /// Проверка на двойное тире и двойной пробел
+        /// </summary>
+        /// <param name="value">имя или фамилия</param>
+        /// <returns> имя или фамилия</returns>
+        public static bool CheckSymbol(string value)
+        {
+            var regex1 = new Regex(@"(^[А-яA-z]*(-| )?[А-яA-z]*$)");
+            return regex1.IsMatch(value);
+        }
+
 
         /// <summary>
         /// Проверка на пустые строки и на непонятные символы
@@ -137,6 +155,11 @@ namespace Model
             if (value == string.Empty)
             {
                 throw new Exception("Пустая строка!");
+            }
+            else if(!CheckSymbol(value))
+            {
+                throw new Exception("Может содержать только один пробел" +
+                    " или один дефис!");
             }
             else if (!CheckingNameAndSurname(value))
             {
