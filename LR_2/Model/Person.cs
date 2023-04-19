@@ -12,17 +12,17 @@ namespace Model
     /// <summary>
     /// Класс людей.
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя человека.
         /// </summary>
-        private string _name;
+        protected string _name;
 
         /// <summary>
         /// Фамилия человека.
         /// </summary>
-        private string _surname;
+        protected string _surname;
 
         /// <summary>
         /// Возраст человека.
@@ -41,11 +41,10 @@ namespace Model
             set
             {
                 string tmpName = ToUpperFirst(CorrectNameAndSurname(value));
-                
-               
+
                 if (_surname != null)
                 {
-                    CheckingLanguage(tmpName, _surname);                   
+                    CheckingLanguage(_name, tmpName);
                 }
 
                 _name = tmpName;
@@ -97,9 +96,9 @@ namespace Model
         public Gender Gender { get; set; }
 
         /// <summary>
-        /// Конструктор по умолчанию.
+        /// Конструктор по умолчанию. Дефолтный конструктор.
         /// </summary>
-        public Person()
+        public PersonBase()
         { }
 
         /// <summary>
@@ -109,11 +108,11 @@ namespace Model
         /// <param name="surname"> фамилия </param>
         /// <param name="age"> возраст </param>
         /// <param name="gender"> пол человека </param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
-            Age = age;
+            Age = CheckingAge(age);
             Gender = gender;
         }
 
@@ -219,7 +218,7 @@ namespace Model
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
-        public static int AgeMax = 130;
+        public static int AgeMax = 150;
 
         /// <summary>
         /// Минимальный возраст человека
@@ -227,24 +226,18 @@ namespace Model
         public static int AgeMin = 0;
 
         /// <summary>
-        /// Проверка возраста.
+        /// Проверка возраста. Реализованы в наследниках.
         /// </summary>
         /// <param name="number"> возраст </param>
         /// <returns> возраст </returns>
         /// <exception cref="Exception"> Входит ли число 
         /// в диапазон возрастов</exception>
-        public static int CheckingAge(int number)
-        {
-            if (number < AgeMin || number > AgeMax)
-            {
-                throw new Exception("Возраст должен быть в диапазоне " +
-                    $"от {AgeMin} до {AgeMax} лет!");
-            }
-            else
-            {
-                return number;
-            }
-        }
+        protected abstract int CheckingAge(int number);
+        
+            
+        
+
+        
 
         /// <summary>
         /// Пребразование в правильные регистры
@@ -278,10 +271,16 @@ namespace Model
         /// Вывод информации о человеке
         /// </summary>
         /// <returns>Строку с информацией о человеке</returns>
-        public string GetInfo()
+        public virtual string GetInfo
         {
-            return $"Name: {Name}, Surname: {Surname}," +
-               $" Age: {Age}, Gender: {Gender} ";
+            get
+            {
+                return $"Name: {Name}, Surname: {Surname}," +
+                   $" Age: {Age}, Gender: {Gender} ";
+            }
         }
+
+
+        
     }
 }

@@ -14,8 +14,5 @@ namespace Model
         Male,
         Female,
         Default
-
-
-
     }
 }

@@ -18,13 +18,13 @@ namespace Model
         /// <summary>
         /// Список людей
         /// </summary>
-        public List<Person> people = new List<Person>();
+        public List<PersonBase> people = new List<PersonBase>();
 
         /// <summary>
         /// Добавление людей
         /// </summary>
         /// <param name="person"> люди </param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             people.Add(person);
         }
@@ -67,7 +67,7 @@ namespace Model
         /// <returns> Элемент с определенным индексом </returns>
         /// <exception cref="IndexOutOfRangeException"> Элементы с 
         /// несуществующии индексами</exception>
-        public Person FindPersonByIndex(int index)
+        public PersonBase FindPersonByIndex(int index)
         {
             int indexNumber = people.Count - 1;
             if (indexNumber < index)

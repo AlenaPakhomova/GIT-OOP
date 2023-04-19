@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,53 +13,129 @@ namespace Model
     /// </summary>
     public class RandomPerson
     {
-        /// <summary>
-        /// Генерирует случайного человека.
-        /// </summary>
-        /// <returns>Возвращает случайного человека</returns>
-        public static Person GetRandomPerson()
+        private static Random random = new Random();
+
+        private static string[] maleNames = new string[]
         {
-            Random random = new Random();
-            string[] maleNames = new string[]
+            "Tom", "Bob", "Mike",
+            "Rick", "Mattew", "Robert"
+
+        };
+
+        private static string[] femaleNames = new string[]
+        {
+            "Lyla", "Samanta", "Kate",
+            "Amelia", "Julia", "Anastasia"
+
+        };
+
+        private static string[] surnames = new string[]
+        {
+            "Albertson", "Attwood", "Barlow",
+            "Berrington", "Davis", "Forester"
+
+        };
+
+        public static PersonBase GreateRandomPerson()
+        {
+            if(random.Next(0, 2) != 0)
             {
-                "Tom", "Bob", "Mike",
-                "Rick", "Mattew", "Robert"
-            };
-
-            string[] femaleNames = new string[]
+                return RandomChild();
+            }
+            else
             {
-                "Lyla", "Samanta", "Kate",
-                "Amelia", "Julia", "Anastasia"
-            };
-
-            string[] surnames = new string[]
-            {
-                "Albertson", "Attwood", "Barlow",
-                "Berrington", "Davis", "Forester"
-            };
+                return RandomAdult();
+            }
+        }
 
 
-            string name;
-            Gender gender = (Gender)random.Next(0, 2);
+        public static void RandomGender(PersonBase person)
+        {
+            Gender gender = Gender.Default;
             switch (gender)
             {
                 case Gender.Male:
-                    name = maleNames[random.Next(maleNames.Length)];
+                    person.Name = maleNames[random.Next(maleNames.Length)];
                     break;
                 case Gender.Female:
-                    name = femaleNames[random.Next(femaleNames.Length)];
+                    person.Name = femaleNames[random.Next(femaleNames.Length)];
                     break;
-                default:
-                    return new Person("Default", "Person", 2, Gender.Default);
+            }
+            person.Surname = surnames[random.Next(surnames.Length)];
+        }
+
+        public static Adult RandomAdult(MaritalStatus status = MaritalStatus.Single, Adult partner = null)
+        {
+            Adult adult = new Adult();
+            RandomGender(adult);
+
+            adult.Age = random.Next(Adult.AgeMin, Adult.AgeMax);
+
+            MaritalStatus maritalstatus = (MaritalStatus)random.Next(2);
+
+            adult.MaritalStatus = maritalstatus;
+
+            if (maritalstatus == MaritalStatus.Married)
+            {
+                adult.Partner = RandomAdult(MaritalStatus.Single, adult);
+            }
+            else
+            {
+                adult.MaritalStatus = MaritalStatus.Married;
+                adult.Partner = partner;
             }
 
-            string surname = surnames[random.Next(surnames.Length)];
+            adult.Job = (Job)random.Next(8);
 
-            int age = random.Next(0, Person.AgeMax);
+            PassportAdult(adult);
 
-            return new Person(name, surname, age, gender);
+            return adult;
+        }
 
+        private static void PassportAdult(Adult adult)
+        {
+            var passport = random.Next(100000000, 999999999).ToString();
+            adult.Passport = passport;
+        }
+
+        public static Child RandomChild()
+        {
+            Child child = new Child();
+            RandomGender(child);
+
+            child.Age = random.Next(Child.AgeMin, Child.AgeMax);
+
+            var mother = random.Next(0, 2);
+
+            if(mother > 0)
+            {
+                child.Mother = RandomAdult();
+            }
+
+            var father = random.Next(0, 2);
+            
+            if(father > 0 )
+            {
+                child.Father = RandomAdult();
+            }
+
+            child.School = (School)random.Next(4);
+
+            return child;
+        }
+
+
+        public static PersonBase GetPerson(int person)
+        {
+            switch (person)
+            {
+                case 0:
+                    return new Child("Анастасия", "Кузнецова", 10, Gender.Female);
+                default:
+                    return new Adult("Иван", "Иванов", 20, Gender.Male);
+            }
         }
 
     }
+  
 }

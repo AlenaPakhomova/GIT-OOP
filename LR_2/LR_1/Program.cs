@@ -20,85 +20,63 @@ namespace LabRab_1
         /// <param name="args"> Списки </param>
         public static void Main(string[] args)
         {
-            PersonList list1 = new PersonList();
-            PersonList list2 = new PersonList();
 
-            Console.WriteLine("Нажмите любую клавишу...");
-            Console.ReadKey();
+            var personList = new List<PersonBase>
+            { 
+                GetPerson(0),
+                GetPerson(1),
+                GetPerson(0),
+                GetPerson(1),
+                GetPerson(0),
+                GetPerson(1),
+                GetPerson(0)
 
-            Console.WriteLine("Шаг 1. Создание двух списков персон, " +
-                "в каждом из которых есть три человека");
-            Console.ReadKey();
 
-            Console.WriteLine("\nШаг 2. Вывод содержимого списков на экран");
-            Console.ReadKey();
+            };
 
-            list1.AddPerson(new Person() { Name = "Иван", Surname = "Петров",
-                Age = 15, Gender = Gender.Male });
-            list1.AddPerson(new Person() { Name = "Вася", 
-                Surname = "Николенко", Age = 20, Gender = Gender.Male });
-            list1.AddPerson(new Person() { Name = "Вероника", 
-                Surname = "Иванова", Age = 30, Gender = Gender.Female });
-            list2.AddPerson(new Person() { Name = "Кристина", 
-                Surname = "Измайлова", Age = 25, Gender = Gender.Female });
-            list2.AddPerson(new Person() { Name = "Владимир", 
-                Surname = "Касьянов", Age = 18, Gender = Gender.Male });
-            list2.AddPerson(new Person() { Name = "Кирилл", 
-                Surname = "Абрамов", Age = 28, Gender = Gender.Male });
+         
+            foreach (var personTmp in personList) //программное определение типа
+            {
+                switch(personTmp)
+                {
+                    case Child child:
 
-            PrintList(list1, "\nList № 1");
-            PrintList(list2, "\nList № 2");
-            
-            Console.ReadKey();
-            Console.WriteLine("\nШаг 3. Добавление нового человека в " +
-                "первый список");
-            Console.ReadKey();
-            list1.AddPerson(new Person("Никита", "Семенов", 23, Gender.Male));
+                        break;
+                    case Adult adult:
+                        
+                        break;
+                }
 
-            PrintList(list1, "\nList № 1");
-            
-            Console.ReadKey();
-            Console.WriteLine("\nШаг 4. Копирование второго человека из " +
-                "первого списка в конец второго списка");
-            Console.ReadKey();
-            Console.WriteLine("\nСкопированный человек находится в " +
-                "двух списках");
-            list2.AddPerson(list1.FindPersonByIndex(1));
+                Console.WriteLine($" Current person is: {personTmp.GetInfo()}");
+            }
 
-            PrintList(list1, "\nList № 1");
-            PrintList(list2, "\nList № 2");
+            Console.WriteLine("Please input person Type 0 for Child, 1 for Adult: \n");
+            var inputValue = Console.ReadLine();
+            int.TryParse(inputValue, out int personType);
+            PersonBase person = GetPerson(personType);
+            Console.WriteLine($" Current person is: {person.GetInfo()}");
 
-            Console.ReadKey();
-            Console.WriteLine("\nШаг 5. Удаление второго человека " +
-                "из первого списка");
-            Console.ReadKey();
-            list1.RemovePersonByIndex(1);
-            PrintList(list1, "\nList № 1");
-            PrintList(list2, "\nList № 2");
-            Console.WriteLine("\nУдаление человека из первого списка не " +
-                "привело к уничтожению этого человека во втором списке");
+            //partner.Name = "Иван";         
+            //Console.WriteLine($"Person name is {((Adult)partner).Name}");
             Console.ReadKey();
 
-            Console.WriteLine("\nШаг 6. Очистка второго списка");
-            Console.ReadKey();
-            list2.ClearPerson();
-            PrintList(list2, "\nList № 2");
-
-            Console.ReadKey();
-            Console.WriteLine("\nШаг 7. Добавление персоны с клавиатуры " +
-                "во второй список");
-            Console.ReadKey();
-            list2.AddPerson(AddConsolePerson());
-            PrintList(list2, "\nList № 2");
-
-            Console.ReadKey();
-            Console.WriteLine("\nШаг 8. Добавление рандомного человека " +
-                "во второй список");
-            Console.ReadKey();
-            Person randPerson = RandomPerson.GetRandomPerson();
-            list2.AddPerson(randPerson);
-            PrintList(list2, "\nList № 2");
+           
         }
+
+
+        public static PersonBase GetPerson(int person)
+        {
+            switch(person)
+            {
+                case 0:
+                    return new Child("Анастасия", "Кузнецова", 10, Gender.Female);
+                default:
+                    return new Adult("Иван", "Иванов", 20, Gender.Male);
+            }
+        }
+
+
+
 
         /// <summary>
         /// Печать списка.
@@ -111,20 +89,21 @@ namespace LabRab_1
             int count = list.CountPersonInList();
             for (int i = 0; i < count; i++)
             {
-                Person person = list.FindPersonByIndex(i);
+                PersonBase person = list.FindPersonByIndex(i);
                 Console.WriteLine(person.GetInfo());
             }
         }       
-
+        
+        
         /// <summary>
         /// Добавление людей через консоль
         /// </summary>
         /// <returns> Новых людей </returns>
         /// <exception cref="ArgumentException"> Неправильный тип 
         /// данных </exception>
-        public static Person AddConsolePerson()
+        public static PersonBase AddConsolePerson()
         {
-            Person newPerson = new Person();
+           // PersonBase newPerson = new PersonBase();
 
             List<Action> actions = new List<Action>()
             {
@@ -183,6 +162,7 @@ namespace LabRab_1
             }
         }
 
+        
         /// <summary>
         /// Проверка пола человека
         /// </summary>
@@ -201,6 +181,7 @@ namespace LabRab_1
                 return number;
             }
         }
+        
 
         
 
