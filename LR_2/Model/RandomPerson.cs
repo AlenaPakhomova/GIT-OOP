@@ -94,7 +94,8 @@ namespace Model
 
         private static void PassportAdult(Adult adult)
         {
-            var passport = random.Next(100000000, 999999999).ToString();
+            var passport = (uint)random.Next((int)Adult.MinNumberPassport, 
+                (int)Adult.MaxNumberPassport);
             adult.Passport = passport;
         }
 
@@ -125,16 +126,7 @@ namespace Model
         }
 
 
-        public static PersonBase GetPerson(int person)
-        {
-            switch (person)
-            {
-                case 0:
-                    return new Child("Анастасия", "Кузнецова", 10, Gender.Female);
-                default:
-                    return new Adult("Иван", "Иванов", 20, Gender.Male);
-            }
-        }
+       
 
     }
   

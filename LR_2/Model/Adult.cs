@@ -55,25 +55,35 @@ namespace Model
             }
         }
 
+        public const uint MinNumberPassport = 000000001;
+        public const uint MaxNumberPassport = 999999999;
+
         /// <summary>
         /// Поле для паспорта.
         /// </summary>
-        private string _passport;
+        public uint _passport;
        
         /// <summary>
         /// Данные паспорта.
         /// </summary>
-        public string Passport
+        public uint Passport
         {
             get => _passport;
             set
             {
-                Regex regex = new Regex(@"[0-9]");
-                if (value.Length != 10 || regex.IsMatch(value.ToString()) == true)
+
+                if (value < MinNumberPassport || value > MaxNumberPassport)
                 {
-                    throw new Exception("Номер паспорта должен содержать 10 цифр!");
+                    throw new Exception($"Введен некоректный номер " +
+                        $"пасспорта! Введите число от" +
+                        $" {MinNumberPassport} до {MaxNumberPassport}");
                 }
-                _passport = value;
+                else 
+                {
+                    _passport = value;
+
+                }
+               
             }
         }
 
