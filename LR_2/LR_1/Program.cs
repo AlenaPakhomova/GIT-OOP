@@ -44,7 +44,7 @@ namespace LabRab_1
             Console.WriteLine();
             Console.ReadKey();
 
-            PersonBase person = personList.FindPersonByIndex(3);
+            PersonBase person = personList.FindPersonByIndex(4);
             switch (person)
             {
                 case Adult adult:

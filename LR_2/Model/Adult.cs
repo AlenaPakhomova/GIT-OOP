@@ -47,7 +47,7 @@ namespace Model
         /// <summary>
         /// Переопределние максимального возраста
         /// </summary>
-        public override int AgeMax => 150;
+        public override int AgeMax => 100;
         
         /// <summary>
         /// Переопределние возраста человека
@@ -147,13 +147,10 @@ namespace Model
             }
         }
 
-
         /// <summary>
         /// Место работы.
         /// </summary>
         public Job Job { get; set; }
-
-
 
         /// <summary>
         /// Переопределение метода о выводе информации человеке

@@ -25,7 +25,6 @@ namespace Model
         {
             "Максим", "Николай", "Виктор",
             "Евгений", "Андрей", "Роман"
-
         };
         
         /// <summary>
@@ -35,7 +34,6 @@ namespace Model
         {
             "Ксения", "Вероника", "Екатерина",
             "Амелия", "Юлия", "Валерия"
-
         };
 
         /// <summary>
@@ -45,7 +43,6 @@ namespace Model
         {
             "Корнилов", "Петров", "Иванов",
             "Сидоров", "Колмаков", "Сипкин"
-
         };
 
         /// <summary>
@@ -55,7 +52,6 @@ namespace Model
         {
             "Попова", "Юрина", "Харламова",
             "Копылова", "Парамонова", "Шидловская"
-
         };
 
         /// <summary>
@@ -178,14 +174,12 @@ namespace Model
             {
                 child.Mother = RandomAdult(MaritalStatus.Married, 
                     child.Father, Gender.Female);
-               
             }
 
             if(random.Next(0, 2) > 0 )
             {
                 child.Father = RandomAdult(MaritalStatus.Married, 
-                    child.Mother, Gender.Male);
-             
+                    child.Mother, Gender.Male);  
             }
 
             child.School = (School)random.Next(3);

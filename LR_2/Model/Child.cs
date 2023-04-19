@@ -51,7 +51,7 @@ namespace Model
         public override int AgeMin => 1;
 
         /// <summary>
-        /// Переопределние минимального возраста
+        /// Переопределние максимального возраста
         /// </summary>
         public override int AgeMax => 17;
 
