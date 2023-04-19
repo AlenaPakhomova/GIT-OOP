@@ -30,8 +30,8 @@ namespace LabRab_1
 
             PersonList personList = new PersonList();
 
-            for (int i = 0; i < 7; i++)
-            {
+            for (int i = 1; i < 9; i++)
+            {                
                 personList.AddPerson(RandomPerson.GreateRandomPerson());
             }
 
@@ -40,7 +40,34 @@ namespace LabRab_1
             Console.ReadKey();
 
 
+            Console.WriteLine("\nВывод информации о четвертом человеке из списка");
+            Console.WriteLine();
+            Console.ReadKey();
 
+            PersonBase person = personList.FindPersonByIndex(3);
+
+            switch (person)
+            {
+                case Adult adult:
+                    {
+                        Console.WriteLine(adult.GetInfo());
+                        break;
+                    }
+                case Child child:
+                    {
+                        Console.WriteLine(child.GetInfo());
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            Console.ReadKey();
+            Console.WriteLine("\nНовый человек: ");
+            PersonBase newPerson = AddConsolePerson();
+            Console.WriteLine(newPerson.GetInfo());
+
+            
         }
 
 
@@ -54,13 +81,14 @@ namespace LabRab_1
         public static void PrintList(PersonList people)
         {
             int count = people.CountPersonInList();
-            for (int i = 0; i < count; i++)
+            for (int i = 1; i < count; i++)
             {
-                Console.WriteLine(people.FindPersonByIndex(i).GetInfo);
+                Console.WriteLine($"\nЧеловек № {i}");
+                Console.WriteLine(people.FindPersonByIndex(i).GetInfo());
             }
         }
 
-
+        
         /// <summary>
         /// Добавление людей через консоль
         /// </summary>
@@ -73,7 +101,7 @@ namespace LabRab_1
 
             Action action = new Action(() =>
             {
-                Console.Write($"Если хотите ввести взрослого напишите - 1, " +
+                Console.Write($"Если хотите ввести взрослого напишите 1, " +
                                   $"если ребёнка - 2: ");
 
                 int candidate = int.Parse(Console.ReadLine());
@@ -102,20 +130,20 @@ namespace LabRab_1
             {
                    (new Action(() =>
                    {
-                       Console.Write("Name: ");
+                       Console.Write("Имя: ");
                        string name = Console.ReadLine();
                        newPerson.Name = PersonBase.CorrectNameAndSurname(name);
 
                    }), "name"),
                    (new Action(() =>
                    {
-                        Console.Write("Surname: ");
+                        Console.Write("Фамилия: ");
                         string surname = Console.ReadLine();
                         newPerson.Surname = PersonBase.CorrectNameAndSurname(surname);
                    }), "surname"),
                    (new Action(() =>
                    {
-                       Console.Write("Age: ");
+                       Console.Write("Возраст: ");
                        string ageStr = Console.ReadLine();
                        if (!Int32.TryParse(ageStr, out int age))
                        {
@@ -125,7 +153,7 @@ namespace LabRab_1
                    }), "age"),
                    (new Action(() =>
                    {
-                       Console.Write("Sex (0 - Male, 1 - Female): ");
+                       Console.Write("Gender (0 - Male, 1 - Female): ");
                        int genderStr = Int32.Parse(Console.ReadLine());
                        CheckingGender(genderStr);
                        newPerson.Gender = (Gender)Enum.Parse(typeof(Gender),
@@ -151,11 +179,12 @@ namespace LabRab_1
                 {
                     Adult newPersonAdult = (Adult)newPerson;
                     Console.Write("Для выбора места работы введите цифру из списка:" +
-                        "Юрист - 1" +
-                        "Строитель - 2" +
-                        "Инженер - 3" +
-                        "Экономист - 4" +
-                        "Доктор - 5");
+                        "\nЮрист - 1" +
+                        "\nСтроитель - 2" +
+                        "\nИнженер - 3" +
+                        "\nЭкономист - 4" +
+                        "\nДоктор - 5" +
+                        "Ваша цифра: ");
                     int job = int.Parse(Console.ReadLine());
                     switch(job)
                     {
@@ -201,10 +230,11 @@ namespace LabRab_1
                 {
                     Adult newPersonAdult = (Adult)newPerson;
                     Console.Write("Для выбора семейного положения введите цифру из списка:" +
-                        "Состоит в браке - 1" +
-                        "Одиночество - 2" +
-                        "Овдовел - 3" +
-                        "Разведен - 4");
+                        "\nСостоит в браке - 1" +
+                        "\nОдиночество - 2" +
+                        "\nОвдовел - 3" +
+                        "\nРазведен - 4" +
+                        "\nВаша цифра:");
                     int maritalStatus = int.Parse(Console.ReadLine());
                     switch(maritalStatus)
                     {
@@ -259,9 +289,10 @@ namespace LabRab_1
                 {
                     Child newPersonChild = (Child)newPerson;
                     Console.Write("Для выбора школы введите цифру из списка:" +
-                        "Гимназия - 1" +
-                        "Лицей - 2" +
-                        "СОШ - 3");
+                        "\nГимназия - 1" +
+                        "\nЛицей - 2" +
+                        "\nСОШ - 3" +
+                        "Ваша цифра: ");
                     int school = int.Parse(Console.ReadLine());
                     switch(school)
                     {
@@ -344,18 +375,19 @@ namespace LabRab_1
         }
 
 
-        private static Adult CheckingParents(Child newPersonChild, string parents, Gender gender)
+        private static Adult? CheckingParents(Child newPersonChild, string parents, Gender gender)
         {
             Console.WriteLine("Есть ли у ребенка родители (введите нужную цифру):" +
-                "родители живы и здоровы - 0," +
-                "нет родителей - 1");
+                "\nродители живы и здоровы - 0," +
+                "\nнет родителей - 1" +
+                "\nВаша цифра: ");
             int haveParents = int.Parse(Console.ReadLine());
             switch (haveParents)
             {
                 case 0:
                     {
-                        return gender == Gender.Male ? RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Mother)
-                        : RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Father);
+                        return gender == Gender.Male ? RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Mother, gender)
+                        : RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Father, gender);
                     }
                 case 1:
                     {
@@ -395,7 +427,7 @@ namespace LabRab_1
             }
         }
 
-
+        
 
 
     }

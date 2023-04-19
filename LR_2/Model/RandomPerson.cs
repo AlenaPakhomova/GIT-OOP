@@ -17,28 +17,35 @@ namespace Model
 
         private static string[] maleNames = new string[]
         {
-            "Tom", "Bob", "Mike",
-            "Rick", "Mattew", "Robert"
+            "Максим", "Николай", "Виктор",
+            "Евгений", "Андрей", "Роман"
 
         };
 
         private static string[] femaleNames = new string[]
         {
-            "Lyla", "Samanta", "Kate",
-            "Amelia", "Julia", "Anastasia"
+            "Ксения", "Вероника", "Екатерина",
+            "Амелия", "Юлия", "Валерия"
 
         };
 
-        private static string[] surnames = new string[]
+        private static string[] maleSurnames = new string[]
         {
-            "Albertson", "Attwood", "Barlow",
-            "Berrington", "Davis", "Forester"
+            "Корнилов", "Петров", "Иванов",
+            "Сидоров", "Колмаков", "Сипкин"
+
+        };
+
+        private static string[] femaleSurnames = new string[]
+        {
+            "Попова", "Юрина", "Харламова",
+            "Копылова", "Парамонова", "Шидловская"
 
         };
 
         public static PersonBase GreateRandomPerson()
         {
-            if(random.Next(0, 2) != 0)
+            if(random.Next(0, 2) > 0)
             {
                 return RandomChild();
             }
@@ -49,25 +56,34 @@ namespace Model
         }
 
 
-        public static void RandomGender(PersonBase person)
+        public static void RandomGender(PersonBase person, Gender gender = Gender.Default)
         {
-            Gender gender = Gender.Default;
-            switch (gender)
+            if(gender == Gender.Default)
             {
-                case Gender.Male:
-                    person.Name = maleNames[random.Next(maleNames.Length)];
-                    break;
-                case Gender.Female:
-                    person.Name = femaleNames[random.Next(femaleNames.Length)];
-                    break;
+                person.Gender = (Gender)random.Next(0, 2);
             }
-            person.Surname = surnames[random.Next(surnames.Length)];
+            else
+            {
+                person.Gender = gender;
+            }
+
+            if(person.Gender == Gender.Male)
+            {
+                person.Name = maleNames[random.Next(1, maleNames.Length)];
+                person.Surname = maleSurnames[random.Next(1, maleSurnames.Length)];
+            }
+            else if (person.Gender == Gender.Female)
+            {
+                person.Name = femaleNames[random.Next(1, femaleNames.Length)];
+                person.Surname = femaleSurnames[random.Next(1, femaleSurnames.Length)];
+            }
+
         }
 
-        public static Adult RandomAdult(MaritalStatus status = MaritalStatus.Single, Adult partner = null)
+        public static Adult RandomAdult(MaritalStatus status = MaritalStatus.Single, Adult? partner = null, Gender gender = Gender.Default)
         {
             Adult adult = new Adult();
-            RandomGender(adult);
+            RandomGender(adult, gender);
 
             adult.Age = random.Next(adult.AgeMin, adult.AgeMax);
 
@@ -77,15 +93,21 @@ namespace Model
 
             if (maritalstatus == MaritalStatus.Married)
             {
-                adult.Partner = RandomAdult(MaritalStatus.Single, adult);
+                if(adult.Gender == Gender.Male)
+                {
+                    adult.Partner = RandomAdult(MaritalStatus.Married, adult, Gender.Female);
+                }
+                else
+                {
+                    adult.Partner = RandomAdult(MaritalStatus.Married, adult, Gender.Male);
+                }               
             }
             else
             {
-                adult.MaritalStatus = MaritalStatus.Married;
-                adult.Partner = partner;
+                adult.MaritalStatus = status;
             }
 
-            adult.Job = (Job)random.Next(8);
+            adult.Job = (Job)random.Next(5);
 
             PassportAdult(adult);
 
@@ -106,21 +128,19 @@ namespace Model
 
             child.Age = random.Next(child.AgeMin, child.AgeMax);
 
-            var mother = random.Next(0, 2);
-
-            if(mother > 0)
+            if(random.Next(0, 2) > 0)
             {
-                child.Mother = RandomAdult();
+                child.Mother = RandomAdult(MaritalStatus.Married, child.Father, Gender.Female);
+               
             }
 
-            var father = random.Next(0, 2);
-            
-            if(father > 0 )
+            if(random.Next(0, 2) > 0 )
             {
-                child.Father = RandomAdult();
+                child.Father = RandomAdult(MaritalStatus.Married, child.Mother, Gender.Male);
+             
             }
 
-            child.School = (School)random.Next(4);
+            child.School = (School)random.Next(3);
 
             return child;
         }

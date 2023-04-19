@@ -12,6 +12,7 @@ namespace Model
     
     public class Adult : PersonBase
     {
+        
         /// <summary>
         /// Прописываем базовый конструктор.
         /// </summary>
@@ -37,6 +38,7 @@ namespace Model
         {
 
         }
+        
 
         public override int AgeMin => 18;
 
@@ -69,14 +71,17 @@ namespace Model
         /// <summary>
         /// Поле для паспорта.
         /// </summary>
-        public uint _passport;
+        private uint _passport;
        
         /// <summary>
         /// Данные паспорта.
         /// </summary>
         public uint Passport
         {
-            get => _passport;
+            get
+            {
+                return _passport;
+            }
             set
             {
 
@@ -105,22 +110,20 @@ namespace Model
 
         public Adult Partner
         {
-            get => _partner;
+            get
+            {
+                return _partner;
+            }
             set
             {
-                if(value == null)
-                {
-                    throw new ArgumentNullException($"{nameof(Partner)}" +
-                        "такого имени не существует.");
-                }
-                else if (MaritalStatus == MaritalStatus.Married &&
+                if (MaritalStatus == MaritalStatus.Married &&
                     value.MaritalStatus == MaritalStatus.Married)
                 {
                     _partner = value;
                 }
                 else
                 {
-                    throw new Exception("Проверьте статус обоих партнеров!");
+                    throw new ArgumentException("Проверьте статус обоих партнеров!");
                 }
             }
         }
@@ -134,31 +137,35 @@ namespace Model
 
 
 
-        public override string GetInfo
+        public override string GetInfo()
         {
-            get
+
+
+            var personInfo = base.GetInfo();
+            personInfo += $"\nНомер паспорта: {Passport}";
+
+            if (MaritalStatus == MaritalStatus.Married)
             {
-                var personInfo = base.GetInfo +
-                    $"\n Номер паспорта: {Passport}";
-                if (MaritalStatus == MaritalStatus.Married)
-                {
-                    personInfo += $"\nСемейное положение: женат"
-                       + $"\nСупруг: {Partner.Name} {Partner.Surname}";
-                }
-                if (MaritalStatus == MaritalStatus.Divorced)
-                {
-                    personInfo += $"\nСемейное положение: не женат";
-                }
-                if (Job != Job.Безработный)
-                {
-                    personInfo += $"Специальность: {Job}";
-                }
-                if (Job == Job.Безработный)
-                {
-                    personInfo += "Не работает"; 
-                }
-                return personInfo;
+                personInfo += $"\nСемейное положение: в браке"
+                   + $"\nСупруг: {Partner.Name} {Partner.Surname}";
             }
+            if (MaritalStatus != MaritalStatus.Married)
+            {
+                personInfo += $"\nСемейное положение: не в браке";
+            }
+            
+            if (Job != Job.Безработный)
+            {
+                personInfo += $"\nСпециальность: {Job}";
+            }
+            if (Job == Job.Безработный)
+            {
+                personInfo += "\nНе работает";
+            }
+            return personInfo;
+
+
+
         }
 
 

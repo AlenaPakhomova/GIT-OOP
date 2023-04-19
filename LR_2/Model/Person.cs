@@ -250,13 +250,10 @@ namespace Model
         /// Вывод информации о человеке
         /// </summary>
         /// <returns>Строку с информацией о человеке</returns>
-        public virtual string GetInfo
+        public virtual string GetInfo()
         {
-            get
-            {
-                return $"Name: {Name}, Surname: {Surname}," +
-                   $" Age: {Age}, Gender: {Gender} ";
-            }
+            return $"Имя: {Name}, Фамилия: {Surname}," +
+                   $" Возраст: {Age}, Пол: {Gender} ";
         }
 
 

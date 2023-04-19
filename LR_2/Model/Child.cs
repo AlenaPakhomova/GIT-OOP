@@ -26,14 +26,14 @@ namespace Model
 
         }
 
-        public Adult Mother { get; set; }
+        public Adult? Mother { get; set; }
 
-        public Adult Father { get; set; }
+        public Adult? Father { get; set; }
 
 
-        public override int AgeMin => 0;
+        public override int AgeMin => 1;
 
-        public override int AgeMax => 18;
+        public override int AgeMax => 17;
 
         public override int Age
         {
@@ -60,35 +60,41 @@ namespace Model
         public School School { get; set; }
 
 
-        public override string GetInfo
+        public override string GetInfo()
         {
-            get
+            var personInfo = base.GetInfo();
+            if (Mother != null)
             {
-                var personInfo = base.GetInfo;
-                if (Mother != null)
-                {
-                    personInfo += $"\nМама: {Mother.Name}" +
-                        $"{Mother.Surname}";
-                }
-                if (Father != null)
-                {
-                    personInfo += $"\nПапа: {Father.Name}" +
-                        $"{Father.Surname}";
-                }
-                if (Mother != null && Father != null)
-                {
-                    personInfo += "\nСирота";
-                }
-                if (Mother != null || Father != null)
-                {
-                    personInfo += "\nНет одного из родителей";
-                }
-                if (School != School.Бездельник)
-                {
-                    personInfo += $"\nШкола: {School}";
-                }             
-                    return personInfo;        
+                personInfo += $"\nМама: {Mother.Name} " +
+                    $"{Mother.Surname}";
             }
+            if (Father != null)
+            {
+                personInfo += $"\nПапа: {Father.Name} " +
+                    $"{Father.Surname}";
+            }
+            if (Mother == null)
+            {
+                personInfo += "\nНет мамы.";
+            }
+            if (Father == null)
+            {
+                personInfo += "\nНет папы.";
+            }
+            if (Mother == null && Father == null)
+            {
+                personInfo += "\nСирота";
+            }
+            if (School != School.Бездельник)
+            {
+                personInfo += $"\nШкола: {School}";
+            }
+            if (School == School.Бездельник)
+            {
+                personInfo += $"\nБездельник";
+            }
+            return personInfo;
+
         }
      
 
