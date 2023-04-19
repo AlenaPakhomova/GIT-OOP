@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     /// <summary>
-    /// перечисления для определения школы для ребенка.
+    /// Перечисления для определения школы для ребенка.
     /// </summary>
     public enum School
     {

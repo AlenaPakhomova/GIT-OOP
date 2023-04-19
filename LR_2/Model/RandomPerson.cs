@@ -13,15 +13,24 @@ namespace Model
     /// </summary>
     public class RandomPerson
     {
+        /// <summary>
+        /// Объект класса рандом
+        /// </summary>
         private static Random random = new Random();
 
+        /// <summary>
+        /// Массив мужских имён
+        /// </summary>
         private static string[] maleNames = new string[]
         {
             "Максим", "Николай", "Виктор",
             "Евгений", "Андрей", "Роман"
 
         };
-
+        
+        /// <summary>
+        /// Массив женских имён
+        /// </summary>
         private static string[] femaleNames = new string[]
         {
             "Ксения", "Вероника", "Екатерина",
@@ -29,6 +38,9 @@ namespace Model
 
         };
 
+        /// <summary>
+        /// Массив мужских фамилий
+        /// </summary>
         private static string[] maleSurnames = new string[]
         {
             "Корнилов", "Петров", "Иванов",
@@ -36,6 +48,9 @@ namespace Model
 
         };
 
+        /// <summary>
+        /// Массив женских фамилий
+        /// </summary>
         private static string[] femaleSurnames = new string[]
         {
             "Попова", "Юрина", "Харламова",
@@ -43,6 +58,10 @@ namespace Model
 
         };
 
+        /// <summary>
+        /// Генерация случайного человека (взрослого или ребёнка)
+        /// </summary>
+        /// <returns>случайного человека</returns>
         public static PersonBase GreateRandomPerson()
         {
             if(random.Next(0, 2) > 0)
@@ -55,8 +74,13 @@ namespace Model
             }
         }
 
-
-        public static void RandomGender(PersonBase person, Gender gender = Gender.Default)
+        /// <summary>
+        /// Заполнение пола, имени и фамилии человека
+        /// </summary>
+        /// <param name="person">человек</param>
+        /// <param name="gender">пол человека</param>
+        public static void RandomGender(PersonBase person, 
+            Gender gender = Gender.Default)
         {
             if(gender == Gender.Default)
             {
@@ -70,17 +94,29 @@ namespace Model
             if(person.Gender == Gender.Male)
             {
                 person.Name = maleNames[random.Next(1, maleNames.Length)];
-                person.Surname = maleSurnames[random.Next(1, maleSurnames.Length)];
+                person.Surname = maleSurnames[random.Next
+                    (1, maleSurnames.Length)];
             }
             else if (person.Gender == Gender.Female)
             {
-                person.Name = femaleNames[random.Next(1, femaleNames.Length)];
-                person.Surname = femaleSurnames[random.Next(1, femaleSurnames.Length)];
+                person.Name = femaleNames[random.Next
+                    (1, femaleNames.Length)];
+                person.Surname = femaleSurnames[random.Next
+                    (1, femaleSurnames.Length)];
             }
 
         }
 
-        public static Adult RandomAdult(MaritalStatus status = MaritalStatus.Single, Adult? partner = null, Gender gender = Gender.Default)
+        /// <summary>
+        /// Генерация взрослого человека
+        /// </summary>
+        /// <param name="status">семейное положение</param>
+        /// <param name="partner">супруг</param>
+        /// <param name="gender">пол человека</param>
+        /// <returns>взрослого человека</returns>
+        public static Adult RandomAdult
+            (MaritalStatus status = MaritalStatus.Single, 
+            Adult? partner = null, Gender gender = Gender.Default)
         {
             Adult adult = new Adult();
             RandomGender(adult, gender);
@@ -95,11 +131,13 @@ namespace Model
             {
                 if(adult.Gender == Gender.Male)
                 {
-                    adult.Partner = RandomAdult(MaritalStatus.Married, adult, Gender.Female);
+                    adult.Partner = RandomAdult(MaritalStatus.Married, adult,
+                        Gender.Female);
                 }
                 else
                 {
-                    adult.Partner = RandomAdult(MaritalStatus.Married, adult, Gender.Male);
+                    adult.Partner = RandomAdult(MaritalStatus.Married, adult,
+                        Gender.Male);
                 }               
             }
             else
@@ -114,6 +152,10 @@ namespace Model
             return adult;
         }
 
+        /// <summary>
+        /// Генерация паспортных данных
+        /// </summary>
+        /// <param name="adult">взрослый человек</param>
         private static void PassportAdult(Adult adult)
         {
             var passport = (uint)random.Next((int)Adult.MinNumberPassport, 
@@ -121,6 +163,10 @@ namespace Model
             adult.Passport = passport;
         }
 
+        /// <summary>
+        /// Генерация ребёнка
+        /// </summary>
+        /// <returns>ребёнка</returns>
         public static Child RandomChild()
         {
             Child child = new Child();
@@ -130,13 +176,15 @@ namespace Model
 
             if(random.Next(0, 2) > 0)
             {
-                child.Mother = RandomAdult(MaritalStatus.Married, child.Father, Gender.Female);
+                child.Mother = RandomAdult(MaritalStatus.Married, 
+                    child.Father, Gender.Female);
                
             }
 
             if(random.Next(0, 2) > 0 )
             {
-                child.Father = RandomAdult(MaritalStatus.Married, child.Mother, Gender.Male);
+                child.Father = RandomAdult(MaritalStatus.Married, 
+                    child.Mother, Gender.Male);
              
             }
 
@@ -144,10 +192,5 @@ namespace Model
 
             return child;
         }
-
-
-       
-
-    }
-  
+    } 
 }

@@ -23,7 +23,7 @@ namespace Model
         /// <summary>
         /// Добавление людей
         /// </summary>
-        /// <param name="person"> люди </param>
+        /// <param name="person">люди</param>
         public void AddPerson(PersonBase person)
         {
             people.Add(person);
@@ -32,8 +32,8 @@ namespace Model
         /// <summary>
         /// Удаление элементов (имён)
         /// </summary>
-        /// <param name="name"> имя </param>
-        /// <returns> Удаление людей </returns>
+        /// <param name="name">имя</param>
+        /// <returns>Удаление людей</returns>
         public int RemovePersonByName(string name)
         {
             int deleteName = people.RemoveAll(n => n.Name == name);
@@ -43,7 +43,7 @@ namespace Model
         /// <summary>
         /// Удаление элементов из списка по индексу
         /// </summary>
-        /// <param name="index"> индекс элемента </param>
+        /// <param name="index">индекс элемента</param>
         ///  <exception cref="IndexOutOfRangeException">Элементы с
         ///  несуществующими индексами</exception>
         public void RemovePersonByIndex(int index)
@@ -63,9 +63,9 @@ namespace Model
         /// <summary>
         /// Поиск элемента по индексу
         /// </summary>
-        /// <param name="index"> индекс элемента </param>
-        /// <returns> Элемент с определенным индексом </returns>
-        /// <exception cref="IndexOutOfRangeException"> Элементы с 
+        /// <param name="index">индекс элемента</param>
+        /// <returns>Элемент с определенным индексом</returns>
+        /// <exception cref="IndexOutOfRangeException">Элементы с 
         /// несуществующии индексами</exception>
         public PersonBase FindPersonByIndex(int index)
         {
@@ -84,8 +84,8 @@ namespace Model
         /// <summary>
         /// Возвращает индекс элемента при наличие его в списке
         /// </summary>
-        /// <param name="name"> имя </param>
-        /// <returns> индекс </returns>
+        /// <param name="name">имя</param>
+        /// <returns>индекс</returns>
         public int ReturnIndexOfperson(string name)
         {
             int returnName = people.FindIndex(r => r.Name == name);

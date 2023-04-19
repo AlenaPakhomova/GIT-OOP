@@ -9,12 +9,13 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    
+    /// <summary>
+    /// Класс взрослых людей
+    /// </summary>
     public class Adult : PersonBase
     {
-        
         /// <summary>
-        /// Прописываем базовый конструктор.
+        /// Базовый конструктор
         /// </summary>
         /// <param name="name"></param>
         /// <param name="surname"></param>
@@ -30,7 +31,6 @@ namespace Model
 
         }
 
-
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
@@ -39,11 +39,19 @@ namespace Model
 
         }
         
-
+        /// <summary>
+        /// Переопределние минимального возраста
+        /// </summary>
         public override int AgeMin => 18;
 
+        /// <summary>
+        /// Переопределние максимального возраста
+        /// </summary>
         public override int AgeMax => 150;
-
+        
+        /// <summary>
+        /// Переопределние возраста человека
+        /// </summary>
         public override int Age
         {
             get
@@ -65,16 +73,23 @@ namespace Model
             
         }
 
+        /// <summary>
+        /// Минимальный номер паспорта
+        /// </summary>
         public const uint MinNumberPassport = 000000001;
+
+        /// <summary>
+        /// Максимальный номер паспорта
+        /// </summary>
         public const uint MaxNumberPassport = 999999999;
 
         /// <summary>
-        /// Поле для паспорта.
+        /// Поле для паспорта
         /// </summary>
         private uint _passport;
        
         /// <summary>
-        /// Данные паспорта.
+        /// Данные паспорта
         /// </summary>
         public uint Passport
         {
@@ -84,7 +99,6 @@ namespace Model
             }
             set
             {
-
                 if (value < MinNumberPassport || value > MaxNumberPassport)
                 {
                     throw new Exception($"Введен некоректный номер " +
@@ -95,19 +109,23 @@ namespace Model
                 {
                     _passport = value;
 
-                }
-               
+                }            
             }
         }
 
         /// <summary>
-        /// Семейное положение.
+        /// Семейное положение
         /// </summary>
         public MaritalStatus MaritalStatus { get; set; }
 
-
+        /// <summary>
+        /// Поле для супруга
+        /// </summary>
         private Adult? _partner;
 
+        /// <summary>
+        /// Супруг
+        /// </summary>
         public Adult Partner
         {
             get
@@ -123,7 +141,8 @@ namespace Model
                 }
                 else
                 {
-                    throw new ArgumentException("Проверьте статус обоих партнеров!");
+                    throw new ArgumentException("Проверьте статус " +
+                        "обоих партнеров!");
                 }
             }
         }
@@ -136,14 +155,14 @@ namespace Model
 
 
 
-
+        /// <summary>
+        /// Переопределение метода о выводе информации человеке
+        /// </summary>
+        /// <returns>информацию о взрослом человеке</returns>
         public override string GetInfo()
         {
-
-
             var personInfo = base.GetInfo();
             personInfo += $"\nНомер паспорта: {Passport}";
-
             if (MaritalStatus == MaritalStatus.Married)
             {
                 personInfo += $"\nСемейное положение: в браке"
@@ -153,7 +172,6 @@ namespace Model
             {
                 personInfo += $"\nСемейное положение: не в браке";
             }
-            
             if (Job != Job.Безработный)
             {
                 personInfo += $"\nСпециальность: {Job}";
@@ -163,12 +181,6 @@ namespace Model
                 personInfo += "\nНе работает";
             }
             return personInfo;
-
-
-
         }
-
-
-
     }
 }

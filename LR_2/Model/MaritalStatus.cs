@@ -12,8 +12,6 @@ namespace Model
     public enum MaritalStatus
     {
         Married,
-        Single,
-        Widowed,
-        Divorced
+        Single            
     }
 }

@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Класс для ребёнка
+    /// </summary>
     public class Child : PersonBase
     {
-
+        /// <summary>
+        /// Базовый конструктор
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <param name="age"></param>
+        /// <param name="gender"></param>
         public Child(string name, string surname, int age, Gender gender)
            : base(name, surname, age, gender)
         {
@@ -19,22 +28,36 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор по умолчанию.
+        /// Конструктор по умолчанию
         /// </summary>
         public Child()
         {
 
         }
 
+        /// <summary>
+        /// Мама
+        /// </summary>
         public Adult? Mother { get; set; }
 
+        /// <summary>
+        /// Папа
+        /// </summary>
         public Adult? Father { get; set; }
 
-
+        /// <summary>
+        /// Переопределение минимального возраста
+        /// </summary>
         public override int AgeMin => 1;
 
+        /// <summary>
+        /// Переопределние минимального возраста
+        /// </summary>
         public override int AgeMax => 17;
 
+        /// <summary>
+        /// Переопределние возраста  человека
+        /// </summary>
         public override int Age
         {
             get
@@ -56,10 +79,15 @@ namespace Model
 
         }
 
-
+        /// <summary>
+        /// Школа
+        /// </summary>
         public School School { get; set; }
 
-
+        /// <summary>
+        /// Переопределение метода о выводе информации человеке
+        /// </summary>
+        /// <returns>информация о ребёнке</returns>
         public override string GetInfo()
         {
             var personInfo = base.GetInfo();

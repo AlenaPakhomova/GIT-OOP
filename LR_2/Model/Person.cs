@@ -63,7 +63,8 @@ namespace Model
             }
             set
             { 
-                string tmpSurname = ToUpperFirst(CorrectNameAndSurname(value));
+                string tmpSurname = ToUpperFirst
+                    (CorrectNameAndSurname(value));
                
                 if(_name != null)
                 {
@@ -94,11 +95,12 @@ namespace Model
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>
-        /// <param name="name">//TODO: XML имя </param>
-        /// <param name="surname"> фамилия </param>
-        /// <param name="age"> возраст </param>
-        /// <param name="gender"> пол человека </param>
-        public PersonBase(string name, string surname, int age, Gender gender)
+        /// <param name="name">имя</param>
+        /// <param name="surname">фамилия</param>
+        /// <param name="age">возраст</param>
+        /// <param name="gender">пол человека</param>
+        public PersonBase(string name, string surname, int age, 
+            Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -109,8 +111,8 @@ namespace Model
         /// <summary>
         /// Проверка двойного имени и двойной фамилии.
         /// </summary>
-        /// <param name="value"> имя или фамилия </param>
-        /// <returns> имя или фамилию </returns>
+        /// <param name="value">имя или фамилия</param>
+        /// <returns>имя или фамилию</returns>
         public static bool CheckingNameAndSurname(string value)
         {
             var regex = new Regex(@"(^[А-я]+(-| [А-я])?[А-я]*$)" +
@@ -118,7 +120,6 @@ namespace Model
          
                 return regex.IsMatch(value);                    
         }
-
 
         /// <summary>
         /// Проверка на двойное тире и двойной пробел
@@ -131,12 +132,11 @@ namespace Model
             return regex1.IsMatch(value);
         }
 
-
         /// <summary>
         /// Проверка на пустые строки и на непонятные символы
         /// </summary>
-        /// <param name="value"> имя или фамилия </param>
-        /// <returns> Возвращает имя или фамилию </returns>
+        /// <param name="value">имя или фамилия</param>
+        /// <returns>Возвращает имя или фамилию</returns>
         /// <exception cref="Exception">Проверка на пустую строку
         /// и неправльные символы</exception>
         public static string CorrectNameAndSurname(string value)
@@ -216,8 +216,7 @@ namespace Model
         public abstract int AgeMin { get; }
 
        
-           
-
+ 
         /// <summary>
         /// Пребразование в правильные регистры
         /// </summary>
