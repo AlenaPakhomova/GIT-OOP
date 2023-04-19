@@ -27,7 +27,7 @@ namespace Model
         /// <summary>
         /// Возраст человека.
         /// </summary>
-        private int _age;
+        protected int _age;
 
         /// <summary>
         /// Имя
@@ -78,17 +78,7 @@ namespace Model
         /// <summary>
         /// Возраст
         /// </summary>
-        public int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                _age = CheckingAge(value);
-            }
-        }
+        public abstract int Age { get; set; }
 
         /// <summary>
         /// Пол человека
@@ -112,7 +102,7 @@ namespace Model
         {
             Name = name;
             Surname = surname;
-            Age = CheckingAge(age);
+            Age = age;
             Gender = gender;
         }
 
@@ -218,26 +208,15 @@ namespace Model
         /// <summary>
         /// Максимальный возраст человека
         /// </summary>
-        public static int AgeMax = 150;
+        public abstract int AgeMax { get; }
 
         /// <summary>
         /// Минимальный возраст человека
         /// </summary>
-        public static int AgeMin = 0;
+        public abstract int AgeMin { get; }
 
-        /// <summary>
-        /// Проверка возраста. Реализованы в наследниках.
-        /// </summary>
-        /// <param name="number"> возраст </param>
-        /// <returns> возраст </returns>
-        /// <exception cref="Exception"> Входит ли число 
-        /// в диапазон возрастов</exception>
-        protected abstract int CheckingAge(int number);
-        
-            
-        
-
-        
+       
+           
 
         /// <summary>
         /// Пребразование в правильные регистры

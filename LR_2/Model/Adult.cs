@@ -38,21 +38,29 @@ namespace Model
 
         }
 
-  
+        public override int AgeMin => 18;
 
-        protected override int CheckingAge(int age)
+        public override int AgeMax => 150;
+
+        public override int Age
         {
-            AgeMin = 18;
-            AgeMax = 150;
-            if (age < AgeMin || age > AgeMax)
+            get
             {
-                throw new Exception("Возраст должен быть в диапазоне " +
-                    $"от {AgeMin} до {AgeMax} лет!");
+                return _age;
             }
-            else
+            set
             {
-                return age;
+                if (value < AgeMin || value > AgeMax)
+                {
+                    throw new Exception("Возраст должен быть в диапазоне " +
+                        $"от {AgeMin} до {AgeMax} лет!");
+                }
+                else
+                {
+                    _age = value;
+                }
             }
+            
         }
 
         public const uint MinNumberPassport = 000000001;
@@ -93,7 +101,7 @@ namespace Model
         public MaritalStatus MaritalStatus { get; set; }
 
 
-        private Adult _partner;
+        private Adult? _partner;
 
         public Adult Partner
         {

@@ -69,7 +69,7 @@ namespace Model
             Adult adult = new Adult();
             RandomGender(adult);
 
-            adult.Age = random.Next(Adult.AgeMin, Adult.AgeMax);
+            adult.Age = random.Next(adult.AgeMin, adult.AgeMax);
 
             MaritalStatus maritalstatus = (MaritalStatus)random.Next(2);
 
@@ -104,7 +104,7 @@ namespace Model
             Child child = new Child();
             RandomGender(child);
 
-            child.Age = random.Next(Child.AgeMin, Child.AgeMax);
+            child.Age = random.Next(child.AgeMin, child.AgeMax);
 
             var mother = random.Next(0, 2);
 

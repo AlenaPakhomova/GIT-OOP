@@ -31,21 +31,30 @@ namespace Model
         public Adult Father { get; set; }
 
 
-        protected override int CheckingAge(int age)
-        {
-            AgeMin = 0;
-            AgeMax = 18;
-            if (age < AgeMin || age > AgeMax)
-            {
-                throw new Exception("Возраст должен быть в диапазоне " +
-                    $"от {AgeMin} до {AgeMax} лет!");
-            }
-            else
-            {
-                return age;
-            }
-        }
+        public override int AgeMin => 0;
 
+        public override int AgeMax => 18;
+
+        public override int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                if (value < AgeMin || value > AgeMax)
+                {
+                    throw new Exception("Возраст должен быть в диапазоне " +
+                        $"от {AgeMin} до {AgeMax} лет!");
+                }
+                else
+                {
+                    _age = value;
+                }
+            }
+
+        }
 
 
         public School School { get; set; }

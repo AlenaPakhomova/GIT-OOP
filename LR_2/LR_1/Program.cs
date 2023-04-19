@@ -106,13 +106,13 @@ namespace LabRab_1
                        string name = Console.ReadLine();
                        newPerson.Name = PersonBase.CorrectNameAndSurname(name);
 
-                   }),
+                   }), "name"),
                    (new Action(() =>
-                    {
+                   {
                         Console.Write("Surname: ");
                         string surname = Console.ReadLine();
                         newPerson.Surname = PersonBase.CorrectNameAndSurname(surname);
-                   }),
+                   }), "surname"),
                    (new Action(() =>
                    {
                        Console.Write("Age: ");
@@ -122,7 +122,7 @@ namespace LabRab_1
                            throw new ArgumentException("Неправильный тип данных!");
                        }
                        newPerson.Age = age;
-                   }),
+                   }), "age"),
                    (new Action(() =>
                    {
                        Console.Write("Sex (0 - Male, 1 - Female): ");
@@ -130,7 +130,7 @@ namespace LabRab_1
                        CheckingGender(genderStr);
                        newPerson.Gender = (Gender)Enum.Parse(typeof(Gender),
                                            Convert.ToString(genderStr));
-                   }),
+                   }), "gender"),
 
             };
 
@@ -146,7 +146,7 @@ namespace LabRab_1
                         throw new Exception($"Введен некоректный номер паспорта!");
                     }
                      newPersonAdult.Passport = passport;
-                }),
+                }), "passport"),
                 (new Action(() =>
                 {
                     Adult newPersonAdult = (Adult)newPerson;
@@ -196,7 +196,7 @@ namespace LabRab_1
                                 break;
                             }
                     }
-                }),
+                }), "job"),
                 (new Action(() =>
                 {
                     Adult newPersonAdult = (Adult)newPerson;
@@ -240,16 +240,21 @@ namespace LabRab_1
                                 throw new Exception("Выберите цифру от 1 до 4!");
                             }
                     }
-                }),
+                }), "maritalStatus"),
             };
 
             var actionChild = new List<(Action, string)>
             {
                 (new Action(() =>
                 {
-                    Console.Write("Введите номер паспорта (номер состоит из 9 цифр): ");
-                    
-                }),
+                    Child newPersonChild = (Child)newPerson;
+                    newPersonChild.Mother = CheckingParents(newPersonChild, "есть мама", Gender.Female);
+                }), "mother"),
+                (new Action(() =>
+                {
+                    Child newPersonChild = (Child)newPerson;
+                    newPersonChild.Father = CheckingParents(newPersonChild, "есть папа", Gender.Male);
+                }), "father"),
                 (new Action(() =>
                 {
                     Child newPersonChild = (Child)newPerson;
@@ -285,25 +290,44 @@ namespace LabRab_1
                                 break;
                             }
                     }
-                }),
+                }), "scholl"),
             };
 
 
+            SetAction(action, "Взрослый или ребёнок");
+
+            foreach (var actions in actionPersonList)
+            {
+                SetAction(actions.Item1, actions.Item2);
+            }
 
 
+            switch(newPerson)
+            {
+                case Adult:
+                    {
+                        foreach (var actions in actionAdult)
+                        {
+                            SetAction(actions.Item1, actions.Item2);
+                        }
+                        break;
+                    }
+                case Child:
+                    {
+                        foreach (var actions in actionChild)
+                        {
+                            SetAction(actions.Item1, actions.Item2);
+                        }
+                        break;
+                    }
+                default:
+                    break;
 
 
-
-
+            }
+            return newPerson;
 
         }
-
-
-
-
-
-
-
 
 
         public static int CheckingGender(int number)
@@ -320,16 +344,33 @@ namespace LabRab_1
         }
 
 
-    }
-}
+        private static Adult CheckingParents(Child newPersonChild, string parents, Gender gender)
+        {
+            Console.WriteLine("Есть ли у ребенка родители (введите нужную цифру):" +
+                "родители живы и здоровы - 0," +
+                "нет родителей - 1");
+            int haveParents = int.Parse(Console.ReadLine());
+            switch (haveParents)
+            {
+                case 0:
+                    {
+                        return gender == Gender.Male ? RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Mother)
+                        : RandomPerson.RandomAdult(MaritalStatus.Married, newPersonChild.Father);
+                    }
+                case 1:
+                    {
+                        return null;
+                    }
+                default:
+                    {
+                        throw new Exception("Выберите цифру 0 или 1!");
+                    }
+            }
 
 
-/*
-/// <summary>
-/// Вывод делегата 
-/// </summary>
-/// <param name="action"> делегат </param>
-public static void SetAction(Action action)
+
+        }
+        public static void SetAction(Action action, string typeOfPerson)
         {
             while (true)
             {
@@ -340,11 +381,30 @@ public static void SetAction(Action action)
                 }
                 catch (Exception s)
                 {
-                    Console.WriteLine($"\n{s.Message}\n");
+                    if(s.GetType() == typeof(ArgumentException) || s.GetType() == typeof(ArgumentException))
+                    {
+                        Console.WriteLine($"Ошибка: {s.Message}\n" +
+                            $"Некоректный ввод: {typeOfPerson}");
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                    
                 }
             }
         }
 
-  */
+
+
+
+    }
+}
+
+
+
+
+        
+  
       
     
