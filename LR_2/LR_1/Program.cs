@@ -48,8 +48,6 @@ namespace LabRab_1
             Console.ReadKey();
 
             PersonBase person = personList.FindPersonByIndex(4);
-            //TODO: no polymorphism
-            //TODO: specific method for type
             switch (person)
             {
                 case Adult adult:

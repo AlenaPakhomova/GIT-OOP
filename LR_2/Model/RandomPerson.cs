@@ -13,7 +13,6 @@ namespace Model
     /// </summary>
     public class RandomPerson
     {
-        //TODO: RSDN (+)
         /// <summary>
         /// Объект класса рандом
         /// </summary>
@@ -126,7 +125,6 @@ namespace Model
 
             if (maritalstatus == MaritalStatus.Married)
             {              
-                //TODO: duplication  (+)  
                 var tmpGender = adult.Gender == Gender.Male
                     ? Gender.Female
                     : Gender.Male;

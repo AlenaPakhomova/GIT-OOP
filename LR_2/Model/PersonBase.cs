@@ -9,7 +9,6 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    //TODO: rename file (+)
     /// <summary>
     /// Класс людей.
     /// </summary>
@@ -110,14 +109,12 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
-        //TODO: protected (+)
         /// <summary>
         /// Конструктор по умолчанию. Дефолтный конструктор.
         /// </summary>
         protected PersonBase()
         { }
 
-        //TODO: protected (+)
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>

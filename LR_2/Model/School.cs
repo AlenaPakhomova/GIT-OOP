@@ -11,7 +11,6 @@ namespace Model
     /// </summary>
     public enum School
     {
-        //TODO: to english (+)
         Gymnasium,
         Lyceum,
         Loafer

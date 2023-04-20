@@ -48,11 +48,6 @@ namespace Model
         /// </summary>
         public override int AgeMax => 100;
         
-        
-        //TODO: duplication(+)
-        
-        
-
         /// <summary>
         /// Минимальный номер паспорта
         /// </summary>

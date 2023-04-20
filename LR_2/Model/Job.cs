@@ -11,7 +11,6 @@ namespace Model
     /// </summary>
     public enum Job
     {
-        //TODO: to english (+)
         Lawyer,
         Builder,
         Engineer,
