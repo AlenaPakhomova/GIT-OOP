@@ -60,7 +60,7 @@ namespace Model
         /// </summary>
         public School School { get; set; }
 
-        
+
 
         /// <summary>
         /// Переопределение метода о выводе информации человеке
@@ -71,33 +71,33 @@ namespace Model
             var personInfo = base.GetInfo();
             if (Mother != null)
             {
-                personInfo += $"\nМама: {Mother.Name} " +
+                personInfo += $"\nMother: {Mother.Name} " +
                     $"{Mother.Surname}";
             }
             if (Father != null)
             {
-                personInfo += $"\nПапа: {Father.Name} " +
+                personInfo += $"\nFather: {Father.Name} " +
                     $"{Father.Surname}";
             }
             if (Mother == null)
             {
-                personInfo += "\nНет мамы.";
+                personInfo += "\nThis child doesn't have a mother.";
             }
             if (Father == null)
             {
-                personInfo += "\nНет папы.";
+                personInfo += "\nThis child doesn't have a father.";
             }
             if (Mother == null && Father == null)
             {
-                personInfo += "\nСирота";
+                personInfo += "\nOrphan";
             }
             if (School != School.Loafer)
             {
-                personInfo += $"\nШкола: {School}";
+                personInfo += $"\nSchool: {School}";
             }
             if (School == School.Loafer)
             {
-                personInfo += $"\nБездельник";
+                personInfo += $"\nLoafer";
             }
             return personInfo;
         }
@@ -106,9 +106,17 @@ namespace Model
         /// Любимые сладости ребёнка.
         /// </summary>
         /// <returns></returns>
-        public string FavoriteSweets()
+        public string FavoriteSweet()
         {
-            return $"\n{GetNameAndSurname} преподичитает шоколадное мороженое.";
+            string[] sweets = new string[]
+            {
+                "milk chocolate", "cake",
+                "ice cream", "marmalade"
+            };
+            string sweet = sweets[new Random().Next(sweets.Length)];
+
+            return $"\n{GetNameAndSurname} prefers {sweet}.";
         }
     }
 }
+

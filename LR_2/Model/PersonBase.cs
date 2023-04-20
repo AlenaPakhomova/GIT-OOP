@@ -274,8 +274,8 @@ namespace Model
         /// <returns>Строку с информацией о человеке</returns>
         public virtual string GetInfo()
         {
-            return $"Имя: {Name}, Фамилия: {Surname}," +
-                   $" Возраст: {Age}, Пол: {Gender} ";
+            return $"Name: {Name}, Surname: {Surname}," +
+                   $" Age: {Age}, Gender: {Gender} ";
         }
 
 

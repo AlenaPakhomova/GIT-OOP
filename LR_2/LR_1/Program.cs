@@ -20,31 +20,31 @@ namespace LR_2
         /// <param name="args">параметры</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Нажмите любую клавишу.");
+            Console.WriteLine("Press any key...");
             Console.WriteLine();
             Console.ReadKey();
 
-            Console.WriteLine("Создаём семь человек...");
+            Console.WriteLine("Creating seven people...");
             Console.WriteLine();
             Console.ReadKey();
 
             PersonList personList = new PersonList();
 
             for (int i = 1; i < 9; i++)
-            {                
+            {
                 personList.AddPerson(RandomPerson.GreateRandomPerson());
             }
 
-            Console.WriteLine("Список создан.");
+            Console.WriteLine("The list has been created.");
             PrintList(personList);
             Console.ReadKey();
 
-            Console.WriteLine("\nВывод информации о четвертом человеке " +
-                "из списка");
+            Console.WriteLine("\nInformation about the fourth person from" +
+                " the created list:");
             Console.ReadKey();
 
-            Console.WriteLine("\nДавайте узнаем о кулинарных предпочтениях " +
-                "нашего человека");
+            Console.WriteLine("\nLet's find out about his taste " +
+                "preferences");
             Console.ReadKey();
 
             PersonBase person = personList.FindPersonByIndex(4);
@@ -57,12 +57,12 @@ namespace LR_2
                     }
                 case Child child:
                     {
-                        Console.WriteLine(child.FavoriteSweets());
+                        Console.WriteLine(child.FavoriteSweet());
                         break;
                     }
                 default:
                     break;
-            }          
+            }
         }
 
         /// <summary>
@@ -74,17 +74,18 @@ namespace LR_2
             int count = people.CountPersonInList();
             for (int i = 1; i < count; i++)
             {
-                Console.WriteLine($"\nЧеловек № {i}");
+                Console.WriteLine($"\nPerson № {i}");
                 Console.WriteLine(people.FindPersonByIndex(i).GetInfo());
             }
         }
     }
+
 }
 
 
 
 
-        
-  
-      
-    
+
+
+
+
