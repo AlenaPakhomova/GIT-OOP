@@ -17,12 +17,12 @@ namespace Model
         /// <summary>
         /// Имя человека.
         /// </summary>
-        private string _name;
+        public string _name;
 
         /// <summary>
         /// Фамилия человека.
         /// </summary>
-        private string _surname;
+        public string _surname;
 
         /// <summary>
         /// Возраст человека.
@@ -40,16 +40,17 @@ namespace Model
             }
             set
             {
-                string tmpName = ToUpperFirst(CorrectNameAndSurname(value));
-                
+
+                Proverka(value);
                
+                /*
                 if (_surname != null)
                 {
                     CheckingLanguage(tmpName, _surname);                   
                 }
 
                 _name = tmpName;
-
+                */
             }
         }
 
@@ -63,18 +64,29 @@ namespace Model
                 return _surname;
             }
             set
-            { 
-                string tmpSurname = ToUpperFirst(CorrectNameAndSurname(value));
-               
-                if(_name != null)
+            {
+
+                Proverka(value);
+                
+                /*
+                
+                if (_name != null)
                 {
-                    CheckingLanguage(_name, tmpSurname);                   
+                    CheckingLanguage(_name, tmpSurname);
                 }
 
                 _surname = tmpSurname;
-              
+                */
             }
         }
+        
+
+        public static void Proverka(string value)
+        {
+            string tmpSurname = ToUpperFirst(CorrectNameAndSurname(value));
+            
+        }
+        
 
         /// <summary>
         /// Возраст
