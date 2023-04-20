@@ -7,7 +7,7 @@ using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace LR_3 dfhvsdofv ывамывам
+namespace LR_3 
 {
     /// <summary>
     /// Класс для выполнения программы
