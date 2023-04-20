@@ -178,6 +178,7 @@ namespace Model
                 personInfo += "\nНе работает";
             }
             return personInfo;
+
         }
     }
 }
