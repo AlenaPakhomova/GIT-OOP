@@ -9,6 +9,7 @@ using System.Xml.Linq;
 
 namespace Model
 {
+    //TODO: rename file
     /// <summary>
     /// Класс людей.
     /// </summary>
@@ -40,6 +41,7 @@ namespace Model
             }
             set
             {
+                //TODO: duplication
                 string tmpName = ToUpperFirst(CorrectNameAndSurname(value));
 
                 if (_surname != null)
@@ -63,6 +65,7 @@ namespace Model
             }
             set
             { 
+                //TODO: duplication
                 string tmpSurname = ToUpperFirst
                     (CorrectNameAndSurname(value));
                
@@ -86,12 +89,14 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
+        //TODO: protected
         /// <summary>
         /// Конструктор по умолчанию. Дефолтный конструктор.
         /// </summary>
         public PersonBase()
         { }
 
+        //TODO: protected
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>
@@ -253,9 +258,6 @@ namespace Model
         {
             return $"Имя: {Name}, Фамилия: {Surname}," +
                    $" Возраст: {Age}, Пол: {Gender} ";
-        }
-
-
-        
+        }        
     }
 }

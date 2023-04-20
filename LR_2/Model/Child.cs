@@ -55,6 +55,7 @@ namespace Model
         /// </summary>
         public override int AgeMax => 17;
 
+        //TODO: duplication
         /// <summary>
         /// Переопределние возраста  человека
         /// </summary>
