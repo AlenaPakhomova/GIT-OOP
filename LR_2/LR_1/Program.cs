@@ -41,7 +41,10 @@ namespace LabRab_1
 
             Console.WriteLine("\nВывод информации о четвертом человеке " +
                 "из списка");
-            Console.WriteLine();
+            Console.ReadKey();
+
+            Console.WriteLine("\nДавайте узнаем о кулинарных предпочтениях " +
+                "нашего человека");
             Console.ReadKey();
 
             PersonBase person = personList.FindPersonByIndex(4);
@@ -51,12 +54,12 @@ namespace LabRab_1
             {
                 case Adult adult:
                     {
-                        Console.WriteLine(adult.GetInfo());
+                        Console.WriteLine(adult.FavoriteFood());
                         break;
                     }
                 case Child child:
                     {
-                        Console.WriteLine(child.GetInfo());
+                        Console.WriteLine(child.FavoriteSweets());
                         break;
                     }
                 default:

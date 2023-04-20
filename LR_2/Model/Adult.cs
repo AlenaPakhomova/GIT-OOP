@@ -48,30 +48,10 @@ namespace Model
         /// </summary>
         public override int AgeMax => 100;
         
-        //TODO: duplication
-        /// <summary>
-        /// Переопределние возраста человека
-        /// </summary>
-        public override int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                if (value < AgeMin || value > AgeMax)
-                {
-                    throw new Exception("Возраст должен быть в диапазоне " +
-                        $"от {AgeMin} до {AgeMax} лет!");
-                }
-                else
-                {
-                    _age = value;
-                }
-            }
-            
-        }
+        
+        //TODO: duplication(+)
+        
+        
 
         /// <summary>
         /// Минимальный номер паспорта
@@ -108,7 +88,6 @@ namespace Model
                 else 
                 {
                     _passport = value;
-
                 }            
             }
         }
@@ -152,6 +131,9 @@ namespace Model
         /// </summary>
         public Job Job { get; set; }
 
+        
+
+
         /// <summary>
         /// Переопределение метода о выводе информации человеке
         /// </summary>
@@ -169,16 +151,24 @@ namespace Model
             {
                 personInfo += $"\nСемейное положение: не в браке";
             }
-            if (Job != Job.Безработный)
+            if (Job != Job.Unemployed)
             {
                 personInfo += $"\nСпециальность: {Job}";
             }
-            if (Job == Job.Безработный)
+            if (Job == Job.Unemployed)
             {
                 personInfo += "\nНе работает";
             }
             return personInfo;
+        }
 
+        /// <summary>
+        /// Любимые блюда человека.
+        /// </summary>
+        /// <returns></returns>
+        public string FavoriteFood()
+        {
+            return $"\n{GetNameAndSurname} преподичитает морепродукты.";
         }
     }
 }

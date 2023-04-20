@@ -11,12 +11,12 @@ namespace Model
     /// </summary>
     public enum Job
     {
-        //TODO: to english
-        Юрист,
-        Строитель,
-        Инженер,
-        Экономист,
-        Доктор,
-        Безработный
+        //TODO: to english (+)
+        Lawyer,
+        Builder,
+        Engineer,
+        Economist,
+        Doctor,
+        Unemployed
     }
 }

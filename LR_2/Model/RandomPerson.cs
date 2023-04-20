@@ -13,16 +13,16 @@ namespace Model
     /// </summary>
     public class RandomPerson
     {
-        //TODO: RSDN
+        //TODO: RSDN (+)
         /// <summary>
         /// Объект класса рандом
         /// </summary>
-        private static Random random = new Random();
+        private static Random _random = new Random();
 
         /// <summary>
         /// Массив мужских имён
         /// </summary>
-        private static string[] maleNames = new string[]
+        private static string[] _maleNames = new string[]
         {
             "Максим", "Николай", "Виктор",
             "Евгений", "Андрей", "Роман"
@@ -31,7 +31,7 @@ namespace Model
         /// <summary>
         /// Массив женских имён
         /// </summary>
-        private static string[] femaleNames = new string[]
+        private static string[] _femaleNames = new string[]
         {
             "Ксения", "Вероника", "Екатерина",
             "Амелия", "Юлия", "Валерия"
@@ -40,7 +40,7 @@ namespace Model
         /// <summary>
         /// Массив мужских фамилий
         /// </summary>
-        private static string[] maleSurnames = new string[]
+        private static string[] _maleSurnames = new string[]
         {
             "Корнилов", "Петров", "Иванов",
             "Сидоров", "Колмаков", "Сипкин"
@@ -49,7 +49,7 @@ namespace Model
         /// <summary>
         /// Массив женских фамилий
         /// </summary>
-        private static string[] femaleSurnames = new string[]
+        private static string[] _femaleSurnames = new string[]
         {
             "Попова", "Юрина", "Харламова",
             "Копылова", "Парамонова", "Шидловская"
@@ -61,7 +61,7 @@ namespace Model
         /// <returns>случайного человека</returns>
         public static PersonBase GreateRandomPerson()
         {
-            if(random.Next(0, 2) > 0)
+            if(_random.Next(0, 2) > 0)
             {
                 return RandomChild();
             }
@@ -81,7 +81,7 @@ namespace Model
         {
             if(gender == Gender.Default)
             {
-                person.Gender = (Gender)random.Next(0, 2);
+                person.Gender = (Gender)_random.Next(0, 2);
             }
             else
             {
@@ -90,16 +90,16 @@ namespace Model
 
             if(person.Gender == Gender.Male)
             {
-                person.Name = maleNames[random.Next(1, maleNames.Length)];
-                person.Surname = maleSurnames[random.Next
-                    (1, maleSurnames.Length)];
+                person.Name = _maleNames[_random.Next(1, _maleNames.Length)];
+                person.Surname = _maleSurnames[_random.Next
+                    (1, _maleSurnames.Length)];
             }
             else if (person.Gender == Gender.Female)
             {
-                person.Name = femaleNames[random.Next
-                    (1, femaleNames.Length)];
-                person.Surname = femaleSurnames[random.Next
-                    (1, femaleSurnames.Length)];
+                person.Name = _femaleNames[_random.Next
+                    (1, _femaleNames.Length)];
+                person.Surname = _femaleSurnames[_random.Next
+                    (1, _femaleSurnames.Length)];
             }
 
         }
@@ -118,32 +118,27 @@ namespace Model
             Adult adult = new Adult();
             RandomGender(adult, gender);
 
-            adult.Age = random.Next(adult.AgeMin, adult.AgeMax);
+            adult.Age = _random.Next(adult.AgeMin, adult.AgeMax);
 
-            MaritalStatus maritalstatus = (MaritalStatus)random.Next(2);
+            MaritalStatus maritalstatus = (MaritalStatus)_random.Next(2);
 
             adult.MaritalStatus = maritalstatus;
 
             if (maritalstatus == MaritalStatus.Married)
-            {
-                //TODO: duplication
-                if(adult.Gender == Gender.Male)
-                {
-                    adult.Partner = RandomAdult(MaritalStatus.Married, adult,
-                        Gender.Female);
-                }
-                else
-                {
-                    adult.Partner = RandomAdult(MaritalStatus.Married, adult,
-                        Gender.Male);
-                }               
+            {              
+                //TODO: duplication  (+)  
+                var tmpGender = adult.Gender == Gender.Male
+                    ? Gender.Female
+                    : Gender.Male;
+                adult.Partner = RandomAdult(MaritalStatus.Married, adult,
+                        tmpGender);
             }
             else
             {
                 adult.MaritalStatus = status;
             }
 
-            adult.Job = (Job)random.Next(5);
+            adult.Job = (Job)_random.Next(5);
 
             PassportAdult(adult);
 
@@ -156,7 +151,7 @@ namespace Model
         /// <param name="adult">взрослый человек</param>
         private static void PassportAdult(Adult adult)
         {
-            var passport = (uint)random.Next((int)Adult.MinNumberPassport, 
+            var passport = (uint)_random.Next((int)Adult.MinNumberPassport, 
                 (int)Adult.MaxNumberPassport);
             adult.Passport = passport;
         }
@@ -170,21 +165,21 @@ namespace Model
             Child child = new Child();
             RandomGender(child);
 
-            child.Age = random.Next(child.AgeMin, child.AgeMax);
+            child.Age = _random.Next(child.AgeMin, child.AgeMax);
 
-            if(random.Next(0, 2) > 0)
+            if(_random.Next(0, 2) > 0)
             {
                 child.Mother = RandomAdult(MaritalStatus.Married, 
                     child.Father, Gender.Female);
             }
 
-            if(random.Next(0, 2) > 0 )
+            if(_random.Next(0, 2) > 0 )
             {
                 child.Father = RandomAdult(MaritalStatus.Married, 
                     child.Mother, Gender.Male);  
             }
 
-            child.School = (School)random.Next(3);
+            child.School = (School)_random.Next(3);
 
             return child;
         }

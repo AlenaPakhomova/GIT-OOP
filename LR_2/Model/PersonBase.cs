@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace Model
 {
-    //TODO: rename file
+    //TODO: rename file (+)
     /// <summary>
     /// Класс людей.
     /// </summary>
@@ -79,24 +79,45 @@ namespace Model
             }
         }
 
+
+
         /// <summary>
-        /// Возраст
+        /// Возраст человека
         /// </summary>
-        public abstract int Age { get; set; }
+        public int Age
+        {
+            get
+            {
+                return _age;
+            }
+            set
+            {
+                if (value < AgeMin || value > AgeMax)
+                {
+                    throw new Exception("Возраст должен быть в диапазоне " +
+                        $"от {AgeMin} до {AgeMax} лет!");
+                }
+                else
+                {
+                    _age = value;
+                }
+            }
+
+        }
 
         /// <summary>
         /// Пол человека
         /// </summary>
         public Gender Gender { get; set; }
 
-        //TODO: protected
+        //TODO: protected (+)
         /// <summary>
         /// Конструктор по умолчанию. Дефолтный конструктор.
         /// </summary>
-        public PersonBase()
+        protected PersonBase()
         { }
 
-        //TODO: protected
+        //TODO: protected (+)
         /// <summary>
         /// Конструктор класса Персон.
         /// </summary>
@@ -104,7 +125,7 @@ namespace Model
         /// <param name="surname">фамилия</param>
         /// <param name="age">возраст</param>
         /// <param name="gender">пол человека</param>
-        public PersonBase(string name, string surname, int age, 
+        protected PersonBase(string name, string surname, int age, 
             Gender gender)
         {
             Name = name;
@@ -258,6 +279,15 @@ namespace Model
         {
             return $"Имя: {Name}, Фамилия: {Surname}," +
                    $" Возраст: {Age}, Пол: {Gender} ";
-        }        
+        }
+
+
+        public string GetNameAndSurname
+        {
+            get
+            {
+                return $"{Name} {Surname}";
+            }
+        }
     }
 }

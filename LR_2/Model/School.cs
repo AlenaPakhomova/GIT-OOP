@@ -11,10 +11,9 @@ namespace Model
     /// </summary>
     public enum School
     {
-        //TODO: to english
-        Гимназия,
-        Лицей,
-        СОШ,
-        Бездельник
+        //TODO: to english (+)
+        Gymnasium,
+        Lyceum,
+        Loafer
     }
 }

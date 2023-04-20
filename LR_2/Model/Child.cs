@@ -54,36 +54,15 @@ namespace Model
         /// Переопределние максимального возраста
         /// </summary>
         public override int AgeMax => 17;
-
-        //TODO: duplication
-        /// <summary>
-        /// Переопределние возраста  человека
-        /// </summary>
-        public override int Age
-        {
-            get
-            {
-                return _age;
-            }
-            set
-            {
-                if (value < AgeMin || value > AgeMax)
-                {
-                    throw new Exception("Возраст должен быть в диапазоне " +
-                        $"от {AgeMin} до {AgeMax} лет!");
-                }
-                else
-                {
-                    _age = value;
-                }
-            }
-
-        }
+        
+        //TODO: duplication (+)
 
         /// <summary>
         /// Школа
         /// </summary>
         public School School { get; set; }
+
+        
 
         /// <summary>
         /// Переопределение метода о выводе информации человеке
@@ -114,18 +93,24 @@ namespace Model
             {
                 personInfo += "\nСирота";
             }
-            if (School != School.Бездельник)
+            if (School != School.Loafer)
             {
                 personInfo += $"\nШкола: {School}";
             }
-            if (School == School.Бездельник)
+            if (School == School.Loafer)
             {
                 personInfo += $"\nБездельник";
             }
             return personInfo;
-
         }
-     
 
+        /// <summary>
+        /// Любимые сладости ребёнка.
+        /// </summary>
+        /// <returns></returns>
+        public string FavoriteSweets()
+        {
+            return $"\n{GetNameAndSurname} преподичитает шоколадное мороженое.";
+        }
     }
 }
