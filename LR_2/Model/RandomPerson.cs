@@ -23,35 +23,27 @@ namespace Model
         /// </summary>
         private static string[] _maleNames = new string[]
         {
-            "Максим", "Николай", "Виктор",
-            "Евгений", "Андрей", "Роман"
+            "Adam", "Felix", "Elliot",
+            "Leo", "Luke", "Oliver"
         };
-        
+
         /// <summary>
         /// Массив женских имён
         /// </summary>
         private static string[] _femaleNames = new string[]
         {
-            "Ксения", "Вероника", "Екатерина",
-            "Амелия", "Юлия", "Валерия"
+            "Alice", "Amelie", "Gracie",
+            "Isabella", "Layla", "Matilda"
         };
 
         /// <summary>
-        /// Массив мужских фамилий
+        /// Массив фамилий
         /// </summary>
-        private static string[] _maleSurnames = new string[]
+        private static string[] _surnames = new string[]
         {
-            "Корнилов", "Петров", "Иванов",
-            "Сидоров", "Колмаков", "Сипкин"
-        };
-
-        /// <summary>
-        /// Массив женских фамилий
-        /// </summary>
-        private static string[] _femaleSurnames = new string[]
-        {
-            "Попова", "Юрина", "Харламова",
-            "Копылова", "Парамонова", "Шидловская"
+            "Morrison", "Leman", "Marlow",
+            "Smith", "Vance", "Walter",
+            "Young", "James", "Kirk"
         };
 
         /// <summary>
@@ -90,15 +82,15 @@ namespace Model
             if(person.Gender == Gender.Male)
             {
                 person.Name = _maleNames[_random.Next(1, _maleNames.Length)];
-                person.Surname = _maleSurnames[_random.Next
-                    (1, _maleSurnames.Length)];
+                person.Surname = _surnames[_random.Next
+                    (1, _surnames.Length)];
             }
             else if (person.Gender == Gender.Female)
             {
                 person.Name = _femaleNames[_random.Next
                     (1, _femaleNames.Length)];
-                person.Surname = _femaleSurnames[_random.Next
-                    (1, _femaleSurnames.Length)];
+                person.Surname = _surnames[_random.Next
+                    (1, _surnames.Length)];
             }
 
         }
