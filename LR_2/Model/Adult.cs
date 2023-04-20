@@ -136,34 +136,42 @@ namespace Model
         public override string GetInfo()
         {
             var personInfo = base.GetInfo();
-            personInfo += $"\nНомер паспорта: {Passport}";
+            personInfo += $"\nPassport number: {Passport}";
             if (MaritalStatus == MaritalStatus.Married)
             {
-                personInfo += $"\nСемейное положение: в браке"
-                   + $"\nСупруг: {Partner.Name} {Partner.Surname}";
+                personInfo += $"\nMarital status: married"
+                   + $"\nSpouse: {Partner.Name} {Partner.Surname}";
             }
             if (MaritalStatus != MaritalStatus.Married)
             {
-                personInfo += $"\nСемейное положение: не в браке";
+                personInfo += $"\nMarital status:  single";
             }
             if (Job != Job.Unemployed)
             {
-                personInfo += $"\nСпециальность: {Job}";
+                personInfo += $"\nProfession: {Job}";
             }
             if (Job == Job.Unemployed)
             {
-                personInfo += "\nНе работает";
+                personInfo += "\nUnemployed";
             }
             return personInfo;
         }
 
         /// <summary>
-        /// Любимые блюда человека.
+        /// Любимые блюда
         /// </summary>
-        /// <returns></returns>
+        /// <returns>любимое блюдо человека</returns>
         public string FavoriteFood()
         {
-            return $"\n{GetNameAndSurname} преподичитает морепродукты.";
+            string[] dishes = new string[]
+            {
+                "pizza", "fish", "steak",
+                "hamburgers", "porridge"
+            };
+
+            string food = dishes[new Random().Next(dishes.Length)];
+        
+            return $"\n{GetNameAndSurname} prefers {food}.";
         }
     }
 }
