@@ -7,7 +7,7 @@ using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace LabRab_1
+namespace LR_2
 {
     /// <summary>
     /// Класс для выполнения программы
