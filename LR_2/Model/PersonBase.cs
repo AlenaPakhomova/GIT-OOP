@@ -41,9 +41,7 @@ namespace Model
             set
             {
                 //TODO: duplication(+)
-
                 _name = CheckValue(value, _surname);
-
             }
         }
 
@@ -101,7 +99,6 @@ namespace Model
                     _age = value;
                 }
             }
-
         }
 
         /// <summary>
@@ -238,8 +235,6 @@ namespace Model
         /// </summary>
         public abstract int AgeMin { get; }
 
-       
- 
         /// <summary>
         /// Пребразование в правильные регистры
         /// </summary>
@@ -278,7 +273,9 @@ namespace Model
                    $" Age: {Age}, Gender: {Gender} ";
         }
 
-
+        /// <summary>
+        /// Вывод имени и фамилии человека
+        /// </summary>
         public string GetNameAndSurname
         {
             get
