@@ -177,11 +177,11 @@ namespace Model
         /// <param name="surname">фамилия</param>
         /// <returns>Возращает имя и фамилию</returns>
         /// <exception cref="Exception">Язык различается</exception>
-        public void CheckingLanguage(string word1, string word2)
+        public void CheckingLanguage(string name, string surname)
         {
 
-            Language nameLanguege = DefineLanguage(word1);
-            Language surnameLanguege = DefineLanguage(word2);
+            Language nameLanguege = DefineLanguage(name);
+            Language surnameLanguege = DefineLanguage(surname);
             if (nameLanguege != surnameLanguege)
             {
                 throw new ArgumentException("Язык имени и фамилии " +
