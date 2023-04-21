@@ -73,7 +73,9 @@ namespace Model
         {
             var tmpWord = ToUpperFirst(CorrectNameAndSurname(word1));
             if (word2 != null)
+            {
                 CheckingLanguage(word1, word2);
+            }
             return tmpWord;
         }
 

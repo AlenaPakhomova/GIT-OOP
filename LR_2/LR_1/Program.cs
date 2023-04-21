@@ -78,9 +78,18 @@ namespace LR_2
                 Console.WriteLine(people.FindPersonByIndex(i).GetInfo());
             }
         }
-    }
-
+    }   
 }
+
+
+
+
+
+    
+
+
+
+
 
 
 
