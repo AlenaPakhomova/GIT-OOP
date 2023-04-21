@@ -40,17 +40,7 @@ namespace Model
             }
             set
             {
-
-                Proverka(value);
-               
-                /*
-                if (_surname != null)
-                {
-                    CheckingLanguage(tmpName, _surname);                   
-                }
-
-                _name = tmpName;
-                */
+                _name = CheckValue(value, _surname);             
             }
         }
 
@@ -65,28 +55,23 @@ namespace Model
             }
             set
             {
-
-                Proverka(value);
-                
-                /*
-                
-                if (_name != null)
-                {
-                    CheckingLanguage(_name, tmpSurname);
-                }
-
-                _surname = tmpSurname;
-                */
+                _surname = CheckValue(value, _name);              
             }
         }
-        
 
-        public static void Proverka(string value)
+        /// <summary>
+        /// Проверка имени и фамилии на их наличие.
+        /// </summary>
+        /// <param name="word1"></param>
+        /// <param name="word2"></param>
+        /// <returns>имя или фамилию</returns>
+        public string CheckValue(string word1, string word2)
         {
-            string tmpSurname = ToUpperFirst(CorrectNameAndSurname(value));
-            
-        }
-        
+            var tmpWord = ToUpperFirst(CorrectNameAndSurname(word1));
+            if(word2 != null)
+            CheckingLanguage(word1, word2);
+            return tmpWord;
+        }       
 
         /// <summary>
         /// Возраст
@@ -191,11 +176,11 @@ namespace Model
         /// <param name="surname">фамилия</param>
         /// <returns>Возращает имя и фамилию</returns>
         /// <exception cref="Exception">Язык различается</exception>
-        public void CheckingLanguage(string name, string surname)
+        public void CheckingLanguage(string word1, string word2)
         {
 
-            Language nameLanguege = DefineLanguage(name);
-            Language surnameLanguege = DefineLanguage(surname);
+            Language nameLanguege = DefineLanguage(word1);
+            Language surnameLanguege = DefineLanguage(word2);
             if (nameLanguege != surnameLanguege)
             {
                 throw new ArgumentException("Язык имени и фамилии " +
