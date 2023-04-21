@@ -69,8 +69,10 @@ namespace Model
         public string CheckValue(string word1, string word2)
         {
             var tmpWord = ToUpperFirst(CorrectNameAndSurname(word1));
-            if(word2 != null)
-            CheckingLanguage(word1, word2);
+            if(word2 != null) 
+            {
+                CheckingLanguage(word1, word2);
+            }
             return tmpWord;
         }       
 
