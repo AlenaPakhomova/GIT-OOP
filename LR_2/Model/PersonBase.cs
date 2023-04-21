@@ -40,15 +40,9 @@ namespace Model
             }
             set
             {
-                //TODO: duplication
-                string tmpName = ToUpperFirst(CorrectNameAndSurname(value));
+                //TODO: duplication(+)
 
-                if (_surname != null)
-                {
-                    CheckingLanguage(_name, tmpName);
-                }
-
-                _name = tmpName;
+                _name = CheckValue(value, _surname);
 
             }
         }
@@ -63,21 +57,25 @@ namespace Model
                 return _surname;
             }
             set
-            { 
-                //TODO: duplication
-                string tmpSurname = ToUpperFirst
-                    (CorrectNameAndSurname(value));
-               
-                if(_name != null)
-                {
-                    CheckingLanguage(_name, tmpSurname);                   
-                }
-
-                _surname = tmpSurname;
-              
+            {
+                //TODO: duplication (+)
+                _surname = CheckValue(value, _name);
             }
         }
 
+        /// <summary>
+        /// Проверка имени и фамилии на их наличие.
+        /// </summary>
+        /// <param name="word1"></param>
+        /// <param name="word2"></param>
+        /// <returns>имя или фамилию</returns>
+        public string CheckValue(string word1, string word2)
+        {
+            var tmpWord = ToUpperFirst(CorrectNameAndSurname(word1));
+            if (word2 != null)
+                CheckingLanguage(word1, word2);
+            return tmpWord;
+        }
 
 
         /// <summary>
