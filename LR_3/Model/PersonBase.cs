@@ -12,7 +12,7 @@ namespace Model
     /// <summary>
     /// Класс людей.
     /// </summary>
-    public abstract class PersonBase
+    public abstract class PersonBase : IComparable<PersonBase>
     {
         /// <summary>
         /// Имя человека.
@@ -278,6 +278,10 @@ namespace Model
                    $" Age: {Age}, Gender: {Gender} ";
         }
 
+        public int CompareTo(PersonBase? other)
+        {
+            return other.Surname.CompareTo(Surname);
+        }
 
         public string GetNameAndSurname
         {

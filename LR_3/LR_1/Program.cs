@@ -31,13 +31,15 @@ namespace LR_3
             PersonList personList = new PersonList();
 
             for (int i = 1; i < 9; i++)
-            {                
+            {
                 personList.AddPerson(RandomPerson.GreateRandomPerson());
             }
 
             Console.WriteLine("The list has been created.");
             PrintList(personList);
             Console.ReadKey();
+
+            
 
             Console.WriteLine("\nInformation about the fourth person from" +
                 " the created list:");
@@ -62,7 +64,24 @@ namespace LR_3
                     }
                 default:
                     break;
-            }          
+            }
+
+
+            var personList1 = new List<PersonBase>
+            {
+                
+                
+            };
+
+            personList1.Sort();
+
+            foreach (var personTmp in personList1)
+            {
+                if (personTmp is IDrawable)
+                {
+                   Console.WriteLine(((IDrawable)personTmp).Draw());
+                }
+            }
         }
 
         /// <summary>

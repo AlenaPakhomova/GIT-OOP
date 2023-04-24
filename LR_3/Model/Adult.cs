@@ -12,7 +12,7 @@ namespace Model
     /// <summary>
     /// Класс взрослых людей
     /// </summary>
-    public class Adult : PersonBase
+    public class Adult : PersonBase, IDrawable
     {
         /// <summary>
         /// Базовый конструктор
@@ -172,6 +172,11 @@ namespace Model
             string food = dishes[new Random().Next(dishes.Length)];
         
             return $"\n{GetNameAndSurname} prefers {food}.";
+        }
+
+        public string Draw()
+        {
+            return "Draw person...";
         }
     }
 }
