@@ -39,14 +39,5 @@ namespace Model
             }
         }
 
-
-       
-       
-
-
-
-        
-
-
     }
 }
