@@ -20,64 +20,56 @@ namespace LR_3
         /// <param name="args">параметры</param>
         public static void Main(string[] args)
         {
+            Console.WriteLine("Нажмите любую клавишу...");
+            Console.WriteLine();
+            Console.ReadKey();
+
             Console.WriteLine("Приветствуем нового работника нашей фирмы!" +
-                "\nДля ознакомлления с размерами оплаты труда выберите " +
-                "способ начисления заработной платы...");
+                "\nДля ознакомлления с размерами оплаты труда нажмите " +
+                "любую клавишу...");
             Console.WriteLine();
             Console.ReadKey();
 
+            Console.WriteLine("Способы начисления зарплаты:" +
+                "\n1 - Оклад" +
+                "\n2 - Часовая тарифная ставка" +
+                "\n3 - Тарифная ставка" +
+                "\n4 - Завершить выбор");          
 
-
-            Console.WriteLine("Creating seven people...");
-            Console.WriteLine();
-            Console.ReadKey();
-
-            
-
-            
-
-            Console.WriteLine("\nInformation about the fourth person from" +
-                " the created list:");
-            Console.ReadKey();
-
-            Console.WriteLine("\nLet's find out about his taste " +
-                "preferences");
-            Console.ReadKey();
-
-            /*
-            PersonBase person = personList.FindPersonByIndex(4);
-            switch (person)
+            while (true)
             {
-                case Adult adult:
-                    {
-                        Console.WriteLine(adult.FavoriteFood());
-                        break;
-                    }
-                case Child child:
-                    {
-                        Console.WriteLine(child.FavoriteSweet());
-                        break;
-                    }
-                default:
-                    break;
-            }
-
-
-            var personList1 = new List<PersonBase>
-            {
-                
-                
-            };
-
-            personList1.Sort();
-
-            foreach (var personTmp in personList1)
-            {
-                if (personTmp is IDrawable)
+                Console.Write("\nВаш выбор: ");
+                var consoleKey = Console.ReadLine();
+                switch (consoleKey)
                 {
-                   Console.WriteLine(((IDrawable)personTmp).Draw());
-                }
-            } */
+                    case "1":
+                        {
+                            Console.WriteLine("Оплата по окладу:");
+                            break;
+                        }
+                    case "2":
+                        {
+                            Console.WriteLine("Оплата по часовой тарифной ставке:");
+                            break;
+                        }
+                    case "3":
+                        {
+                            Console.WriteLine("Оплата по тарифной ставке:");
+                            break;
+                        }
+                    case "4":
+                        {
+                            Environment.Exit(4);
+                            break;
+                        }
+                    default:
+                        {
+                            
+                            Console.WriteLine("Попробуйте еще раз");
+                        }
+                        break;
+                }                    
+            }           
         }
             
 
