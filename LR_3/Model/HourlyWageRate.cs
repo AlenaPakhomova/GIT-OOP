@@ -13,11 +13,6 @@ namespace Model
     public class HourlyWageRate : WagesBase
     {
         /// <summary>
-        /// Рачёт часовой тарифной ставки
-        /// </summary>
-        private double _calculationOfTheHourlyTariffRate;
-
-        /// <summary>
         /// Размер часовой тарифной ставки
         /// </summary>
         private double _sizeOfTheHourlyTariffRate;
@@ -25,27 +20,44 @@ namespace Model
         /// <summary>
         /// Количество фактически отработанных часов
         /// </summary>
-        private int _workingHours;
+        private double _workingHours;
 
         /// <summary>
-        /// Расчёт размера часовой тарифной ставки
+        /// Размер часовой тарифной ставки
         /// </summary>
-        public double CalculationOfTheHourlyTariffRate
+        public double SizeOfTheHourlyTariffRate
         {
             get
             {
-                return _calculationOfTheHourlyTariffRate;
+                return _sizeOfTheHourlyTariffRate;
             }
             set
             {
                 CheckingNumber(value);
-                _calculationOfTheHourlyTariffRate = value;
+                _sizeOfTheHourlyTariffRate = value;
             }
 
         }
 
         /// <summary>
-        /// Вычисление размера часовой тарифной ставки
+        /// Количество фактически отработанных часов
+        /// </summary>
+        public double WorkingHours
+        {
+            get
+            {
+                return _workingHours;
+            }
+            set
+            {
+                CheckingNumber(value);
+                _workingHours = value;
+            }
+
+        }
+
+        /// <summary>
+        /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
         public override double Wages
         {

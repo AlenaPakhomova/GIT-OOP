@@ -30,8 +30,8 @@ namespace Model
         {
             if (number < 0)
             {
-                throw new ArgumentOutOfRangeException("Зарплата не может" +
-                    "быть отрицательным числом!");
+                throw new Exception("Ставка, оклад и количество дней не могут " +
+                    "быть отрицательными числами!");
             }
             else
             {

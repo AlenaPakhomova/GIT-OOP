@@ -12,7 +12,7 @@ namespace Model
     public class WageRate : WagesBase
     {
         /// <summary>
-        /// Тарифная ставка
+        /// Размер тарифной ставки
         /// </summary>
         private double _tariffRate;
 
@@ -21,29 +21,41 @@ namespace Model
         /// </summary>
         private double _workingDays;
 
-        /// <summary>
-        /// Расчёт тарифной ставки
-        /// </summary>
-        private double _calculationOfTheTariffRate;
 
         /// <summary>
-        /// Расчёт размера тарифной ставки
+        /// Размер тарифной ставки
         /// </summary>
-        public double CalculationOfTariffRate
+        public double TariffRate
         {
             get
             {
-                return _calculationOfTheTariffRate;
+                return _tariffRate;
             }
             set
             {
                 CheckingNumber(value);
-                _calculationOfTheTariffRate = value;
+                _tariffRate = value;
             }
         }
 
         /// <summary>
-        /// Вычисление тарифной ставки
+        /// Количество рабочих дней
+        /// </summary>
+        public double WorkingDays
+        {
+            get
+            {
+                return _workingDays;
+            }
+            set
+            {
+                CheckingNumber(value);
+                _workingDays = value;
+            }
+        }
+
+        /// <summary>
+        /// Вычисление зарплаты по тарифной ставке
         /// </summary>
         public override double Wages
         {

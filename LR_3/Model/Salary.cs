@@ -12,11 +12,6 @@ namespace Model
     public class Salary : WagesBase
     {
         /// <summary>
-        /// Расчёт размера оклада
-        /// </summary>
-        private double _salaryCalculation;
-
-        /// <summary>
         /// Размер оклада
         /// </summary>
         private double _salaryAmount;
@@ -24,31 +19,64 @@ namespace Model
         /// <summary>
         /// Количество рабочих дней в месяце
         /// </summary>
-        private int _daysInMonth;
+        private double _daysInMonth;
 
         /// <summary>
         /// Количество фактически отработанных дней
         /// </summary>
-        private int _workingDays;
+        private double _workingDays;
 
         /// <summary>
-        /// Расчёт размера оклада
+        /// Размер оклада
         /// </summary>
-        public double SalaryCalculation
+        public double SalaryAmount
         {
             get
             {
-                return _salaryCalculation;
+                return _salaryAmount;
             }
             set
             {
                 CheckingNumber(value);
-                _salaryCalculation = value;
+                _salaryAmount = value;
             }
         }
 
         /// <summary>
-        /// Вычисление размера оклада
+        /// Количество рабочих дней в месяце
+        /// </summary>
+        public double DaysInMonth
+        {
+            get
+            {
+                return _daysInMonth;
+            }
+            set
+            {
+                CheckingNumber(value);
+                _daysInMonth = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Количество фактически отработанных дней
+        /// </summary>
+        public double WorkingDays
+        {
+            get
+            {
+                return _workingDays;
+            }
+            set
+            {
+                CheckingNumber(value);
+                _workingDays = value;
+            }
+        }
+
+        /// <summary>
+        /// Вычисление зарплаты по окладу
         /// </summary>
         public override double Wages
         {
