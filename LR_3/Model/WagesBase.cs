@@ -15,7 +15,7 @@ namespace Model
     public abstract class WagesBase
     {
         /// <summary>
-        /// Начисление заработной платы.
+        /// Вычисление заработной платы.
         /// </summary>
         public abstract double Wages { get; }
 

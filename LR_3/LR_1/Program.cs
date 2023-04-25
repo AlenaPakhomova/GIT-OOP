@@ -20,24 +20,19 @@ namespace LR_3
         /// <param name="args">параметры</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Press any key...");
+            Console.WriteLine("Приветствуем нового работника нашей фирмы!" +
+                "\nДля ознакомлления с размерами оплаты труда выберите " +
+                "способ начисления заработной платы...");
             Console.WriteLine();
             Console.ReadKey();
+
+
 
             Console.WriteLine("Creating seven people...");
             Console.WriteLine();
             Console.ReadKey();
 
-            PersonList personList = new PersonList();
-
-            for (int i = 1; i < 9; i++)
-            {
-                personList.AddPerson(RandomPerson.GreateRandomPerson());
-            }
-
-            Console.WriteLine("The list has been created.");
-            PrintList(personList);
-            Console.ReadKey();
+            
 
             
 
@@ -49,6 +44,7 @@ namespace LR_3
                 "preferences");
             Console.ReadKey();
 
+            /*
             PersonBase person = personList.FindPersonByIndex(4);
             switch (person)
             {
@@ -81,9 +77,12 @@ namespace LR_3
                 {
                    Console.WriteLine(((IDrawable)personTmp).Draw());
                 }
-            }
+            } */
         }
+            
 
+
+            /*
         /// <summary>
         /// Печать списка
         /// </summary>
@@ -96,8 +95,9 @@ namespace LR_3
                 Console.WriteLine($"\nPerson № {i}");
                 Console.WriteLine(people.FindPersonByIndex(i).GetInfo());
             }
-        }
+        } */
     }
+            
 }
 
 
