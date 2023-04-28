@@ -14,11 +14,13 @@ namespace Model
     /// </summary>
     public abstract class WagesBase
     {
+        // TODO: Метод
         /// <summary>
         /// Вычисление заработной платы.
         /// </summary>
         public abstract double Wages { get; }
 
+        // TODO: CheckPositiveNumber or IsPositive
         /// <summary>
         /// Проверка на отрицательные числа.
         /// </summary>
@@ -33,10 +35,7 @@ namespace Model
                 throw new Exception("Ставка, оклад и количество дней не могут " +
                     "быть отрицательными числами!");
             }
-            else
-            {
-                return number;
-            }
+            return number;
         }
 
     }

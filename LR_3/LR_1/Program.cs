@@ -7,6 +7,8 @@ using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
+// TODO: Описание методов
+// TODO: Длинные строки
 namespace LR_3 
 {
     /// <summary>
@@ -151,6 +153,7 @@ namespace LR_3
             return salary;
         }
 
+        // TODO: PrintWages
         /// <summary>
         /// Вывод полученной информации на консоль
         /// </summary>
@@ -160,10 +163,11 @@ namespace LR_3
             Console.WriteLine($"Размер заработной платы: {value.Wages} рублей.");
         }
 
-       /// <summary>
-       /// Чтение информации с консоли
-       /// </summary>
-       /// <returns></returns>
+        // TODO: ParseConsoleString or smth
+        /// <summary>
+        /// Чтение информации с консоли
+        /// </summary>
+        /// <returns></returns>
         public static double GetInformationFromConsole()
         {
             return double.Parse(Console.ReadLine().Replace('.', ','));

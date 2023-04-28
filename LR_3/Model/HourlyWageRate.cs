@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     /// <summary>
-    /// Класс для оплаиы по часовой тарифной ставке
+    /// Класс для оплаты по часовой тарифной ставке
     /// </summary>
     public class HourlyWageRate : WagesBase
     {
