@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 // TODO: Описание методов
-// TODO: Длинные строки
+// TODO: Длинные строки (+)
 namespace LR_3 
 {
     /// <summary>
@@ -26,9 +26,9 @@ namespace LR_3
             Console.WriteLine();
             Console.ReadKey();
 
-            Console.WriteLine("Приветствуем нового работника нашей фирмы!" +
-                "\nДля ознакомлления с размерами оплаты труда нажмите " +
-                "любую клавишу...");
+            Console.WriteLine("Приветствуем нового работника " +
+                "нашей фирмы! \nДля ознакомлления с размерами " +
+                "оплаты труда нажмите любую клавишу...");
             Console.WriteLine();
             Console.ReadKey();
 
@@ -40,26 +40,29 @@ namespace LR_3
                 "\n3 - Тарифная ставка" +
                 "\n4 - Завершить выбор");
 
-                Console.Write("\nВведите цифру из представленного списка: ");
+                Console.Write("\nВведите цифру из представленного " +
+                    "списка: ");
                 var consoleKey = Console.ReadLine();
                 switch (consoleKey)
                 {
                     case "1":
                         {
                             Console.WriteLine("\tОплата по окладу");
-                            GetValue(WagesBySalary());
+                            PrintWages(WagesBySalary());
                             break;
                         }
                     case "2":
                         {
-                            Console.WriteLine("\tОплата по часовой тарифной ставке");
-                            GetValue(WagesAtTheHourlyTariffRate());
+                            Console.WriteLine("\tОплата по часовой " +
+                                "тарифной ставке");
+                            PrintWages(WagesAtTheHourlyTariffRate());
                             break;
                         }
                     case "3":
                         {
-                            Console.WriteLine("\tОплата по тарифной ставке");
-                            GetValue(WagesAtTheTariffRate());
+                            Console.WriteLine("\tОплата по тарифной " +
+                                "ставке");
+                            PrintWages(WagesAtTheTariffRate());
                             break;
                         }
                     case "4":
@@ -77,7 +80,8 @@ namespace LR_3
         }
 
         /// <summary>
-        /// Ввод данных для расчёта размера заработной платы по тарифной ставке
+        /// Ввод данных для расчёта размера заработной платы 
+        /// по тарифной ставке
         /// </summary>
         /// <returns></returns>
         public static WageRate WagesAtTheTariffRate()
@@ -87,13 +91,14 @@ namespace LR_3
             {
                 new Action(() =>
                 {
-                    Console.Write("Количество отработанный дней в месяце: ");
-                    wageRate.WorkingDays = GetInformationFromConsole();
+                    Console.Write("Количество отработанный дней в " +
+                        "месяце: ");
+                    wageRate.WorkingDays = ParseConsoleString();
                 }),
                 new Action(() =>
                 {
                     Console.Write("Тарифная ставка (рублей в день): ");
-                    wageRate.TariffRate = GetInformationFromConsole();
+                    wageRate.TariffRate = ParseConsoleString();
                 })               
             };
             actions.ForEach(SetInformationFromConsole);
@@ -101,7 +106,8 @@ namespace LR_3
         }
 
         /// <summary>
-        /// Ввод данных для расчёта размера заработной платы по часовой тарифной ставке
+        /// Ввод данных для расчёта размера заработной платы 
+        /// по часовой тарифной ставке
         /// </summary>
         /// <returns></returns>
         public static HourlyWageRate WagesAtTheHourlyTariffRate()
@@ -111,13 +117,15 @@ namespace LR_3
             {
                 new Action(() =>
                 {
-                    Console.Write("Размер часовой тарифной ставки (рублей в час): ");
-                    hourlyWageRate.SizeOfTheHourlyTariffRate = GetInformationFromConsole();
+                    Console.Write("Размер часовой тарифной ставки " +
+                        "(рублей в час): ");
+                    hourlyWageRate.SizeOfTheHourlyTariffRate
+                    = ParseConsoleString();
                 }),
                 new Action(() =>
                 {
                     Console.Write("Количество отработанных часов: ");
-                    hourlyWageRate.WorkingHours = GetInformationFromConsole();
+                    hourlyWageRate.WorkingHours = ParseConsoleString();
                 })
             };
             actions.ForEach(SetInformationFromConsole);
@@ -136,39 +144,42 @@ namespace LR_3
                 new Action(() =>
                 {
                     Console.Write("Размер оклада (в рублях): ");
-                    salary.SalaryAmount = GetInformationFromConsole();
+                    salary.SalaryAmount = ParseConsoleString();
                 }),
                 new Action(() =>
                 {
-                    Console.Write("Количество рабочих дней в месяце: ");
-                    salary.DaysInMonth = GetInformationFromConsole();
+                    Console.Write("Количество рабочих дней " +
+                        "в месяце: ");
+                    salary.DaysInMonth = ParseConsoleString();
                 }),
                 new Action(() =>
                 {
-                    Console.Write("Количество фактически отработанных дней: ");
-                    salary.WorkingDays = GetInformationFromConsole();
+                    Console.Write("Количество фактически " +
+                        "отработанных дней: ");
+                    salary.WorkingDays = ParseConsoleString();
                 }),
             };
             actions.ForEach(SetInformationFromConsole);
             return salary;
         }
 
-        // TODO: PrintWages
+        // TODO: PrintWages (+)
         /// <summary>
         /// Вывод полученной информации на консоль
         /// </summary>
         /// <param name="value"></param>
-        public static void GetValue(WagesBase value)
+        public static void PrintWages(WagesBase value)
         {
-            Console.WriteLine($"Размер заработной платы: {value.Wages} рублей.");
+            Console.WriteLine($"Размер заработной платы: " +
+                $"{value.Wages} рублей.");
         }
 
-        // TODO: ParseConsoleString or smth
+        // TODO: ParseConsoleString or smth (+)
         /// <summary>
         /// Чтение информации с консоли
         /// </summary>
         /// <returns></returns>
-        public static double GetInformationFromConsole()
+        public static double ParseConsoleString()
         {
             return double.Parse(Console.ReadLine().Replace('.', ','));
         }

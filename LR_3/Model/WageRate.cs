@@ -33,7 +33,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _tariffRate = value;
             }
         }
@@ -49,7 +49,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _workingDays = value;
             }
         }

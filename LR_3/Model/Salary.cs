@@ -37,7 +37,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _salaryAmount = value;
             }
         }
@@ -53,7 +53,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _daysInMonth = value;
             }
         }
@@ -70,7 +70,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _workingDays = value;
             }
         }

@@ -18,9 +18,9 @@ namespace Model
         /// <summary>
         /// Вычисление заработной платы.
         /// </summary>
-        public abstract double Wages { get; }
+        public abstract double Wages();
 
-        // TODO: CheckPositiveNumber or IsPositive
+        // TODO: CheckPositiveNumber or IsPositive (+)
         /// <summary>
         /// Проверка на отрицательные числа.
         /// </summary>
@@ -28,12 +28,12 @@ namespace Model
         /// <returns>размер зарплаты</returns>
         /// <exception cref="ArgumentOutOfRangeException">отрицательное
         /// число в зарплате</exception>
-        public static double CheckingNumber(double number)
+        public static double CheckPositiveNumber(double number)
         {
             if (number < 0)
             {
-                throw new Exception("Ставка, оклад и количество дней не могут " +
-                    "быть отрицательными числами!");
+                throw new Exception("Ставка, оклад и количество дней " +
+                    "не могут быть отрицательными числами!");
             }
             return number;
         }
