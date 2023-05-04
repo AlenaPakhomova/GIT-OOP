@@ -7,7 +7,7 @@ using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-// TODO: Описание методов
+// TODO: Описание методов (+)
 // TODO: Длинные строки (+)
 namespace LR_3 
 {
@@ -29,7 +29,6 @@ namespace LR_3
             Console.WriteLine("Приветствуем нового работника " +
                 "нашей фирмы! \nДля ознакомлления с размерами " +
                 "оплаты труда нажмите любую клавишу...");
-            Console.WriteLine();
             Console.ReadKey();
 
             while (true)
@@ -83,7 +82,7 @@ namespace LR_3
         /// Ввод данных для расчёта размера заработной платы 
         /// по тарифной ставке
         /// </summary>
-        /// <returns></returns>
+        /// <returns>данные о заработной плате</returns>
         public static WageRate WagesAtTheTariffRate()
         {
             var wageRate = new WageRate();
@@ -109,7 +108,7 @@ namespace LR_3
         /// Ввод данных для расчёта размера заработной платы 
         /// по часовой тарифной ставке
         /// </summary>
-        /// <returns></returns>
+        /// <returns>данные о заработной плате</returns>
         public static HourlyWageRate WagesAtTheHourlyTariffRate()
         {
             var hourlyWageRate = new HourlyWageRate();
@@ -135,7 +134,7 @@ namespace LR_3
         /// <summary>
         /// Ввод данных для расчёта размера заработной платы по окладу
         /// </summary>
-        /// <returns></returns>
+        /// <returns>данные о заработной плате</returns>
         public static Salary WagesBySalary()
         {
             var salary = new Salary();
@@ -148,15 +147,15 @@ namespace LR_3
                 }),
                 new Action(() =>
                 {
-                    Console.Write("Количество рабочих дней " +
-                        "в месяце: ");
-                    salary.DaysInMonth = ParseConsoleString();
-                }),
-                new Action(() =>
-                {
                     Console.Write("Количество фактически " +
                         "отработанных дней: ");
                     salary.WorkingDays = ParseConsoleString();
+                }),
+                new Action(() =>
+                {
+                    Console.Write("Количество рабочих дней " +
+                        "в месяце: ");
+                    salary.DaysInMonth = ParseConsoleString();
                 }),
             };
             actions.ForEach(SetInformationFromConsole);
@@ -167,18 +166,18 @@ namespace LR_3
         /// <summary>
         /// Вывод полученной информации на консоль
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">заработная плата</param>
         public static void PrintWages(WagesBase value)
         {
             Console.WriteLine($"Размер заработной платы: " +
-                $"{value.Wages} рублей.");
+                $" {value.Wages()} рублей.");
         }
 
         // TODO: ParseConsoleString or smth (+)
         /// <summary>
         /// Чтение информации с консоли
         /// </summary>
-        /// <returns></returns>
+        /// <returns>введенное слово</returns>
         public static double ParseConsoleString()
         {
             return double.Parse(Console.ReadLine().Replace('.', ','));
@@ -187,7 +186,7 @@ namespace LR_3
         /// <summary>
         /// Получение введенной информации
         /// </summary>
-        /// <param name="action"></param>
+        /// <param name="action">делегаты</param>
         public static void SetInformationFromConsole(Action action)
         {
             while (true)

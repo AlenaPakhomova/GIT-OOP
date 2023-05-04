@@ -59,13 +59,7 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
-        public override double Wages
-        {
-            get
-            {
-                return _sizeOfTheHourlyTariffRate * _workingHours;
-            }
-        }
-
+        public override double Wages() => 
+            _sizeOfTheHourlyTariffRate * _workingHours;
     }
 }

@@ -79,13 +79,7 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по окладу
         /// </summary>
-        public override double Wages
-        {
-            get
-            {
-                return _salaryAmount / _daysInMonth * _workingDays;
-            }
-        }
-
+        public override double Wages() => 
+            _salaryAmount / _daysInMonth * _workingDays;
     }
 }

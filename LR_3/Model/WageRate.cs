@@ -54,17 +54,12 @@ namespace Model
             }
         }
 
-        
+
         /// <summary>
         /// Вычисление зарплаты по тарифной ставке
         /// </summary>
-        public override double Wages
-        {
-            get
-            {
-                return _workingDays * _tariffRate;
-            }
-        }
-        
+        public override double Wages() => 
+            _workingDays * _tariffRate;
+
     }
 }
