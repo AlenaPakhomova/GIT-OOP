@@ -74,6 +74,7 @@ namespace Model
                 _workingDays = value;
             }
         }
+        
 
         /// <summary>
         /// Вычисление зарплаты по окладу

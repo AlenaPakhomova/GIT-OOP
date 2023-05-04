@@ -33,7 +33,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _sizeOfTheHourlyTariffRate = value;
             }
 
@@ -50,7 +50,7 @@ namespace Model
             }
             set
             {
-                CheckingNumber(value);
+                CheckPositiveNumber(value);
                 _workingHours = value;
             }
 

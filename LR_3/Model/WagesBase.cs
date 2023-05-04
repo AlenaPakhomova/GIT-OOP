@@ -18,7 +18,7 @@ namespace Model
         /// <summary>
         /// Вычисление заработной платы.
         /// </summary>
-        public abstract double Wages();
+        public abstract double Wages { get; }
 
         // TODO: CheckPositiveNumber or IsPositive (+)
         /// <summary>

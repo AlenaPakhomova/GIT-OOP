@@ -54,6 +54,7 @@ namespace Model
             }
         }
 
+        
         /// <summary>
         /// Вычисление зарплаты по тарифной ставке
         /// </summary>
@@ -64,6 +65,6 @@ namespace Model
                 return _workingDays * _tariffRate;
             }
         }
-
+        
     }
 }
