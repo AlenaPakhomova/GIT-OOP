@@ -14,13 +14,11 @@ namespace Model
     /// </summary>
     public abstract class WagesBase
     {
-        // TODO: Метод (+)
         /// <summary>
         /// Вычисление заработной платы.
         /// </summary>
         public abstract double Wages();
 
-        // TODO: CheckPositiveNumber or IsPositive (+)
         /// <summary>
         /// Проверка на отрицательные числа.
         /// </summary>

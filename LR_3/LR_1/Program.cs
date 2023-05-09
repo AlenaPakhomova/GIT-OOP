@@ -7,8 +7,6 @@ using System.Reflection.PortableExecutable;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-// TODO: Описание методов (+)
-// TODO: Длинные строки (+)
 namespace LR_3 
 {
     /// <summary>
@@ -98,7 +96,7 @@ namespace LR_3
                 {
                     Console.Write("Тарифная ставка (рублей в день): ");
                     wageRate.TariffRate = ParseConsoleString();
-                })               
+                })
             };
             actions.ForEach(SetInformationFromConsole);
             return wageRate;
@@ -162,7 +160,6 @@ namespace LR_3
             return salary;
         }
 
-        // TODO: PrintWages (+)
         /// <summary>
         /// Вывод полученной информации на консоль
         /// </summary>
@@ -173,7 +170,6 @@ namespace LR_3
                 $" {value.Wages()} рублей.");
         }
 
-        // TODO: ParseConsoleString or smth (+)
         /// <summary>
         /// Чтение информации с консоли
         /// </summary>

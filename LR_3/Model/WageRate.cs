@@ -21,7 +21,6 @@ namespace Model
         /// </summary>
         private double _workingDays;
 
-
         /// <summary>
         /// Размер тарифной ставки
         /// </summary>
