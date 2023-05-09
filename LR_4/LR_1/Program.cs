@@ -10,7 +10,7 @@ using System.Xml.Linq;
 namespace LR_3 
 {
     /// <summary>
-    /// Класс для выполнения программы.aSDcasdzvzvzcv
+    /// Класс для выполнения программы
     /// </summary>
     public class Program
     {
