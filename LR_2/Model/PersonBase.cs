@@ -190,7 +190,6 @@ namespace Model
         /// <exception cref="Exception">Язык различается</exception>
         public void CheckingLanguage(string name, string surname)
         {
-
             Language nameLanguege = DefineLanguage(name);
             Language surnameLanguege = DefineLanguage(surname);
             if (nameLanguege != surnameLanguege)

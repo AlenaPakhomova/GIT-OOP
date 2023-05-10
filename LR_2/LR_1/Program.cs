@@ -1,5 +1,6 @@
 ﻿using Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -28,12 +29,14 @@ namespace LR_2
             Console.WriteLine();
             Console.ReadKey();
 
-            PersonList personList = new PersonList();
 
+            PersonList personList = new PersonList();
+            
             for (int i = 1; i < 9; i++)
             {
                 personList.AddPerson(RandomPerson.GreateRandomPerson());
             }
+            
 
             Console.WriteLine("The list has been created.");
             PrintList(personList);
