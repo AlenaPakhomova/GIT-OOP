@@ -91,6 +91,7 @@ namespace Model
             {
                 personInfo += "\nOrphan";
             }
+            //TODO: сделать через тернарный оператов
             if (School != School.Loafer)
             {
                 personInfo += $"\nSchool: {School}";

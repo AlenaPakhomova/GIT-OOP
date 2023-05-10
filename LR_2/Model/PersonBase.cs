@@ -40,7 +40,6 @@ namespace Model
             }
             set
             {
-                //TODO: duplication(+)
                 _name = CheckValue(value, _surname);
             }
         }
@@ -56,7 +55,6 @@ namespace Model
             }
             set
             {
-                //TODO: duplication(+)
                 _surname = CheckValue(value, _name);
             }
         }

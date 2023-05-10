@@ -126,9 +126,6 @@ namespace Model
         /// </summary>
         public Job Job { get; set; }
 
-
-
-
         /// <summary>
         /// Переопределение метода о выводе информации человеке
         /// </summary>
@@ -146,6 +143,7 @@ namespace Model
             {
                 personInfo += $"\nMarital status:  single";
             }
+            //TODO: if-else или тернарный оператор
             if (Job != Job.Unemployed)
             {
                 personInfo += $"\nProfession: {Job}";
