@@ -32,8 +32,8 @@ namespace LR_2
 
             PersonList personList = new PersonList();
             
-            //TODO сделать с нуля
-            for (int i = 1; i < 9; i++)
+            //TODO: сделать с нуля (+)
+            for (int i = 0; i < 8; i++)
             {
                 personList.AddPerson(RandomPerson.GreateRandomPerson());
             }

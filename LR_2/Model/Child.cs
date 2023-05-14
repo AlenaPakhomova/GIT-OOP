@@ -48,7 +48,7 @@ namespace Model
         /// <summary>
         /// Переопределение минимального возраста
         /// </summary>
-        public override int AgeMin => 1;
+        public override int AgeMin => 7;
 
         /// <summary>
         /// Переопределние максимального возраста
@@ -91,12 +91,12 @@ namespace Model
             {
                 personInfo += "\nOrphan";
             }
-            //TODO: сделать через тернарный оператов
+            //TODO: if-else или тернарный оператор (+)
             if (School != School.Loafer)
             {
                 personInfo += $"\nSchool: {School}";
             }
-            if (School == School.Loafer)
+            else
             {
                 personInfo += $"\nLoafer";
             }

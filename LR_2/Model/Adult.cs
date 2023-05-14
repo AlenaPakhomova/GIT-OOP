@@ -139,16 +139,16 @@ namespace Model
                 personInfo += $"\nMarital status: married"
                    + $"\nSpouse: {Partner.Name} {Partner.Surname}";
             }
-            if (MaritalStatus != MaritalStatus.Married)
+            else
             {
-                personInfo += $"\nMarital status:  single";
+                personInfo += $"\nMarital status: single";
             }
-            //TODO: if-else или тернарный оператор
+            //TODO: if-else или тернарный оператор (+)
             if (Job != Job.Unemployed)
             {
                 personInfo += $"\nProfession: {Job}";
             }
-            if (Job == Job.Unemployed)
+            else
             {
                 personInfo += "\nUnemployed";
             }
