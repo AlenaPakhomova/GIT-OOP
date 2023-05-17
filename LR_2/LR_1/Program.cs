@@ -11,7 +11,7 @@ using System.Xml.Linq;
 namespace LR_2
 {
     /// <summary>
-    /// Класс для выполнения программы
+    /// Класс для выполнения программы.
     /// </summary>
     public class Program
     {
