@@ -143,14 +143,14 @@ namespace Model
             {
                 personInfo += $"\nMarital status: single";
             }
-            //TODO: if-else или тернарный оператор (+)
-            if (Job != Job.Unemployed)
+
+            if (Job == Job.Unemployed)
             {
-                personInfo += $"\nProfession: {Job}";
+                personInfo += "\nUnemployed";
             }
             else
             {
-                personInfo += "\nUnemployed";
+                personInfo += $"\nProfession: {Job}";
             }
             return personInfo;
         }

@@ -91,14 +91,14 @@ namespace Model
             {
                 personInfo += "\nOrphan";
             }
-            //TODO: if-else или тернарный оператор (+)
-            if (School != School.Loafer)
+
+            if (School == School.Loafer)
             {
-                personInfo += $"\nSchool: {School}";
+                personInfo += $"\nLoafer";
             }
             else
             {
-                personInfo += $"\nLoafer";
+                personInfo += $"\nSchool: {School}";
             }
             return personInfo;
         }
