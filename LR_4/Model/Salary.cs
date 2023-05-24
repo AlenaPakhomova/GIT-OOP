@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     /// <summary>
-    /// Класс для оплаты по окладу.
+    /// Класс для оплаты по окладу
     /// </summary>
     public class Salary : WagesBase
     {
