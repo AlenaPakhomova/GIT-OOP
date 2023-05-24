@@ -12,6 +12,6 @@ namespace VIEW
     /// </summary>
     public class WageEventArgs : EventArgs
     {
-        public WageBase 
+        
     }
 }

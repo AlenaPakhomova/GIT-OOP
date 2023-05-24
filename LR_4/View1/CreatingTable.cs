@@ -6,16 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 
-
-namespace VIEW
+namespace View
 {
-    public static class CreatingTable
+    public class CreatingTable
     {
-        
+
         public static void CreateTable(BindingList<WagesBase> wages, DataGridView dataGridView)
         {
 
         }
-
     }
 }
