@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
+
     /// <summary>
     /// Класс для оплаты по часовой тарифной ставке
     /// </summary>
@@ -21,6 +23,11 @@ namespace Model
         /// Количество фактически отработанных часов
         /// </summary>
         private double _workingHours;
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string TypeWage => "Часовая тарифная ставка";
 
         /// <summary>
         /// Размер часовой тарифной ставки

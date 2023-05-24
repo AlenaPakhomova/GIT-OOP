@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
+
     /// <summary>
     /// Класс для оплаты по тарифной ставке
     /// </summary>
@@ -20,6 +22,11 @@ namespace Model
         /// Количество фактически отработанных дней
         /// </summary>
         private double _workingDays;
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string TypeWage => "Тарифная ставка";
 
         /// <summary>
         /// Размер тарифной ставки
@@ -60,5 +67,7 @@ namespace Model
         public override double Wages() => 
             _workingDays * _tariffRate;
 
+
+        
     }
 }

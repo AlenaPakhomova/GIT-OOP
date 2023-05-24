@@ -6,17 +6,21 @@ using System.Windows.Forms;
 
 namespace VIEW
 {
+    /// <summary>
+    /// Класс для тестирования библиотеки классов Model
+    /// </summary>
     internal static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// Главная точка входа для приложения
         /// </summary>
+        /// <param name="args">Параметры</param>
         [STAThread]
-        static void Main()
+        public static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

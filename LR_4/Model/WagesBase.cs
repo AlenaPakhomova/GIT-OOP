@@ -6,9 +6,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace Model
 {
+    [Serializable]
+    [XmlInclude(typeof(HourlyWageRate))]
+    [XmlInclude(typeof(Salary))]
+    [XmlInclude(typeof(WageRate))]
+
     /// <summary>
     /// Класс для начисления заработной платы.
     /// </summary>
@@ -18,6 +24,11 @@ namespace Model
         /// Вычисление заработной платы.
         /// </summary>
         public abstract double Wages();
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public abstract string TypeWage { get; }
 
         /// <summary>
         /// Проверка на отрицательные числа.

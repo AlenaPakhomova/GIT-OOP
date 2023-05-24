@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
+
     /// <summary>
     /// Класс для оплаты по окладу
     /// </summary>
@@ -25,6 +27,11 @@ namespace Model
         /// Количество фактически отработанных дней
         /// </summary>
         private double _workingDays;
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string TypeWage => "Оклад";
 
         /// <summary>
         /// Размер оклада
