@@ -31,11 +31,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.hourlyWageRate1 = new View.HourlyWageRate();
+            this.wageRate1 = new View.WageRate();
             this.salary1 = new View.Salary();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.wageRate1 = new View.WageRate();
-            this.hourlyWageRate1 = new View.HourlyWageRate();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,11 +71,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Параметры начисления";
             // 
+            // hourlyWageRate1
+            // 
+            this.hourlyWageRate1.Location = new System.Drawing.Point(6, 26);
+            this.hourlyWageRate1.Name = "hourlyWageRate1";
+            this.hourlyWageRate1.Size = new System.Drawing.Size(302, 154);
+            this.hourlyWageRate1.TabIndex = 2;
+            // 
+            // wageRate1
+            // 
+            this.wageRate1.Location = new System.Drawing.Point(6, 35);
+            this.wageRate1.Name = "wageRate1";
+            this.wageRate1.Size = new System.Drawing.Size(302, 154);
+            this.wageRate1.TabIndex = 1;
+            // 
             // salary1
             // 
-            this.salary1.Location = new System.Drawing.Point(22, 37);
+            this.salary1.Location = new System.Drawing.Point(6, 35);
             this.salary1.Name = "salary1";
-            this.salary1.Size = new System.Drawing.Size(258, 125);
+            this.salary1.Size = new System.Drawing.Size(302, 154);
             this.salary1.TabIndex = 0;
             this.salary1.Load += new System.EventHandler(this.salary1_Load);
             // 
@@ -99,20 +113,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // wageRate1
-            // 
-            this.wageRate1.Location = new System.Drawing.Point(0, 26);
-            this.wageRate1.Name = "wageRate1";
-            this.wageRate1.Size = new System.Drawing.Size(211, 132);
-            this.wageRate1.TabIndex = 1;
-            // 
-            // hourlyWageRate1
-            // 
-            this.hourlyWageRate1.Location = new System.Drawing.Point(92, 48);
-            this.hourlyWageRate1.Name = "hourlyWageRate1";
-            this.hourlyWageRate1.Size = new System.Drawing.Size(178, 110);
-            this.hourlyWageRate1.TabIndex = 2;
-            // 
             // AddWageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -130,7 +130,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

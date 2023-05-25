@@ -60,7 +60,6 @@ namespace View
                 if (figureType == wage)
                 {
                     userControl.Visible = true;
-                    //OK.Enabled = true;
                     this.userControl = userControl;
                 }
             }
