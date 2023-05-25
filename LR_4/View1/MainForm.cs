@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using Model;
 namespace View
 {
@@ -7,14 +8,61 @@ namespace View
         public MainForm()
         {
             InitializeComponent();
-            Text = "Калькулятор заработной платы";
             BackColor = Color.SeaGreen;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
-            Size = new Size(500, 500);
+            Size = new Size(400, 500);
+        }
+
+        /// <summary>
+        /// Список зарплат
+        /// </summary>
+        private BindingList<WagesBase> _wageList = new BindingList<WagesBase>();
+
+
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+           //CreatingTable.CreateTable(_wageList, dataGridView1);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //CreatingTable.CreateTable(_wageList, dataGridView1);
+          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var wage = new AddWageForm();
+
+            
+            if (wage.ShowDialog() == DialogResult.OK)
+            {
+              //  _wageList.Add(wage.);
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
 
         }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
