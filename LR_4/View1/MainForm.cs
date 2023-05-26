@@ -23,24 +23,23 @@ namespace View
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-           //CreatingTable.CreateTable(_wageList, dataGridView1);
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            //CreatingTable.CreateTable(_wageList, dataGridView1);
+           
           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var wage = new AddWageForm();
-
             
             if (wage.ShowDialog() == DialogResult.OK)
             {
-              //  _wageList.Add(wage.);
+              
             }
             
         }

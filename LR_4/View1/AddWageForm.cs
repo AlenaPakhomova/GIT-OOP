@@ -19,11 +19,6 @@ namespace View
         /// </summary>
         private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
 
-        /// <summary>
-        /// Переменная для использования UserControl
-        /// </summary>
-        private UserControl userControl;
-
         public AddWageForm()
         {
             InitializeComponent();
@@ -48,23 +43,23 @@ namespace View
 
         /// <summary>
         /// Действие при выборе слова из выпадающего списка
+        /// Задает выбранный элемент в поле со списко ComboBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string figureType = comboBox1.SelectedItem.ToString();
+            string wageType = comboBox1.SelectedItem.ToString();
             foreach (var (wage, userControl) in _comboBoxToUserControl)
             {
                 userControl.Visible = false;
-                if (figureType == wage)
+                if (wageType == wage)
                 {
                     userControl.Visible = true;
-                    this.userControl = userControl;
                 }
             }
         }
-
+        
         /// <summary>
         /// Кнопка ОК
         /// </summary>
@@ -72,18 +67,8 @@ namespace View
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var wageControlName = comboBox1.SelectedItem.ToString();
-                var wageControl = _comboBoxToUserControl[wageControlName];
-               // var wageEventArgs = new WageEventArgs(((IAddF)))
-                DialogResult = DialogResult.OK;
-            }
-            catch
-            {
-                MessageBox.Show("Введено некорректное значение!\n",
-                   "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            DialogResult = DialogResult.OK;
+
         }
 
         /// <summary>
@@ -96,6 +81,11 @@ namespace View
             Close();
         }
 
+        /// <summary>
+        /// Загрузка формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void salary1_Load(object sender, EventArgs e)
         {
             salary1.Visible = false;
