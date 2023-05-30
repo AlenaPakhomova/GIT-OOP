@@ -21,45 +21,46 @@ namespace View
 
 
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-           
-          
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             var wage = new AddWageForm();
-            
+
             if (wage.ShowDialog() == DialogResult.OK)
             {
-              
+
             }
-            
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonRandom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox—alculator_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewSpace_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

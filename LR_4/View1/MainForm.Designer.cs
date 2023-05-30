@@ -31,122 +31,124 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = 
-                new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.groupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBoxСalculator = new System.Windows.Forms.GroupBox();
+            this.dataGridViewSpace = new System.Windows.Forms.DataGridView();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonRandom = new System.Windows.Forms.Button();
+            this.groupBoxСalculator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpace)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox
+            // groupBoxСalculator
             // 
-            this.groupBox.Controls.Add(this.dataGridView1);
-            this.groupBox.Location = new System.Drawing.Point(32, 39);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox.Size = new System.Drawing.Size(269, 164);
-            this.groupBox.TabIndex = 0;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Калькулятор заработных плат";
-            this.groupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBoxСalculator.Controls.Add(this.dataGridViewSpace);
+            this.groupBoxСalculator.Location = new System.Drawing.Point(37, 52);
+            this.groupBoxСalculator.Name = "groupBoxСalculator";
+            this.groupBoxСalculator.Size = new System.Drawing.Size(307, 219);
+            this.groupBoxСalculator.TabIndex = 0;
+            this.groupBoxСalculator.TabStop = false;
+            this.groupBoxСalculator.Text = "Калькулятор заработных плат";
+            this.groupBoxСalculator.Enter += new System.EventHandler(this.groupBoxСalculator_Enter);
             // 
-            // dataGridView1
+            // dataGridViewSpace
             // 
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(257, 138);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewSpace.AllowUserToResizeColumns = false;
+            this.dataGridViewSpace.AllowUserToResizeRows = false;
+            this.dataGridViewSpace.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSpace.Location = new System.Drawing.Point(7, 28);
+            this.dataGridViewSpace.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridViewSpace.Name = "dataGridViewSpace";
+            this.dataGridViewSpace.RowHeadersWidth = 51;
+            this.dataGridViewSpace.RowTemplate.Height = 25;
+            this.dataGridViewSpace.Size = new System.Drawing.Size(294, 184);
+            this.dataGridViewSpace.TabIndex = 0;
+            this.dataGridViewSpace.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSpace_CellContentClick);
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.Location = new System.Drawing.Point(38, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(43, 293);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(137, 31);
+            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // button2
+            // buttonDelete
             // 
-            this.button2.Location = new System.Drawing.Point(175, 220);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDelete.Location = new System.Drawing.Point(200, 293);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(137, 31);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // button3
+            // buttonSearch
             // 
-            this.button3.Location = new System.Drawing.Point(38, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Найти";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSearch.Location = new System.Drawing.Point(43, 332);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(137, 31);
+            this.buttonSearch.TabIndex = 3;
+            this.buttonSearch.Text = "Найти";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // button4
+            // buttonReset
             // 
-            this.button4.Location = new System.Drawing.Point(175, 249);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Сбросить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonReset.Location = new System.Drawing.Point(200, 332);
+            this.buttonReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(137, 31);
+            this.buttonReset.TabIndex = 4;
+            this.buttonReset.Text = "Сбросить";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
-            // button5
+            // buttonRandom
             // 
-            this.button5.Location = new System.Drawing.Point(38, 278);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(257, 25);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Случайная зарплата";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonRandom.Location = new System.Drawing.Point(43, 371);
+            this.buttonRandom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonRandom.Name = "buttonRandom";
+            this.buttonRandom.Size = new System.Drawing.Size(294, 33);
+            this.buttonRandom.TabIndex = 5;
+            this.buttonRandom.Text = "Случайная зарплата";
+            this.buttonRandom.UseVisualStyleBackColor = true;
+            this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.Controls.Add(this.buttonRandom);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.groupBoxСalculator);
             this.Name = "MainForm";
             this.Text = "Калькулятор";
-            this.groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBoxСalculator.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpace)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GroupBox groupBox;
-        private DataGridView dataGridView1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private GroupBox groupBoxСalculator;
+        private DataGridView dataGridViewSpace;
+        private Button buttonAdd;
+        private Button buttonDelete;
+        private Button buttonSearch;
+        private Button buttonReset;
+        private Button buttonRandom;
     }
 }

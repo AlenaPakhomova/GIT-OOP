@@ -27,17 +27,17 @@ namespace View
             MaximizeBox = false;
             Size = new Size(400, 500);
 
-            comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            comboBox1.Items.AddRange(new string[] {
+            comboSalarySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboSalarySelection.Items.AddRange(new string[] {
             "Почасовая оплата",
             "Оплата по окладу",
             "Оплата по ставке"});
 
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {"Почасовая оплата", hourlyWageRate1 },
-                {"Оплата по окладу", salary1 },
-                {"Оплата по ставке", wageRate1 },
+                {"Почасовая оплата", hourlyWageRate },
+                {"Оплата по окладу", salary },
+                {"Оплата по ставке", wageRate },
             };
         }
 
@@ -47,9 +47,9 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxSalarySelection(object sender, EventArgs e)
         {
-            string wageType = comboBox1.SelectedItem.ToString();
+            string wageType = comboSalarySelection.SelectedItem.ToString();
             foreach (var (wage, userControl) in _comboBoxToUserControl)
             {
                 userControl.Visible = false;
@@ -65,7 +65,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonOk(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
@@ -76,7 +76,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void ButtonClose(object sender, EventArgs e)
         {
             Close();
         }
@@ -86,11 +86,11 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void salary1_Load(object sender, EventArgs e)
+        private void SalaryLoad(object sender, EventArgs e)
         {
-            salary1.Visible = false;
-            wageRate1.Visible = false;
-            hourlyWageRate1.Visible = false;
+            salary.Visible = false;
+            wageRate.Visible = false;
+            hourlyWageRate.Visible = false;
         }
     }
 }

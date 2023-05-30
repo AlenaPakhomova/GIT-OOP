@@ -17,12 +17,22 @@ namespace View
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void labelHourlyRate_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void labelTimeHourlyRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxHourlyRate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxTimeHourlyRate_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -17,22 +17,32 @@ namespace View
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void labelSalary_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void labelDaysInMonth_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void labelWorkingDays_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void textBoxSalary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxDaysInMonth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxWorkingDays_TextChanged(object sender, EventArgs e)
         {
 
         }
