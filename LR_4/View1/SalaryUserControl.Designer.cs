@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class Salary
+    partial class SalaryUserControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

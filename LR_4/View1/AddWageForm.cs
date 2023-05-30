@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace View
 {
     public partial class AddWageForm : Form
     {
+        /// <summary>
+        /// Делегат для добавления заработной платы.
+        /// </summary>
+        public EventHandler<EventArgs> AddingWages;
+
         /// <summary>
         /// Переменная для словаря UserControl
         /// </summary>
@@ -26,6 +33,8 @@ namespace View
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             Size = new Size(400, 500);
+
+            buttonOk.Enabled = false;
 
             comboSalarySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboSalarySelection.Items.AddRange(new string[] {
@@ -56,6 +65,8 @@ namespace View
                 if (wageType == wage)
                 {
                     userControl.Visible = true;
+                    buttonOk.Enabled = true;
+                    userControl.Visible = true;
                 }
             }
         }
@@ -67,8 +78,21 @@ namespace View
         /// <param name="e"></param>
         private void ButtonOk(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-
+            try
+            {
+                var wagesControlName = comboSalarySelection.SelectedItem.ToString();
+                var wagesControl = _comboBoxToUserControl[wagesControlName];
+                var wageEventArgs = new WageEventArgs(((IAddWages)wagesControl).AddingWages());
+                AddingWages?.Invoke(this, wageEventArgs);
+                DialogResult = DialogResult.OK;
+            }
+            catch
+            {
+                MessageBox.Show("Введено некорректное значение!\n" +
+                    "Введите одно положительное целое или десятичное число" +
+                    " в каждое текстовое поле.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

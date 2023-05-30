@@ -31,9 +31,9 @@
             this.payrollMethod = new System.Windows.Forms.GroupBox();
             this.comboSalarySelection = new System.Windows.Forms.ComboBox();
             this.accrualParameters = new System.Windows.Forms.GroupBox();
-            this.hourlyWageRate = new View.HourlyWageRate();
-            this.wageRate = new View.WageRate();
-            this.salary = new View.Salary();
+            this.hourlyWageRate = new View.HourlyWageRateUserControl();
+            this.wageRate = new View.WageRateUserControl();
+            this.salary = new View.SalaryUserControl();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             this.payrollMethod.SuspendLayout();
@@ -127,6 +127,7 @@
             this.Name = "AddWageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление зарплаты";
+            this.Load += new System.EventHandler(this.SalaryLoad);
             this.payrollMethod.ResumeLayout(false);
             this.accrualParameters.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -140,8 +141,8 @@
         private ComboBox comboSalarySelection;
         private Button buttonOk;
         private Button buttonClose;
-        private Salary salary;
-        private HourlyWageRate hourlyWageRate;
-        private WageRate wageRate;
+        private SalaryUserControl salary;
+        private HourlyWageRateUserControl hourlyWageRate;
+        private WageRateUserControl wageRate;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class WageRate : UserControl
+    public partial class WageRateUserControl : UserControl
     {
-        public WageRate()
+        public WageRateUserControl()
         {
             InitializeComponent();
         }

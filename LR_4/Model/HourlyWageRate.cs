@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Serializable]
 
     /// <summary>
     /// Класс для оплаты по часовой тарифной ставке

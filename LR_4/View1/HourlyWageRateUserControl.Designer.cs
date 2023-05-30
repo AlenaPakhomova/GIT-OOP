@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class HourlyWageRate
+    partial class HourlyWageRateUserControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -60,7 +60,7 @@
             this.textBoxHourlyRate.Name = "textBoxHourlyRate";
             this.textBoxHourlyRate.Size = new System.Drawing.Size(134, 27);
             this.textBoxHourlyRate.TabIndex = 2;
-            this.textBoxHourlyRate.TextChanged += new System.EventHandler(this.textBoxHourlyRate_TextChanged);
+          //  this.textBoxHourlyRate.TextChanged += new System.EventHandler(this.textBoxHourlyRate_TextChanged);
             // 
             // textBoxTimeHourlyRate
             // 
@@ -68,7 +68,7 @@
             this.textBoxTimeHourlyRate.Name = "textBoxTimeHourlyRate";
             this.textBoxTimeHourlyRate.Size = new System.Drawing.Size(43, 27);
             this.textBoxTimeHourlyRate.TabIndex = 3;
-            this.textBoxTimeHourlyRate.TextChanged += new System.EventHandler(this.textBoxTimeHourlyRate_TextChanged);
+           // this.textBoxTimeHourlyRate.TextChanged += new System.EventHandler(this.textBoxTimeHourlyRate_TextChanged);
             // 
             // HourlyWageRate
             // 
