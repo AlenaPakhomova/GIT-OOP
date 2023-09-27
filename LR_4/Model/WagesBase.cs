@@ -84,6 +84,7 @@ namespace Model
         }
 
 
+
         /// <summary>
         /// Вывод информации о зарплате
         /// </summary>
