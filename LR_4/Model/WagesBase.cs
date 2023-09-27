@@ -42,7 +42,7 @@ namespace Model
         {
             if (number <= 0)
             {
-                throw new ArgumentException("Ставка и оклад" +
+                throw new ArgumentException("Ставка и оклад " +
                     "не могут быть отрицательными числами!");
             }
             else if (double.IsNaN(number))
@@ -66,7 +66,7 @@ namespace Model
             if (number <= 0)
             {
                 throw new ArgumentException("Количество дней " +
-                    "не могут быть отрицательными числами!");
+                    "не может быть отрицательным числом!");
             }
             else if (double.IsNaN(number))
             {

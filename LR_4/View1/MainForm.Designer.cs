@@ -31,6 +31,7 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBoxСalculator = new System.Windows.Forms.GroupBox();
             this.dataGridViewSpace = new System.Windows.Forms.DataGridView();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -39,8 +40,13 @@ namespace View
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonRandom = new System.Windows.Forms.Button();
             this.buttonCleanFilter = new System.Windows.Forms.Button();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.groupBoxСalculator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpace)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxСalculator
@@ -48,7 +54,7 @@ namespace View
             this.groupBoxСalculator.Controls.Add(this.dataGridViewSpace);
             this.groupBoxСalculator.Location = new System.Drawing.Point(37, 52);
             this.groupBoxСalculator.Name = "groupBoxСalculator";
-            this.groupBoxСalculator.Size = new System.Drawing.Size(737, 219);
+            this.groupBoxСalculator.Size = new System.Drawing.Size(758, 219);
             this.groupBoxСalculator.TabIndex = 0;
             this.groupBoxСalculator.TabStop = false;
             this.groupBoxСalculator.Text = "Калькулятор заработных плат";
@@ -63,7 +69,7 @@ namespace View
             this.dataGridViewSpace.Name = "dataGridViewSpace";
             this.dataGridViewSpace.RowHeadersWidth = 51;
             this.dataGridViewSpace.RowTemplate.Height = 25;
-            this.dataGridViewSpace.Size = new System.Drawing.Size(725, 184);
+            this.dataGridViewSpace.Size = new System.Drawing.Size(746, 184);
             this.dataGridViewSpace.TabIndex = 1;
             // 
             // buttonAdd
@@ -128,11 +134,49 @@ namespace View
             this.buttonCleanFilter.UseVisualStyleBackColor = true;
             this.buttonCleanFilter.Click += new System.EventHandler(this.buttonCleanFilter_Click);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveToolStripMenuItem,
+            this.OpenToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(59, 24);
+            this.toolStripDropDownButton1.Text = "Файл";
+            // 
+            // SaveToolStripMenuItem
+            // 
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.SaveToolStripMenuItem.Text = "Сохранить";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // OpenToolStripMenuItem
+            // 
+            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.OpenToolStripMenuItem.Text = "Загрузить";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(946, 27);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 451);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonCleanFilter);
             this.Controls.Add(this.buttonRandom);
             this.Controls.Add(this.buttonReset);
@@ -145,7 +189,10 @@ namespace View
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxСalculator.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpace)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +206,9 @@ namespace View
         private Button buttonReset;
         private Button buttonRandom;
         private Button buttonCleanFilter;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStrip toolStrip1;
+        private ToolStripMenuItem SaveToolStripMenuItem;
+        private ToolStripMenuItem OpenToolStripMenuItem;
     }
 }
