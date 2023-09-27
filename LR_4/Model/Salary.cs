@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Model
 {
-    [Serializable]
 
     /// <summary>
     /// Класс для оплаты по окладу
@@ -26,12 +20,7 @@ namespace Model
         /// <summary>
         /// Количество фактически отработанных дней
         /// </summary>
-        private double _workingDays;
-
-        /// <summary>
-        /// Тип заработной платы
-        /// </summary>
-        public override string TypeWage => "Оклад";
+        private double _workingDays;       
 
         /// <summary>
         /// Размер оклада
@@ -44,8 +33,7 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _salaryAmount = value;
+                _salaryAmount = CheckPositiveNumber(value);
             }
         }
 
@@ -60,8 +48,7 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _daysInMonth = value;
+                _daysInMonth = CheckDays(value); 
             }
         }
 
@@ -77,16 +64,49 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _workingDays = value;
+                _workingDays = CheckDays(value);
             }
         }
-        
+
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        public Salary()
+        { }
+
 
         /// <summary>
         /// Вычисление зарплаты по окладу
         /// </summary>
-        public override double Wages() => 
-            _salaryAmount / _daysInMonth * _workingDays;
+        public override double Wages => SalaryAmount / DaysInMonth * WorkingDays;
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string WageType => "Зарплата по окладу";
+
+        /// <summary>
+        /// Параметры для расчёта заработной платы
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Оклад = {SalaryAmount}, Дни в месяце = {DaysInMonth}, Рабочие дни = {WorkingDays}";
+            }
+        }
+
+        /// <summary>
+        /// Информация о зарплате
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Зарплата по окладу: Оклад = {SalaryAmount}, Дни в месяце = {DaysInMonth}," +
+                $" Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 1)} ";
+        }
+
+        
+
     }
 }

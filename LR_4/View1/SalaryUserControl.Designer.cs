@@ -1,4 +1,6 @@
-﻿namespace View
+﻿
+
+namespace View
 {
     partial class SalaryUserControl
     {
@@ -38,59 +40,56 @@
             // 
             // textBoxSalary
             // 
-            this.textBoxSalary.Location = new System.Drawing.Point(70, 32);
+            this.textBoxSalary.Location = new System.Drawing.Point(70, 14);
             this.textBoxSalary.Name = "textBoxSalary";
             this.textBoxSalary.Size = new System.Drawing.Size(213, 27);
             this.textBoxSalary.TabIndex = 0;
-            this.textBoxSalary.TextChanged += new System.EventHandler(this.textBoxSalary_TextChanged);
             // 
             // labelSalary
             // 
             this.labelSalary.AutoSize = true;
-            this.labelSalary.Location = new System.Drawing.Point(13, 39);
+            this.labelSalary.Location = new System.Drawing.Point(13, 21);
             this.labelSalary.Name = "labelSalary";
             this.labelSalary.Size = new System.Drawing.Size(51, 20);
             this.labelSalary.TabIndex = 1;
             this.labelSalary.Text = "Оклад";
-            this.labelSalary.Click += new System.EventHandler(this.labelSalary_Click);
+            this.labelSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelSalary_KeyPress);
             // 
             // labelDaysInMonth
             // 
             this.labelDaysInMonth.AutoSize = true;
-            this.labelDaysInMonth.Location = new System.Drawing.Point(13, 69);
+            this.labelDaysInMonth.Location = new System.Drawing.Point(13, 53);
             this.labelDaysInMonth.Name = "labelDaysInMonth";
             this.labelDaysInMonth.Size = new System.Drawing.Size(226, 20);
             this.labelDaysInMonth.TabIndex = 2;
             this.labelDaysInMonth.Text = "Кол-во рабочих дней в месяце";
-            this.labelDaysInMonth.Click += new System.EventHandler(this.labelDaysInMonth_Click);
+            this.labelDaysInMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelDaysInMonth_KeyPress);
             // 
             // labelWorkingDays
             // 
             this.labelWorkingDays.AutoSize = true;
-            this.labelWorkingDays.Location = new System.Drawing.Point(13, 106);
+            this.labelWorkingDays.Location = new System.Drawing.Point(13, 87);
             this.labelWorkingDays.Name = "labelWorkingDays";
             this.labelWorkingDays.Size = new System.Drawing.Size(200, 20);
             this.labelWorkingDays.TabIndex = 3;
             this.labelWorkingDays.Text = "Кол-во отработанных дней";
-            this.labelWorkingDays.Click += new System.EventHandler(this.labelWorkingDays_Click);
+            this.labelWorkingDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelWorkingDays_KeyPress);
             // 
             // textBoxDaysInMonth
             // 
-            this.textBoxDaysInMonth.Location = new System.Drawing.Point(245, 69);
+            this.textBoxDaysInMonth.Location = new System.Drawing.Point(245, 53);
             this.textBoxDaysInMonth.Name = "textBoxDaysInMonth";
             this.textBoxDaysInMonth.Size = new System.Drawing.Size(38, 27);
             this.textBoxDaysInMonth.TabIndex = 4;
-            this.textBoxDaysInMonth.TextChanged += new System.EventHandler(this.textBoxDaysInMonth_TextChanged);
             // 
             // textBoxWorkingDays
             // 
-            this.textBoxWorkingDays.Location = new System.Drawing.Point(245, 106);
+            this.textBoxWorkingDays.Location = new System.Drawing.Point(245, 87);
             this.textBoxWorkingDays.Name = "textBoxWorkingDays";
             this.textBoxWorkingDays.Size = new System.Drawing.Size(38, 27);
             this.textBoxWorkingDays.TabIndex = 5;
-            this.textBoxWorkingDays.TextChanged += new System.EventHandler(this.textBoxWorkingDays_TextChanged);
             // 
-            // Salary
+            // SalaryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,8 +99,8 @@
             this.Controls.Add(this.labelDaysInMonth);
             this.Controls.Add(this.labelSalary);
             this.Controls.Add(this.textBoxSalary);
-            this.Name = "Salary";
-            this.Size = new System.Drawing.Size(302, 154);
+            this.Name = "SalaryUserControl";
+            this.Size = new System.Drawing.Size(302, 127);
             this.ResumeLayout(false);
             this.PerformLayout();
 

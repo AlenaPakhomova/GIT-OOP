@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Model
 {
-    [Serializable]
 
     /// <summary>
     /// Класс для оплаты по тарифной ставке
@@ -23,10 +17,6 @@ namespace Model
         /// </summary>
         private double _workingDays;
 
-        /// <summary>
-        /// Тип заработной платы
-        /// </summary>
-        public override string TypeWage => "Тарифная ставка";
 
         /// <summary>
         /// Размер тарифной ставки
@@ -39,8 +29,7 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _tariffRate = value;
+                _tariffRate = CheckPositiveNumber(value);
             }
         }
 
@@ -55,19 +44,48 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _workingDays = value;
+                _workingDays = CheckPositiveNumber(value);
+            }
+        }
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        public WageRate()
+        { }
+        
+
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string WageType => "Тарифная ставка";
+
+        /// <summary>
+        /// Вычисление зарплаты по тарифной ставке
+        /// </summary>
+        public override double Wages => TariffRate * WorkingDays;
+
+        /// <summary>
+        /// Параметры для расчёта заработной платы 
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Ставка = {TariffRate}, Рабочие дни = {WorkingDays}";
             }
         }
 
 
         /// <summary>
-        /// Вычисление зарплаты по тарифной ставке
+        /// Информация о зарплате 
         /// </summary>
-        public override double Wages() => 
-            _workingDays * _tariffRate;
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Тарифная ставка: Ставка = {TariffRate}, Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 1)}";
+        }
 
 
-        
     }
 }

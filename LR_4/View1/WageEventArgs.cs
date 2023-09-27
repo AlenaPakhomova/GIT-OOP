@@ -15,15 +15,15 @@ namespace View
         /// <summary>
         /// Отправка значения
         /// </summary>
-        public WagesBase SendingValue { get; }
+        public WagesBase WageValue { get; private set; }
 
         /// <summary>
         /// Конструктор для передачи значения
         /// </summary>
         /// <param name="sendingValue">Передача</param>
-        public WageEventArgs(WagesBase sendingValue)
+        public WageEventArgs(WagesBase wageValue)
         {
-            SendingValue = sendingValue;
+            WageValue = wageValue;
         }
     }
 }

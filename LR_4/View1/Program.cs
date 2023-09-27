@@ -1,6 +1,3 @@
-using Model;
-using System;
-using System.Windows.Forms;
 
 namespace View
 {
@@ -14,11 +11,11 @@ namespace View
         /// </summary>
         /// <param name="args"></param>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //Application.EnableVisualStyles(); //под вопросом
+            //Application.SetCompatibleTextRenderingDefault(false); // под вопросом
             Application.Run(new MainForm());
         }
     }

@@ -11,79 +11,58 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class HourlyWageRateUserControl : UserControl
+    /// <summary>
+    /// Добавление часовой тарифной ставки
+    /// </summary>
+    public partial class HourlyWageRateUserControl : UserControl, IAddWages
     {
+        /// <summary>
+        /// Добавление часовой тарифной ставки
+        /// </summary>
         public HourlyWageRateUserControl()
         {
             InitializeComponent();
         }
 
-        private void labelHourlyRate_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Вввод часовой тарифной ставки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelHourlyWageRate_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            Proverki.CheckInput(e);
         }
 
-        private void labelTimeHourlyRate_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Ввод часов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelTimeHourlyRate_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void textBoxHourlyRate_TextChanged(object sender, KeyPressEventArgs e)
-        {
-            CheckInput(e);
-        }
-
-        private void textBoxTimeHourlyRate_TextChanged(object sender, KeyPressEventArgs e)
-        {
-            CheckInput(e);
+            Proverki.CheckInput(e);
         }
 
         
         /// <summary>
-        /// 
+        /// Метод добавления зарплаты
         /// </summary>
         /// <returns></returns>
         public WagesBase AddingWages()
         {
-            var wages = new HourlyWageRate();
+            var wagesHourlyWageRate = new HourlyWageRate();
 
-           // wages.SizeOfTheHourlyTariffRate = CheckNumber(SizeOfTheHourlyTariffRate.Text);
+            wagesHourlyWageRate.SizeOfTheHourlyTariffRate = Proverki.CheckNumber(textBoxHourlyWageRate.Text);
+            wagesHourlyWageRate.WorkingHours = Proverki.CheckNumber(textBoxTimeHourlyRate.Text);
 
-            return wages;
+            return wagesHourlyWageRate;
 
         }
+
+
+
         
-        
-        /// <summary>
-        /// Метод позволяющий вводить определенные символы.
-        /// </summary>
-        /// <param name="e"></param>
-        public static void CheckInput(KeyPressEventArgs e)
-        {
-            const int backSpace = 8;
 
-            char number = e.KeyChar;
-            if ((e.KeyChar < '0' || e.KeyChar > '9')
-                && number != backSpace
-                && number != ','
-                && number != '.')
-            {
-                e.Handled = true;
-            }
-        }
-
-        /// <summary>
-        /// Преобразование числа в double
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public static double CheckNumber(string number)
-        {
-            if (number.Contains('.'))
-            {
-                number = number.Replace('.', ',');
-            }
-            return double.Parse(number);
-        }
     }
 }

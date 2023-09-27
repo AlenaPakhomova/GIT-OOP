@@ -26,13 +26,18 @@ namespace View
         /// </summary>
         private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
 
+        /// <summary>
+        /// Метка UserControl
+        /// </summary>
+        private UserControl userControl;
+
         public AddWageForm()
         {
             InitializeComponent();
             BackColor = Color.SeaGreen;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
-            Size = new Size(400, 500);
+            Size = new Size(400, 400);
 
             buttonOk.Enabled = false;
 
@@ -44,9 +49,9 @@ namespace View
 
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {"Почасовая оплата", hourlyWageRate },
-                {"Оплата по окладу", salary },
-                {"Оплата по ставке", wageRate },
+                {"Почасовая оплата", hourlyWageRateUserControl1 },
+                {"Оплата по окладу", salaryUserControl1 },
+                {"Оплата по ставке", wageRateUserControl1 },
             };
         }
 
@@ -59,14 +64,14 @@ namespace View
         private void ComboBoxSalarySelection(object sender, EventArgs e)
         {
             string wageType = comboSalarySelection.SelectedItem.ToString();
-            foreach (var (wage, userControl) in _comboBoxToUserControl)
+            foreach (var (wageValue, userControl) in _comboBoxToUserControl)
             {
                 userControl.Visible = false;
-                if (wageType == wage)
+                if (wageType == wageValue)
                 {
                     userControl.Visible = true;
                     buttonOk.Enabled = true;
-                    userControl.Visible = true;
+                    this.userControl = userControl;
                 }
             }
         }
@@ -86,12 +91,16 @@ namespace View
                 AddingWages?.Invoke(this, wageEventArgs);
                 DialogResult = DialogResult.OK;
             }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);             
+            }
             catch
             {
                 MessageBox.Show("Введено некорректное значение!\n" +
-                    "Введите одно положительное целое или десятичное число" +
-                    " в каждое текстовое поле.",
-                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   "Введите одно положительное целое или десятичное число" +
+                   " в каждое текстовое поле.",
+                   "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -112,9 +121,12 @@ namespace View
         /// <param name="e"></param>
         private void SalaryLoad(object sender, EventArgs e)
         {
-            salary.Visible = false;
-            wageRate.Visible = false;
-            hourlyWageRate.Visible = false;
+            salaryUserControl1.Visible = false;
+            wageRateUserControl1.Visible = false;
+            hourlyWageRateUserControl1.Visible = false;
         }
+
+        
     }
+
 }

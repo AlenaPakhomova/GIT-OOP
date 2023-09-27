@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace Model
 {
-    [Serializable]
     [XmlInclude(typeof(HourlyWageRate))]
     [XmlInclude(typeof(Salary))]
     [XmlInclude(typeof(WageRate))]
@@ -20,15 +12,24 @@ namespace Model
     /// </summary>
     public abstract class WagesBase
     {
-        /// <summary>
-        /// Вычисление заработной платы.
-        /// </summary>
-        public abstract double Wages();
 
         /// <summary>
         /// Тип заработной платы
         /// </summary>
-        public abstract string TypeWage { get; }
+        [DisplayName ("Тип заработной платы")]
+        public virtual string WageType { get; }
+
+        /// <summary>
+        /// Параметры для расчёта заработной платы
+        /// </summary>
+        [DisplayName ("Параметры")]
+        public virtual string Parameters { get; }
+
+        /// <summary>
+        /// Вычисление заработной платы.
+        /// </summary>
+        [DisplayName("Заработная плата")]
+        public abstract double Wages { get; }
 
         /// <summary>
         /// Проверка на отрицательные числа.
@@ -39,13 +40,53 @@ namespace Model
         /// число в зарплате</exception>
         public static double CheckPositiveNumber(double number)
         {
-            if (number < 0)
+            if (number <= 0)
             {
-                throw new Exception("Ставка, оклад и количество дней " +
+                throw new ArgumentException("Ставка и оклад" +
                     "не могут быть отрицательными числами!");
             }
-            return number;
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
+            else
+            {
+                return number;
+            }          
         }
 
+        /// <summary>
+        /// Проверка количества дней в месяце
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double CheckDays(double number)
+        {
+            if (number <= 0)
+            {
+                throw new ArgumentException("Количество дней " +
+                    "не могут быть отрицательными числами!");
+            }
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
+            else if (number > 31)
+            {
+                throw new ArgumentException("В месяце " +
+                    "всего лишь 31 день!");
+            }
+            else
+            {
+                return number;
+            }
+        }
+
+
+        /// <summary>
+        /// Вывод информации о зарплате
+        /// </summary>
+        public abstract string GetInfo();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,40 +11,62 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class SalaryUserControl : UserControl
+    /// <summary>
+    /// Добавление оклада
+    /// </summary>
+    public partial class SalaryUserControl : UserControl, IAddWages
     {
+        /// <summary>
+        /// Добавление оклада
+        /// </summary>
         public SalaryUserControl()
         {
             InitializeComponent();
         }
 
-        private void labelSalary_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Ввод размера оклада
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            Proverki.CheckInput(e);
         }
 
-        private void labelDaysInMonth_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Ввод количества дней в месяце
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelDaysInMonth_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            Proverki.CheckInput(e);
         }
 
-        private void labelWorkingDays_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Ввод количества рабочих дней 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelWorkingDays_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            Proverki.CheckInput(e);
         }
 
-        private void textBoxSalary_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Метод добавления зарплаты
+        /// </summary>
+        /// <returns></returns>
+        public WagesBase AddingWages()
         {
+            var wagesSalary = new Salary();
 
-        }
+            wagesSalary.SalaryAmount = Proverki.CheckNumber(textBoxSalary.Text);
+            wagesSalary.DaysInMonth = Proverki.CheckNumber(textBoxDaysInMonth.Text);
+            wagesSalary.WorkingDays = Proverki.CheckNumber(textBoxWorkingDays.Text);
 
-        private void textBoxDaysInMonth_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxWorkingDays_TextChanged(object sender, EventArgs e)
-        {
+            return wagesSalary;
 
         }
     }

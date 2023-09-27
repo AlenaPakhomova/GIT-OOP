@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Model
 {
 
@@ -24,11 +18,6 @@ namespace Model
         private double _workingHours;
 
         /// <summary>
-        /// Тип заработной платы
-        /// </summary>
-        public override string TypeWage => "Часовая тарифная ставка";
-
-        /// <summary>
         /// Размер часовой тарифной ставки
         /// </summary>
         public double SizeOfTheHourlyTariffRate
@@ -38,9 +27,8 @@ namespace Model
                 return _sizeOfTheHourlyTariffRate;
             }
             set
-            {
-                CheckPositiveNumber(value);
-                _sizeOfTheHourlyTariffRate = value;
+            {              
+                _sizeOfTheHourlyTariffRate = CheckPositiveNumber(value);
             }
 
         }
@@ -56,16 +44,49 @@ namespace Model
             }
             set
             {
-                CheckPositiveNumber(value);
-                _workingHours = value;
+                _workingHours = CheckPositiveNumber(value);
             }
 
         }
 
         /// <summary>
+        /// Конструктор.
+        /// </summary>
+        public HourlyWageRate()
+        { }
+
+        /// <summary>
         /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
-        public override double Wages() => 
-            _sizeOfTheHourlyTariffRate * _workingHours;
+        public override double Wages => SizeOfTheHourlyTariffRate * WorkingHours;
+           
+     
+        /// <summary>
+        /// Тип заработной платы
+        /// </summary>
+        public override string WageType => "Часовая тарифная ставка";
+
+        /// <summary>
+        /// Параметры для расчёта заработной платы
+        /// </summary>
+        public override string Parameters
+        {
+            get
+            {
+                return $"Ставка = {SizeOfTheHourlyTariffRate}, Часы = {WorkingHours}";
+            }
+        }
+
+        /// <summary>
+        /// Информация о зарплате
+        /// </summary>
+        /// <returns></returns>
+        public override string GetInfo()
+        {
+            return $"Часовая тарифная ставка: Ставка = {SizeOfTheHourlyTariffRate}, " +
+                $"Часы = {WorkingHours}, ЗП: {Math.Round(Wages, 1)}";
+        }
+
+
     }
 }
