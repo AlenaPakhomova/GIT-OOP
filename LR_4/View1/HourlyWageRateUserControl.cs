@@ -24,6 +24,7 @@ namespace View
             InitializeComponent();
         }
 
+        //TODO: duplication
         /// <summary>
         /// Вввод часовой тарифной ставки
         /// </summary>
@@ -34,6 +35,7 @@ namespace View
             Proverki.CheckInput(e);
         }
 
+        //TODO: duplication
         /// <summary>
         /// Ввод часов
         /// </summary>
@@ -59,10 +61,5 @@ namespace View
             return wagesHourlyWageRate;
 
         }
-
-
-
-        
-
     }
 }

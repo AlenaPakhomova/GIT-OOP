@@ -24,6 +24,7 @@ namespace View
             InitializeComponent();
         }
 
+        //TODO: duplication
         /// <summary>
         /// Ввод размера оклада
         /// </summary>

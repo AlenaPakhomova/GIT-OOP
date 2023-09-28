@@ -42,6 +42,9 @@ namespace View
             buttonOk.Enabled = false;
 
             comboSalarySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            
+            //TODO: duplication
+            
             comboSalarySelection.Items.AddRange(new string[] {
             "Почасовая оплата",
             "Оплата по окладу",
@@ -125,8 +128,5 @@ namespace View
             wageRateUserControl1.Visible = false;
             hourlyWageRateUserControl1.Visible = false;
         }
-
-        
     }
-
 }

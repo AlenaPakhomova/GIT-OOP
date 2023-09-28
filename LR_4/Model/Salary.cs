@@ -103,6 +103,7 @@ namespace Model
         public override string GetInfo()
         {
             return $"Зарплата по окладу: Оклад = {SalaryAmount}, Дни в месяце = {DaysInMonth}," +
+                //TODO: округление
                 $" Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 1)} ";
         }
 

@@ -6,8 +6,10 @@ using System.Xml.Serialization;
 using Model;
 namespace View
 {
+    //TODO: XML
     public partial class MainForm : Form
     {
+        //TODO: XML
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace View
         /// </summary>
         private BindingList<WagesBase> _wageList = new();
 
+        //TODO: remove
         /// <summary>
         /// Отфильтрованный список зарплат
         /// </summary>
@@ -33,6 +36,7 @@ namespace View
         private readonly XmlSerializer _serializer =
             new XmlSerializer(typeof(BindingList<WagesBase>));
 
+        //TODO: rename
         /// <summary>
         /// Загрузка формы 
         /// </summary>
@@ -45,8 +49,7 @@ namespace View
             CreateTable(_wageList, dataGridViewSpace);
         }
 
-
-
+        //TODO: RSDN
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
@@ -75,6 +78,7 @@ namespace View
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(wages, null);
             dataGridView.DataSource = source;
+            //TODO: поправить
             dataGridView.Columns[0].Width = 190;
             dataGridView.Columns[1].Width = 400;
             dataGridView.Columns[2].Width = 131;

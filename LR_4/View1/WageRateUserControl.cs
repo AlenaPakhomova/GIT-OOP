@@ -24,6 +24,7 @@ namespace View
             InitializeComponent();
         }
 
+        //TODO: duplication
         /// <summary>
         /// Ввод количества рабочих часов
         /// </summary>
@@ -58,7 +59,5 @@ namespace View
             return wagesWageRate;
 
         }
-
-
     }
 }

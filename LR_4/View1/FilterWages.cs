@@ -11,6 +11,7 @@ using Model;
 
 namespace View
 {
+    //TODO: XML
     public partial class FilterWages : Form
     {
         /// <summary>
@@ -36,7 +37,7 @@ namespace View
         /// <summary>
         /// Форма для фильтрации
         /// </summary>
-        /// <param name="wages"></param>
+        /// <param name="wages">//TODO: XML</param>
         public FilterWages(BindingList<WagesBase> wages)
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace View
 
         }
 
-
+        //TODO: RSDN
         /// <summary>
         /// Ввод необходимой суммы зарплаты
         /// </summary>

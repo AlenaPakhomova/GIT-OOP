@@ -1,5 +1,4 @@
-﻿
-namespace Model
+﻿namespace Model
 {
 
     /// <summary>
@@ -84,6 +83,7 @@ namespace Model
         public override string GetInfo()
         {
             return $"Часовая тарифная ставка: Ставка = {SizeOfTheHourlyTariffRate}, " +
+                //TODO: округление
                 $"Часы = {WorkingHours}, ЗП: {Math.Round(Wages, 1)}";
         }
 

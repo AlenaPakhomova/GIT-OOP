@@ -72,6 +72,7 @@ namespace Model
             {
                 throw new ArgumentException("Нечисловое значение!");
             }
+            //TODO: Добавить условие
             else if (number > 31)
             {
                 throw new ArgumentException("В месяце " +

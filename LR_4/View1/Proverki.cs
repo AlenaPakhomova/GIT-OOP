@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace View
 {
+    //TODO: rename
     public static class Proverki
     {
         /// <summary>
