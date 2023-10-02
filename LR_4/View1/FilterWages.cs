@@ -11,7 +11,10 @@ using Model;
 
 namespace View
 {
-    //TODO: XML
+    //TODO: XML (+)
+    /// <summary>
+    /// Класс, описывающий форму для фильтрации
+    /// </summary>
     public partial class FilterWages : Form
     {
         /// <summary>
@@ -46,22 +49,23 @@ namespace View
             MaximizeBox = false;
             _listWages = wages;
             textBoxWage.Enabled = false;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
         }
 
-        //TODO: RSDN
+        //TODO: RSDN (+)
         /// <summary>
         /// Ввод необходимой суммы зарплаты
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxWage_TextChanged(object sender, EventArgs e)
+        private void TextBoxWage_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 if(textBoxWage.Text != "")
                 {
-                    wage = Proverki.CheckNumber(textBoxWage.Text);
+                    wage = Checks.CheckNumber(textBoxWage.Text);
                 }
             }
             catch
@@ -76,9 +80,9 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       private void textBoxWage_KeyPress(object sender, KeyPressEventArgs e)
+       private void TextBoxWage_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Proverki.CheckInput(e);
+            Checks.CheckInput(e);
         }
 
         /// <summary>
@@ -86,7 +90,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkBoxInput_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxInput_CheckedChanged(object sender, EventArgs e)
         {
             
             if(checkBoxInput.Checked)
@@ -100,7 +104,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
             _listWagesFilter = new BindingList<WagesBase>();
 

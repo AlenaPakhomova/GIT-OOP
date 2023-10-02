@@ -6,10 +6,16 @@ using System.Xml.Serialization;
 using Model;
 namespace View
 {
-    //TODO: XML
+    //TODO: XML (+)
+    /// <summary>
+    /// Класс для создания главной формы калькулятора 
+    /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: XML
+        //TODO: XML (+)
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -17,6 +23,7 @@ namespace View
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             Size = new Size(830, 410);
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         /// <summary>
@@ -24,11 +31,6 @@ namespace View
         /// </summary>
         private BindingList<WagesBase> _wageList = new();
 
-        //TODO: remove
-        /// <summary>
-        /// Отфильтрованный список зарплат
-        /// </summary>
-        private BindingList<WagesBase> _filteredWageList = new();
 
         /// <summary>
         /// Для файлов 
@@ -36,26 +38,26 @@ namespace View
         private readonly XmlSerializer _serializer =
             new XmlSerializer(typeof(BindingList<WagesBase>));
 
-        //TODO: rename
+        //TODO: rename (+)
         /// <summary>
         /// Загрузка формы 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             // Выделение памяти
             _wageList = new BindingList<WagesBase>();
             CreateTable(_wageList, dataGridViewSpace);
         }
 
-        //TODO: RSDN
+        //TODO: RSDN (+)
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             var addWageForm = new AddWageForm();
 
@@ -78,16 +80,9 @@ namespace View
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(wages, null);
             dataGridView.DataSource = source;
-            //TODO: поправить
-            dataGridView.Columns[0].Width = 190;
-            dataGridView.Columns[1].Width = 400;
-            dataGridView.Columns[2].Width = 131;
-            dataGridView.AllowUserToResizeColumns = false;
-            dataGridView.Columns[0].HeaderText = "Вид ЗП";
-            dataGridView.Columns[1].HeaderText = "Расчёт ЗП";
-            dataGridView.Columns[2].HeaderText = "Итого в рублях";
-            //dataGridView.AutoSizeColumnsMode =
-            // DataGridViewAutoSizeColumnsMode.Fill;
+            //TODO: поправить (+)
+            dataGridView.AutoSizeColumnsMode =
+             DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
@@ -108,8 +103,6 @@ namespace View
                 foreach (DataGridViewRow row in dataGridViewSpace.SelectedRows)
                 {
                     _wageList.Remove(row.DataBoundItem as WagesBase);
-
-                    //_filteredList.Remove(row.DataBoundItem as FigureBase);
                 }
             }
         }
@@ -117,7 +110,7 @@ namespace View
        
 
         /// <summary>
-        /// Очитска списка
+        /// Очистка списка
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -149,7 +142,7 @@ namespace View
             newFilterWages.WagesFiltered += (sender, wageEventArgs) =>
             {
                 dataGridViewSpace.DataSource = ((WageListEventArgs)wageEventArgs).WageListValue;
-                _filteredWageList = ((WageListEventArgs)wageEventArgs).WageListValue;
+               
             };
         }
 
@@ -181,7 +174,7 @@ namespace View
 
             var saveFileDialog = new SaveFileDialog
             {
-                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.zp)|*.zp|Все файлы (*.*)|*.*"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -207,7 +200,7 @@ namespace View
         {
             var openFileDialog = new OpenFileDialog
             {
-                Filter = "Файлы (*.fgr)|*.fgr|Все файлы (*.*)|*.*"
+                Filter = "Файлы (*.zp)|*.zp|Все файлы (*.*)|*.*"
             };
 
             if (openFileDialog.ShowDialog() != DialogResult.OK) return;

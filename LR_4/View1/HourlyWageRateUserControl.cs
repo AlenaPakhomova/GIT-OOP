@@ -24,26 +24,15 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication
+        //TODO: duplication (+)
         /// <summary>
-        /// Вввод часовой тарифной ставки
+        /// Вввод чисел
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labelHourlyWageRate_KeyPress(object sender, KeyPressEventArgs e)
+        private void LabelHourlyWageRate_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Proverki.CheckInput(e);
-        }
-
-        //TODO: duplication
-        /// <summary>
-        /// Ввод часов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void labelTimeHourlyRate_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Proverki.CheckInput(e);
+            Checks.CheckInput(e);
         }
 
         
@@ -55,8 +44,8 @@ namespace View
         {
             var wagesHourlyWageRate = new HourlyWageRate();
 
-            wagesHourlyWageRate.SizeOfTheHourlyTariffRate = Proverki.CheckNumber(textBoxHourlyWageRate.Text);
-            wagesHourlyWageRate.WorkingHours = Proverki.CheckNumber(textBoxTimeHourlyRate.Text);
+            wagesHourlyWageRate.SizeOfTheHourlyTariffRate = Checks.CheckNumber(textBoxHourlyWageRate.Text);
+            wagesHourlyWageRate.WorkingHours = Checks.CheckNumber(textBoxTimeHourlyRate.Text);
 
             return wagesHourlyWageRate;
 

@@ -24,25 +24,15 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication
+        //TODO: duplication (+)
         /// <summary>
-        /// Ввод количества рабочих часов
+        /// Ввод чисел
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labelWorkingHours_KeyPress(object sender, KeyPressEventArgs e)
+        private void LabelWorkingHours_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Proverki.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Ввод тарифной ставки
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void labelRate_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Proverki.CheckInput(e);
+            Checks.CheckInput(e);
         }
 
         /// <summary>
@@ -53,8 +43,8 @@ namespace View
         {
             var wagesWageRate = new WageRate();
 
-            wagesWageRate.TariffRate = Proverki.CheckNumber(textBoxRate.Text);
-            wagesWageRate.WorkingDays = Proverki.CheckNumber(textBoxWorkingHours.Text);
+            wagesWageRate.TariffRate = Checks.CheckNumber(textBoxRate.Text);
+            wagesWageRate.WorkingDays = Checks.CheckNumber(textBoxWorkingHours.Text);
 
             return wagesWageRate;
 

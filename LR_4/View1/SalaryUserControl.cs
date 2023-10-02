@@ -24,35 +24,15 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication
+        //TODO: duplication (+)
         /// <summary>
-        /// Ввод размера оклада
+        /// Ввод чисел
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void labelSalary_KeyPress(object sender, KeyPressEventArgs e)
+        private void LabelSalary_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Proverki.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Ввод количества дней в месяце
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void labelDaysInMonth_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Proverki.CheckInput(e);
-        }
-
-        /// <summary>
-        /// Ввод количества рабочих дней 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void labelWorkingDays_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Proverki.CheckInput(e);
+            Checks.CheckInput(e);
         }
 
         /// <summary>
@@ -63,9 +43,9 @@ namespace View
         {
             var wagesSalary = new Salary();
 
-            wagesSalary.SalaryAmount = Proverki.CheckNumber(textBoxSalary.Text);
-            wagesSalary.DaysInMonth = Proverki.CheckNumber(textBoxDaysInMonth.Text);
-            wagesSalary.WorkingDays = Proverki.CheckNumber(textBoxWorkingDays.Text);
+            wagesSalary.SalaryAmount = Checks.CheckNumber(textBoxSalary.Text);
+            wagesSalary.DaysInMonth = Checks.CheckNumber(textBoxDaysInMonth.Text);
+            wagesSalary.WorkingDays = Checks.CheckNumber(textBoxWorkingDays.Text);
 
             return wagesSalary;
 

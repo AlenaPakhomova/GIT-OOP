@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace View
 {
-    //TODO: rename
-    public static class Proverki
+    //TODO: rename (+)
+    /// <summary>
+    /// Класс для выполнения проверок
+    /// </summary>
+    public static class Checks
     {
         /// <summary>
         /// Проверки на числа, точки и запятые

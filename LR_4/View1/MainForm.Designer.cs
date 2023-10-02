@@ -80,7 +80,7 @@ namespace View
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonDelete
             // 
@@ -186,7 +186,7 @@ namespace View
             this.Controls.Add(this.groupBoxСalculator);
             this.Name = "MainForm";
             this.Text = "Калькулятор";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBoxСalculator.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpace)).EndInit();
             this.toolStrip1.ResumeLayout(false);

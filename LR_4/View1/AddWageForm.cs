@@ -38,23 +38,23 @@ namespace View
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             Size = new Size(400, 400);
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             buttonOk.Enabled = false;
-
             comboSalarySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            
-            //TODO: duplication
+
+            //TODO: duplication (+)
+
+            string[] typeWages = { "Почасовая оплата", "Оплата по окладу", "Оплата по ставке" };
             
             comboSalarySelection.Items.AddRange(new string[] {
-            "Почасовая оплата",
-            "Оплата по окладу",
-            "Оплата по ставке"});
+            typeWages[0], typeWages[1], typeWages[2]});
 
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {"Почасовая оплата", hourlyWageRateUserControl1 },
-                {"Оплата по окладу", salaryUserControl1 },
-                {"Оплата по ставке", wageRateUserControl1 },
+                {typeWages[0], hourlyWageRateUserControl1 },
+                {typeWages[1], salaryUserControl1 },
+                {typeWages[2], wageRateUserControl1 },
             };
         }
 

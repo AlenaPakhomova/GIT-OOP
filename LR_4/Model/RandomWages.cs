@@ -6,18 +6,35 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML
+    //TODO: XML (+)
+    /// <summary>
+    /// Класс для создания случайной заработной платы
+    /// </summary>
     public static class RandomWages
     {
+        /// <summary>
+        /// Рандомайзер
+        /// </summary>
         private static Random _random = new Random();
 
+        /// <summary>
+        /// Генерация случайного числа double через int
+        /// </summary>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
         public static double GetRandomDouble(int minValue, int maxValue)
         {
-            var randomValue = Convert.ToDouble(_random.Next(minValue, maxValue));
+            var randomValue = Convert.ToDouble(_random.Next(minValue, 
+                maxValue));
             return randomValue;
         }
 
-
+        /// <summary>
+        /// Генерация случайной зарплаты
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static WagesBase GetRandomWages()
         {
             var figureType = _random.Next(0, 3);
@@ -38,11 +55,16 @@ namespace Model
                     }
                 default:
                     {
-                        throw new ArgumentException("Тип фигуры отсутствует.");
+                        throw new ArgumentException("Тип фигуры " +
+                            "отсутствует.");
                     }
             }
         }
 
+        /// <summary>
+        /// Генерация случайной часовой тарифной ставки
+        /// </summary>
+        /// <returns></returns>
         public static WagesBase RandomHourlyWageRate()
         {
             var hourlyWageRate = new HourlyWageRate
@@ -53,6 +75,10 @@ namespace Model
             return hourlyWageRate;
         }
 
+        /// <summary>
+        /// Генерация случайного оклада
+        /// </summary>
+        /// <returns></returns>
         public static WagesBase RandomSalary()
         {
             var salary = new Salary
@@ -64,6 +90,10 @@ namespace Model
             return salary;
         }
 
+        /// <summary>
+        /// Генерация случайной тарифной ставки
+        /// </summary>
+        /// <returns></returns>
         public static WagesBase RandomWageRate()
         {
             var wageRate = new WageRate

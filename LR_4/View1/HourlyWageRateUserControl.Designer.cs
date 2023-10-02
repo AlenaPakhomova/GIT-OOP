@@ -42,7 +42,7 @@
             this.labelHourlyWageRate.Size = new System.Drawing.Size(115, 20);
             this.labelHourlyWageRate.TabIndex = 0;
             this.labelHourlyWageRate.Text = "Часовая ставка";
-            this.labelHourlyWageRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelHourlyWageRate_KeyPress);
+            this.labelHourlyWageRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelHourlyWageRate_KeyPress);
             // 
             // labelTimeHourlyRate
             // 
@@ -52,7 +52,7 @@
             this.labelTimeHourlyRate.Size = new System.Drawing.Size(206, 20);
             this.labelTimeHourlyRate.TabIndex = 1;
             this.labelTimeHourlyRate.Text = "Кол-во отработанных часов";
-            this.labelTimeHourlyRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelTimeHourlyRate_KeyPress);
+            this.labelTimeHourlyRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelHourlyWageRate_KeyPress);
             // 
             // textBoxHourlyWageRate
             // 

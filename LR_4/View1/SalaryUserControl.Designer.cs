@@ -53,7 +53,7 @@ namespace View
             this.labelSalary.Size = new System.Drawing.Size(51, 20);
             this.labelSalary.TabIndex = 1;
             this.labelSalary.Text = "Оклад";
-            this.labelSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelSalary_KeyPress);
+            this.labelSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelSalary_KeyPress);
             // 
             // labelDaysInMonth
             // 
@@ -63,7 +63,7 @@ namespace View
             this.labelDaysInMonth.Size = new System.Drawing.Size(226, 20);
             this.labelDaysInMonth.TabIndex = 2;
             this.labelDaysInMonth.Text = "Кол-во рабочих дней в месяце";
-            this.labelDaysInMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelDaysInMonth_KeyPress);
+            this.labelDaysInMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelSalary_KeyPress);
             // 
             // labelWorkingDays
             // 
@@ -73,7 +73,7 @@ namespace View
             this.labelWorkingDays.Size = new System.Drawing.Size(200, 20);
             this.labelWorkingDays.TabIndex = 3;
             this.labelWorkingDays.Text = "Кол-во отработанных дней";
-            this.labelWorkingDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelWorkingDays_KeyPress);
+            this.labelWorkingDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelSalary_KeyPress);
             // 
             // textBoxDaysInMonth
             // 

@@ -61,7 +61,7 @@ namespace Model
         /// <param name="number"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static double CheckDays(double number)
+        public static double CheckDaysInMonth(double number)
         {
             if (number <= 0)
             {
@@ -72,11 +72,39 @@ namespace Model
             {
                 throw new ArgumentException("Нечисловое значение!");
             }
-            //TODO: Добавить условие
-            else if (number > 31)
+            //TODO: Добавить условие (+)
+            else if (number > 31 || number < 28)
             {
                 throw new ArgumentException("В месяце " +
-                    "всего лишь 31 день!");
+                    "может быть от 28 до 31 дня!");
+            }
+            else
+            {
+                return number;
+            }
+        }
+
+        /// <summary>
+        /// Проверка количества рабочих дней в месяце
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double CheckWorkingDaysInMonth(double number)
+        {
+            if (number <= 0)
+            {
+                throw new ArgumentException("Количество дней " +
+                    "не может быть отрицательным числом!");
+            }
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
+            else if (number > 22)
+            {
+                throw new ArgumentException("В месяце " +
+                    "не может быть болше 22 рабочих дней!");
             }
             else
             {

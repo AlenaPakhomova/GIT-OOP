@@ -57,7 +57,8 @@
         /// <summary>
         /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
-        public override double Wages => SizeOfTheHourlyTariffRate * WorkingHours;
+        public override double Wages => SizeOfTheHourlyTariffRate 
+            * WorkingHours;
            
      
         /// <summary>
@@ -72,7 +73,8 @@
         {
             get
             {
-                return $"Ставка = {SizeOfTheHourlyTariffRate}, Часы = {WorkingHours}";
+                return $"Ставка = {SizeOfTheHourlyTariffRate}, " +
+                    $"Часы = {WorkingHours}";
             }
         }
 
@@ -82,9 +84,10 @@
         /// <returns></returns>
         public override string GetInfo()
         {
-            return $"Часовая тарифная ставка: Ставка = {SizeOfTheHourlyTariffRate}, " +
-                //TODO: округление
-                $"Часы = {WorkingHours}, ЗП: {Math.Round(Wages, 1)}";
+            return $"Часовая тарифная ставка: Ставка = " +
+                $"{SizeOfTheHourlyTariffRate}, Часы = {WorkingHours}," +
+                //TODO: округление (+)
+                $" ЗП: {Math.Round(Wages, 2)}";
         }
 
 

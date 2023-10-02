@@ -42,7 +42,7 @@
             this.labelWorkingHours.Size = new System.Drawing.Size(206, 20);
             this.labelWorkingHours.TabIndex = 0;
             this.labelWorkingHours.Text = "Кол-во отработанных часов";
-            this.labelWorkingHours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelWorkingHours_KeyPress);
+            this.labelWorkingHours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelWorkingHours_KeyPress);
             // 
             // labelRate
             // 
@@ -52,7 +52,7 @@
             this.labelRate.Size = new System.Drawing.Size(55, 20);
             this.labelRate.TabIndex = 1;
             this.labelRate.Text = "Ставка";
-            this.labelRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelRate_KeyPress);
+            this.labelRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LabelWorkingHours_KeyPress);
             // 
             // textBoxRate
             // 

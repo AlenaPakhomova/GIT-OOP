@@ -69,8 +69,8 @@
             this.textBoxWage.Name = "textBoxWage";
             this.textBoxWage.Size = new System.Drawing.Size(125, 27);
             this.textBoxWage.TabIndex = 4;
-            this.textBoxWage.TextChanged += new System.EventHandler(this.textBoxWage_TextChanged);
-            this.textBoxWage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWage_KeyPress);
+            this.textBoxWage.TextChanged += new System.EventHandler(this.TextBoxWage_TextChanged);
+            this.textBoxWage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxWage_KeyPress);
             // 
             // checkBoxInput
             // 
@@ -81,7 +81,7 @@
             this.checkBoxInput.TabIndex = 3;
             this.checkBoxInput.Text = "Ввод необходимой суммы ";
             this.checkBoxInput.UseVisualStyleBackColor = true;
-            this.checkBoxInput.CheckedChanged += new System.EventHandler(this.checkBoxInput_CheckedChanged);
+            this.checkBoxInput.CheckedChanged += new System.EventHandler(this.CheckBoxInput_CheckedChanged);
             // 
             // checkBoxSalary
             // 
@@ -121,7 +121,7 @@
             this.buttonSearch.TabIndex = 1;
             this.buttonSearch.Text = "Найти";
             this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // FilterWages
             // 

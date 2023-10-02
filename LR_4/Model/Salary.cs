@@ -48,7 +48,7 @@ namespace Model
             }
             set
             {
-                _daysInMonth = CheckDays(value); 
+                _daysInMonth = CheckDaysInMonth(value); 
             }
         }
 
@@ -64,7 +64,7 @@ namespace Model
             }
             set
             {
-                _workingDays = CheckDays(value);
+                _workingDays = CheckWorkingDaysInMonth(value);
             }
         }
 
@@ -78,7 +78,8 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по окладу
         /// </summary>
-        public override double Wages => SalaryAmount / DaysInMonth * WorkingDays;
+        public override double Wages => SalaryAmount / DaysInMonth 
+            * WorkingDays;
 
         /// <summary>
         /// Тип заработной платы
@@ -92,7 +93,9 @@ namespace Model
         {
             get
             {
-                return $"Оклад = {SalaryAmount}, Дни в месяце = {DaysInMonth}, Рабочие дни = {WorkingDays}";
+                return $"Оклад = {SalaryAmount}, " +
+                    $"Дни в месяце = {DaysInMonth}, " +
+                    $"Рабочие дни = {WorkingDays}";
             }
         }
 
@@ -102,9 +105,10 @@ namespace Model
         /// <returns></returns>
         public override string GetInfo()
         {
-            return $"Зарплата по окладу: Оклад = {SalaryAmount}, Дни в месяце = {DaysInMonth}," +
-                //TODO: округление
-                $" Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 1)} ";
+            return $"Зарплата по окладу: Оклад = {SalaryAmount}, " +
+                $"Дни в месяце = {DaysInMonth}," +
+                //TODO: округление (+)
+                $" Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 2)}";
         }
 
         

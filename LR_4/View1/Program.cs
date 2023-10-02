@@ -14,8 +14,6 @@ namespace View
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.EnableVisualStyles(); //под вопросом
-            //Application.SetCompatibleTextRenderingDefault(false); // под вопросом
             Application.Run(new MainForm());
         }
     }
