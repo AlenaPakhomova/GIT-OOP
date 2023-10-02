@@ -85,7 +85,7 @@ namespace Model
             {
                 SalaryAmount = GetRandomDouble(10000, 100000),
                 DaysInMonth = GetRandomDouble(28, 31),
-                WorkingDays = GetRandomDouble(1, 21),
+                WorkingDays = GetRandomDouble(1, 22),
             };
             return salary;
         }
@@ -103,6 +103,8 @@ namespace Model
             };
             return wageRate;
         }
+
+
 
     }
 }

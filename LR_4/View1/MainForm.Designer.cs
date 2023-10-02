@@ -54,7 +54,7 @@ namespace View
             this.groupBoxСalculator.Controls.Add(this.dataGridViewSpace);
             this.groupBoxСalculator.Location = new System.Drawing.Point(37, 52);
             this.groupBoxСalculator.Name = "groupBoxСalculator";
-            this.groupBoxСalculator.Size = new System.Drawing.Size(758, 219);
+            this.groupBoxСalculator.Size = new System.Drawing.Size(739, 219);
             this.groupBoxСalculator.TabIndex = 0;
             this.groupBoxСalculator.TabStop = false;
             this.groupBoxСalculator.Text = "Калькулятор заработных плат";
@@ -69,7 +69,7 @@ namespace View
             this.dataGridViewSpace.Name = "dataGridViewSpace";
             this.dataGridViewSpace.RowHeadersWidth = 51;
             this.dataGridViewSpace.RowTemplate.Height = 25;
-            this.dataGridViewSpace.Size = new System.Drawing.Size(746, 184);
+            this.dataGridViewSpace.Size = new System.Drawing.Size(725, 184);
             this.dataGridViewSpace.TabIndex = 1;
             // 
             // buttonAdd
@@ -90,7 +90,7 @@ namespace View
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
             // buttonSearch
             // 
@@ -101,7 +101,7 @@ namespace View
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Фильтр";
             this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // buttonReset
             // 
@@ -111,7 +111,7 @@ namespace View
             this.buttonReset.TabIndex = 5;
             this.buttonReset.Text = "Очистить";
             this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.buttonReset.Click += new System.EventHandler(this.ButtonReset_Click);
             // 
             // buttonRandom
             // 
@@ -122,7 +122,7 @@ namespace View
             this.buttonRandom.TabIndex = 6;
             this.buttonRandom.Text = "Случайная зарплата";
             this.buttonRandom.UseVisualStyleBackColor = true;
-            this.buttonRandom.Click += new System.EventHandler(this.buttonRandom_Click);
+            this.buttonRandom.Click += new System.EventHandler(this.ButtonRandom_Click);
             // 
             // buttonCleanFilter
             // 
@@ -132,7 +132,7 @@ namespace View
             this.buttonCleanFilter.TabIndex = 7;
             this.buttonCleanFilter.Text = "Сбросить фильтр";
             this.buttonCleanFilter.UseVisualStyleBackColor = true;
-            this.buttonCleanFilter.Click += new System.EventHandler(this.buttonCleanFilter_Click);
+            this.buttonCleanFilter.Click += new System.EventHandler(this.ButtonCleanFilter_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -149,14 +149,14 @@ namespace View
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.OpenToolStripMenuItem.Text = "Загрузить";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
@@ -167,7 +167,7 @@ namespace View
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(946, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(801, 27);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -175,7 +175,7 @@ namespace View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 451);
+            this.ClientSize = new System.Drawing.Size(801, 451);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.buttonCleanFilter);
             this.Controls.Add(this.buttonRandom);

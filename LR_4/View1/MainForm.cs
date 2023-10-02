@@ -81,14 +81,13 @@ namespace View
             var source = new BindingSource(wages, null);
             dataGridView.DataSource = source;
             //TODO: поправить (+)
-            dataGridView.AutoSizeColumnsMode =
-             DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.SelectionMode =
-                DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         /// <summary>
@@ -96,7 +95,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void ButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridViewSpace.SelectedCells.Count != 0)
             {
@@ -114,7 +113,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void ButtonReset_Click(object sender, EventArgs e)
         {
             _wageList.Clear();
         }
@@ -124,7 +123,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonRandom_Click(object sender, EventArgs e)
+        private void ButtonRandom_Click(object sender, EventArgs e)
         {
             _wageList.Add(RandomWages.GetRandomWages());
         }
@@ -135,7 +134,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
             var newFilterWages = new FilterWages(_wageList);
             newFilterWages.Show();
@@ -151,7 +150,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCleanFilter_Click(object sender, EventArgs e)
+        private void ButtonCleanFilter_Click(object sender, EventArgs e)
         {
             CreateTable(_wageList, dataGridViewSpace);
         }

@@ -57,8 +57,8 @@
         /// <summary>
         /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
-        public override double Wages => SizeOfTheHourlyTariffRate 
-            * WorkingHours;
+        public override double Wages => Math.Round((SizeOfTheHourlyTariffRate 
+            * WorkingHours),2);
            
      
         /// <summary>
@@ -87,7 +87,7 @@
             return $"Часовая тарифная ставка: Ставка = " +
                 $"{SizeOfTheHourlyTariffRate}, Часы = {WorkingHours}," +
                 //TODO: округление (+)
-                $" ЗП: {Math.Round(Wages, 2)}";
+                $" ЗП: {Wages}";
         }
 
 

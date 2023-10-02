@@ -63,7 +63,7 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по тарифной ставке
         /// </summary>
-        public override double Wages => TariffRate * WorkingDays;
+        public override double Wages => Math.Round((TariffRate * WorkingDays),2);
 
         /// <summary>
         /// Параметры для расчёта заработной платы 
@@ -86,7 +86,7 @@ namespace Model
             //TODO: округление (+)
             //TODO: RSDN (+)
             return $"Тарифная ставка: Ставка = {TariffRate}, " +
-                $"Рабочие дни = {WorkingDays}, ЗП: {Math.Round(Wages, 2)}";
+                $"Рабочие дни = {WorkingDays}, ЗП: {Wages}";
         }
 
 
