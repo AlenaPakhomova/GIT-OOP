@@ -44,7 +44,8 @@ namespace View
             var wagesWageRate = new WageRate();
 
             wagesWageRate.TariffRate = Checks.CheckNumber(textBoxRate.Text);
-            wagesWageRate.WorkingDays = Checks.CheckNumber(textBoxWorkingHours.Text);
+            wagesWageRate.WorkingDays = 
+                Checks.CheckNumber(textBoxWorkingHours.Text);
 
             return wagesWageRate;
 
