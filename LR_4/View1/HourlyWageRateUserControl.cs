@@ -30,7 +30,8 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LabelHourlyWageRate_KeyPress(object sender, KeyPressEventArgs e)
+        private void LabelHourlyWageRate_KeyPress(object sender, 
+            KeyPressEventArgs e)
         {
             Checks.CheckInput(e);
         }
@@ -44,8 +45,10 @@ namespace View
         {
             var wagesHourlyWageRate = new HourlyWageRate();
 
-            wagesHourlyWageRate.SizeOfTheHourlyTariffRate = Checks.CheckNumber(textBoxHourlyWageRate.Text);
-            wagesHourlyWageRate.WorkingHours = Checks.CheckNumber(textBoxTimeHourlyRate.Text);
+            wagesHourlyWageRate.SizeOfTheHourlyTariffRate = 
+                Checks.CheckNumber(textBoxHourlyWageRate.Text);
+            wagesHourlyWageRate.WorkingHours =
+                Checks.CheckNumber(textBoxTimeHourlyRate.Text);
 
             return wagesHourlyWageRate;
 

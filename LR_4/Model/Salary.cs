@@ -78,8 +78,8 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по окладу
         /// </summary>
-        public override double Wages => Math.Round((SalaryAmount / DaysInMonth 
-            * WorkingDays), 2);
+        public override double Wages => 
+            Math.Round((SalaryAmount / DaysInMonth * WorkingDays), 2);
 
         /// <summary>
         /// Тип заработной платы

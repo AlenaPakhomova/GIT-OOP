@@ -69,7 +69,7 @@ namespace Model
         {
             var hourlyWageRate = new HourlyWageRate
             {
-                SizeOfTheHourlyTariffRate = GetRandomDouble(50, 500),
+                SizeOfTheHourlyTariffRate = GetRandomDouble(100, 1000),
                 WorkingHours = GetRandomDouble(1, 24),             
             };
             return hourlyWageRate;
@@ -98,8 +98,8 @@ namespace Model
         {
             var wageRate = new WageRate
             {
-                TariffRate = GetRandomDouble(50, 500),
-                WorkingDays = GetRandomDouble(1, 21),               
+                TariffRate = GetRandomDouble(100, 1000),
+                WorkingDays = GetRandomDouble(1, 22),               
             };
             return wageRate;
         }

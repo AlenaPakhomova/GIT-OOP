@@ -115,7 +115,8 @@ namespace View
                 && !checkBoxInput.Checked)
             {
                 MessageBox.Show("Критерии для поиска не введены!",
-                    "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Внимание", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
                 return;
             }
 
@@ -167,8 +168,9 @@ namespace View
             }
             else
             {
-                MessageBox.Show("Зарплат с такими параметрами не существует", 
-                    "Введите другие параметры", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Зарплат с такими параметрами не " +
+                    "существует", "Введите другие параметры", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 eventArgs = new WageListEventArgs(_listWagesFilter);
                 return;
             }

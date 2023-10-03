@@ -57,8 +57,8 @@
         /// <summary>
         /// Вычисление зарплаты по часовой тарифной ставке
         /// </summary>
-        public override double Wages => Math.Round((SizeOfTheHourlyTariffRate 
-            * WorkingHours),2);
+        public override double Wages => 
+            Math.Round((SizeOfTheHourlyTariffRate * WorkingHours),2);
            
      
         /// <summary>

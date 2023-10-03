@@ -24,7 +24,8 @@ namespace View
         /// <summary>
         /// Переменная для словаря UserControl
         /// </summary>
-        private readonly Dictionary<string, UserControl> _comboBoxToUserControl;
+        private readonly Dictionary<string, UserControl>
+            _comboBoxToUserControl;
 
         /// <summary>
         /// Метка UserControl
@@ -41,11 +42,13 @@ namespace View
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             buttonOk.Enabled = false;
-            comboSalarySelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboSalarySelection.DropDownStyle =
+                System.Windows.Forms.ComboBoxStyle.DropDownList;
 
             //TODO: duplication (+)
 
-            string[] typeWages = { "Почасовая оплата", "Оплата по окладу", "Оплата по ставке" };
+            string[] typeWages = { "Почасовая оплата", "Оплата по окладу", 
+                "Оплата по ставке" };
             
             comboSalarySelection.Items.AddRange(new string[] {
             typeWages[0], typeWages[1], typeWages[2]});
@@ -88,9 +91,11 @@ namespace View
         {
             try
             {
-                var wagesControlName = comboSalarySelection.SelectedItem.ToString();
+                var wagesControlName = 
+                    comboSalarySelection.SelectedItem.ToString();
                 var wagesControl = _comboBoxToUserControl[wagesControlName];
-                var wageEventArgs = new WageEventArgs(((IAddWages)wagesControl).AddingWages());
+                var wageEventArgs =
+                    new WageEventArgs(((IAddWages)wagesControl).AddingWages());
                 AddingWages?.Invoke(this, wageEventArgs);
                 DialogResult = DialogResult.OK;
             }

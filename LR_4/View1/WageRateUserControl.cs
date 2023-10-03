@@ -30,7 +30,8 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LabelWorkingHours_KeyPress(object sender, KeyPressEventArgs e)
+        private void LabelWorkingHours_KeyPress(object sender, 
+            KeyPressEventArgs e)
         {
             Checks.CheckInput(e);
         }

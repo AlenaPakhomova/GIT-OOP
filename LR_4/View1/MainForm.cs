@@ -85,9 +85,12 @@ namespace View
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = 
+                DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView.AutoSizeColumnsMode = 
+                DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.DefaultCellStyle.WrapMode =
+                DataGridViewTriState.True;
         }
 
         /// <summary>
@@ -99,7 +102,8 @@ namespace View
         {
             if (dataGridViewSpace.SelectedCells.Count != 0)
             {
-                foreach (DataGridViewRow row in dataGridViewSpace.SelectedRows)
+                foreach (DataGridViewRow row in 
+                    dataGridViewSpace.SelectedRows)
                 {
                     _wageList.Remove(row.DataBoundItem as WagesBase);
                 }
@@ -140,7 +144,8 @@ namespace View
             newFilterWages.Show();
             newFilterWages.WagesFiltered += (sender, wageEventArgs) =>
             {
-                dataGridViewSpace.DataSource = ((WageListEventArgs)wageEventArgs).WageListValue;
+                dataGridViewSpace.DataSource =
+                ((WageListEventArgs)wageEventArgs).WageListValue;
                
             };
         }

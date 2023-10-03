@@ -43,9 +43,12 @@ namespace View
         {
             var wagesSalary = new Salary();
 
-            wagesSalary.SalaryAmount = Checks.CheckNumber(textBoxSalary.Text);
-            wagesSalary.DaysInMonth = Checks.CheckNumber(textBoxDaysInMonth.Text);
-            wagesSalary.WorkingDays = Checks.CheckNumber(textBoxWorkingDays.Text);
+            wagesSalary.SalaryAmount = 
+                Checks.CheckNumber(textBoxSalary.Text);
+            wagesSalary.DaysInMonth = 
+                Checks.CheckNumber(textBoxDaysInMonth.Text);
+            wagesSalary.WorkingDays = 
+                Checks.CheckNumber(textBoxWorkingDays.Text);
 
             return wagesSalary;
 

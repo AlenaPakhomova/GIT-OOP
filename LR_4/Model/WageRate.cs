@@ -63,7 +63,8 @@ namespace Model
         /// <summary>
         /// Вычисление зарплаты по тарифной ставке
         /// </summary>
-        public override double Wages => Math.Round((TariffRate * WorkingDays),2);
+        public override double Wages => 
+            Math.Round((TariffRate * WorkingDays),2);
 
         /// <summary>
         /// Параметры для расчёта заработной платы 
