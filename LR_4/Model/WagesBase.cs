@@ -28,7 +28,7 @@ namespace Model
         /// <summary>
         /// Вычисление заработной платы.
         /// </summary>
-        [DisplayName("Заработная плата")]
+        [DisplayName("Заработная плата, руб")]
         public abstract double Wages { get; }
 
         /// <summary>
