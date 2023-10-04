@@ -46,7 +46,6 @@ namespace View
                 System.Windows.Forms.ComboBoxStyle.DropDownList;
 
             //TODO: duplication (+)
-
             string[] typeWages = { "Почасовая оплата", "Оплата по окладу", 
                 "Оплата по ставке" };
             
