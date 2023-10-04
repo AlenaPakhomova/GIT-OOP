@@ -30,7 +30,7 @@ namespace View
         /// <summary>
         /// Метка UserControl
         /// </summary>
-        private UserControl userControl;
+        private UserControl _userControl;
 
         public AddWageForm()
         {
@@ -45,7 +45,6 @@ namespace View
             comboSalarySelection.DropDownStyle =
                 System.Windows.Forms.ComboBoxStyle.DropDownList;
 
-            //TODO: duplication (+)
             string[] typeWages = { "Почасовая оплата", "Оплата по окладу", 
                 "Оплата по ставке" };
             
@@ -69,14 +68,14 @@ namespace View
         private void ComboBoxSalarySelection(object sender, EventArgs e)
         {
             string wageType = comboSalarySelection.SelectedItem.ToString();
-            foreach (var (wageValue, userControl) in _comboBoxToUserControl)
+            foreach (var (wageValue, userControlTmp) in _comboBoxToUserControl)
             {
-                userControl.Visible = false;
+                userControlTmp.Visible = false;
                 if (wageType == wageValue)
                 {
-                    userControl.Visible = true;
+                    userControlTmp.Visible = true;
                     buttonOk.Enabled = true;
-                    this.userControl = userControl;
+                    this._userControl = userControlTmp;
                 }
             }
         }

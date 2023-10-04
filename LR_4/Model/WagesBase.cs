@@ -72,7 +72,6 @@ namespace Model
             {
                 throw new ArgumentException("Нечисловое значение!");
             }
-            //TODO: Добавить условие (+)
             else if (number > 31 || number < 28)
             {
                 throw new ArgumentException("В месяце " +
@@ -116,5 +115,11 @@ namespace Model
         /// Вывод информации о зарплате
         /// </summary>
         public abstract string GetInfo();
+
+        //TODO: XML
+        protected double GetRoundedWage(double wage)
+        {
+            return Math.Round(wage, 2);
+        }
     }
 }

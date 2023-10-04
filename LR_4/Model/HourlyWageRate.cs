@@ -86,7 +86,6 @@
         {
             return $"Часовая тарифная ставка: Ставка = " +
                 $"{SizeOfTheHourlyTariffRate}, Часы = {WorkingHours}," +
-                //TODO: округление (+)
                 $" ЗП: {Wages}";
         }
 

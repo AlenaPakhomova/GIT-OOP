@@ -19,5 +19,3 @@ namespace View
         public abstract WagesBase AddingWages();
     }
 }
-
-

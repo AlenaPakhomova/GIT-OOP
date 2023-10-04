@@ -24,7 +24,6 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication (+)
         /// <summary>
         /// Вввод чисел
         /// </summary>

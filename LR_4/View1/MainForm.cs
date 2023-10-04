@@ -6,13 +6,11 @@ using System.Xml.Serialization;
 using Model;
 namespace View
 {
-    //TODO: XML (+)
     /// <summary>
     /// Класс для создания главной формы калькулятора 
     /// </summary>
     public partial class MainForm : Form
     {
-        //TODO: XML (+)
         /// <summary>
         /// Инициализация формы
         /// </summary>
@@ -38,7 +36,6 @@ namespace View
         private readonly XmlSerializer _serializer =
             new XmlSerializer(typeof(BindingList<WagesBase>));
 
-        //TODO: rename (+)
         /// <summary>
         /// Загрузка формы 
         /// </summary>
@@ -46,12 +43,10 @@ namespace View
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Выделение памяти
             _wageList = new BindingList<WagesBase>();
             CreateTable(_wageList, dataGridViewSpace);
         }
 
-        //TODO: RSDN (+)
         /// <summary>
         /// Добавление новой фигуры.
         /// </summary>
@@ -80,7 +75,7 @@ namespace View
             dataGridView.RowHeadersVisible = false;
             var source = new BindingSource(wages, null);
             dataGridView.DataSource = source;
-            //TODO: поправить (+)
+
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
@@ -108,9 +103,7 @@ namespace View
                     _wageList.Remove(row.DataBoundItem as WagesBase);
                 }
             }
-        }
-
-       
+        }       
 
         /// <summary>
         /// Очистка списка

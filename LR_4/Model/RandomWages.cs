@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //TODO: XML (+)
     /// <summary>
     /// Класс для создания случайной заработной платы
     /// </summary>

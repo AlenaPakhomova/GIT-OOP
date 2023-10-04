@@ -11,7 +11,6 @@ using Model;
 
 namespace View
 {
-    //TODO: XML (+)
     /// <summary>
     /// Класс, описывающий форму для фильтрации
     /// </summary>
@@ -32,6 +31,7 @@ namespace View
         /// </summary>
         public EventHandler<EventArgs> WagesFiltered;
 
+        //TODO: RSDN
         /// <summary>
         /// Зарплата
         /// </summary>
@@ -50,10 +50,8 @@ namespace View
             _listWages = wages;
             textBoxWage.Enabled = false;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
         }
 
-        //TODO: RSDN (+)
         /// <summary>
         /// Ввод необходимой суммы зарплаты
         /// </summary>

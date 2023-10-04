@@ -24,7 +24,6 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication (+)
         /// <summary>
         /// Ввод чисел
         /// </summary>
@@ -49,7 +48,6 @@ namespace View
                 Checks.CheckNumber(textBoxWorkingHours.Text);
 
             return wagesWageRate;
-
         }
     }
 }

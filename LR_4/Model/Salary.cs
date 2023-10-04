@@ -107,11 +107,7 @@ namespace Model
         {
             return $"Зарплата по окладу: Оклад = {SalaryAmount}, " +
                 $"Дни в месяце = {DaysInMonth}," +
-                //TODO: округление (+)
                 $" Рабочие дни = {WorkingDays}, ЗП: {Wages}";
         }
-
-        
-
     }
 }

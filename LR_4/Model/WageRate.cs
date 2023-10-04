@@ -84,12 +84,8 @@ namespace Model
         /// <returns></returns>
         public override string GetInfo()
         {
-            //TODO: округление (+)
-            //TODO: RSDN (+)
             return $"Тарифная ставка: Ставка = {TariffRate}, " +
                 $"Рабочие дни = {WorkingDays}, ЗП: {Wages}";
         }
-
-
     }
 }

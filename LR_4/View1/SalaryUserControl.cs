@@ -24,7 +24,6 @@ namespace View
             InitializeComponent();
         }
 
-        //TODO: duplication (+)
         /// <summary>
         /// Ввод чисел
         /// </summary>
@@ -51,7 +50,6 @@ namespace View
                 Checks.CheckNumber(textBoxWorkingDays.Text);
 
             return wagesSalary;
-
         }
     }
 }

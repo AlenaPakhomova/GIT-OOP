@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace View
 {
-    //TODO: rename (+)
     /// <summary>
     /// Класс для выполнения проверок
     /// </summary>
