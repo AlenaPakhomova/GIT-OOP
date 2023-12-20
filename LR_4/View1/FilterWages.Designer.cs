@@ -131,7 +131,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.groupBox1);
             this.Name = "FilterWages";
-            this.Text = "FilterWages";
+            this.Text = "Фильтр";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
