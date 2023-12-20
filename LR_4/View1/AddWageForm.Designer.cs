@@ -49,6 +49,7 @@
             this.payrollMethod.TabIndex = 7;
             this.payrollMethod.TabStop = false;
             this.payrollMethod.Text = "Способ начисления зарплаты";
+            this.payrollMethod.Enter += new System.EventHandler(this.payrollMethod_Enter);
             // 
             // comboSalarySelection
             // 
@@ -70,20 +71,22 @@
             this.accrualParameters.TabIndex = 10;
             this.accrualParameters.TabStop = false;
             this.accrualParameters.Text = "Параметры начисления";
+            this.accrualParameters.Enter += new System.EventHandler(this.accrualParameters_Enter);
             // 
             // salaryUserControl1
             // 
-            this.salaryUserControl1.Location = new System.Drawing.Point(6, 25);
+            this.salaryUserControl1.Location = new System.Drawing.Point(6, 26);
             this.salaryUserControl1.Name = "salaryUserControl1";
             this.salaryUserControl1.Size = new System.Drawing.Size(296, 118);
             this.salaryUserControl1.TabIndex = 1;
             // 
             // wageRateUserControl1
             // 
-            this.wageRateUserControl1.Location = new System.Drawing.Point(6, 25);
+            this.wageRateUserControl1.Location = new System.Drawing.Point(6, 40);
             this.wageRateUserControl1.Name = "wageRateUserControl1";
             this.wageRateUserControl1.Size = new System.Drawing.Size(302, 91);
             this.wageRateUserControl1.TabIndex = 2;
+            this.wageRateUserControl1.Load += new System.EventHandler(this.wageRateUserControl1_Load);
             // 
             // hourlyWageRateUserControl1
             // 

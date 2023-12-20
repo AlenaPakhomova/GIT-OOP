@@ -29,6 +29,11 @@ namespace View
         /// </summary>
         private BindingList<WagesBase> _wageList = new();
 
+        /// <summary>
+        /// Лист отфильтрованных фигур
+        /// </summary>
+        private BindingList<WagesBase> _listWagesFilter = new();
+
 
         /// <summary>
         /// Для файлов 
@@ -78,6 +83,7 @@ namespace View
 
             dataGridView.DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.AllowUserToResizeColumns = false;
             dataGridView.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
             dataGridView.AutoSizeRowsMode = 
@@ -86,6 +92,8 @@ namespace View
                 DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.DefaultCellStyle.WrapMode =
                 DataGridViewTriState.True;
+            dataGridView.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
         }
 
         /// <summary>
@@ -94,15 +102,16 @@ namespace View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ButtonDelete_Click(object sender, EventArgs e)
-        {
+        {          
             if (dataGridViewSpace.SelectedCells.Count != 0)
             {
-                foreach (DataGridViewRow row in 
-                    dataGridViewSpace.SelectedRows)
+                foreach (DataGridViewRow row in dataGridViewSpace.SelectedRows)
                 {
                     _wageList.Remove(row.DataBoundItem as WagesBase);
+
+                    _listWagesFilter.Remove(row.DataBoundItem as WagesBase);
                 }
-            }
+            }           
         }       
 
         /// <summary>
@@ -113,6 +122,7 @@ namespace View
         private void ButtonReset_Click(object sender, EventArgs e)
         {
             _wageList.Clear();
+            _listWagesFilter.Clear();
         }
 
         /// <summary>
@@ -139,7 +149,8 @@ namespace View
             {
                 dataGridViewSpace.DataSource =
                 ((WageListEventArgs)wageEventArgs).WageListValue;
-               
+                _listWagesFilter = ((WageListEventArgs)wageEventArgs).WageListValue;
+
             };
         }
 
@@ -225,5 +236,7 @@ namespace View
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }   
 }

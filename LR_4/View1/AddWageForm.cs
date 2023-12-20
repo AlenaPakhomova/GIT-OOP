@@ -131,5 +131,20 @@ namespace View
             wageRateUserControl1.Visible = false;
             hourlyWageRateUserControl1.Visible = false;
         }
+
+        private void payrollMethod_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void wageRateUserControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void accrualParameters_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -116,7 +116,12 @@ namespace Model
         /// </summary>
         public abstract string GetInfo();
 
-        //TODO: XML
+        //TODO: XML (+)
+        /// <summary>
+        /// Округление величины зарплаты до 2 знака
+        /// </summary>
+        /// <param name="wage">зарплата</param>
+        /// <returns></returns>
         protected double GetRoundedWage(double wage)
         {
             return Math.Round(wage, 2);

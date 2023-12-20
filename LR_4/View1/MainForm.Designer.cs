@@ -149,14 +149,14 @@ namespace View
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.OpenToolStripMenuItem.Text = "Загрузить";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 

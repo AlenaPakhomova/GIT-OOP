@@ -31,11 +31,11 @@ namespace View
         /// </summary>
         public EventHandler<EventArgs> WagesFiltered;
 
-        //TODO: RSDN
+        //TODO: RSDN (+)
         /// <summary>
         /// Зарплата
         /// </summary>
-        private double wage;
+        private double _wage;
 
         /// <summary>
         /// Форма для фильтрации
@@ -63,7 +63,7 @@ namespace View
             {
                 if(textBoxWage.Text != "")
                 {
-                    wage = Checks.CheckNumber(textBoxWage.Text);
+                    _wage = Checks.CheckNumber(textBoxWage.Text);
                 }
             }
             catch
@@ -129,7 +129,7 @@ namespace View
                         {
                             if (checkBoxInput.Checked)
                             {
-                                if (figure.Wages == wage)
+                                if (figure.Wages == _wage)
                                 {
                                     count++;
                                     _listWagesFilter.Add(figure);
@@ -150,7 +150,7 @@ namespace View
                     && !checkBoxWageRate.Checked
                     && !checkBoxSalary.Checked)
                 {
-                    if (checkBoxInput.Checked && figure.Wages == wage)
+                    if (checkBoxInput.Checked && figure.Wages == _wage)
                     {
                         count++;
                         _listWagesFilter.Add(figure);
