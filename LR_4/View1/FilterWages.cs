@@ -17,12 +17,12 @@ namespace View
     public partial class FilterWages : Form
     {
         /// <summary>
-        /// Лист фигур
+        /// Лист зарплат
         /// </summary>
         private readonly BindingList<WagesBase> _listWages;
 
         /// <summary>
-        /// Лист отфильтрованных фигур
+        /// Лист отфильтрованных зарплат
         /// </summary>
         private BindingList<WagesBase> _listWagesFilter;
 
