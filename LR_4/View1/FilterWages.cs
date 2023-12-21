@@ -31,7 +31,6 @@ namespace View
         /// </summary>
         public EventHandler<EventArgs> WagesFiltered;
 
-        //TODO: RSDN (+)
         /// <summary>
         /// Зарплата
         /// </summary>

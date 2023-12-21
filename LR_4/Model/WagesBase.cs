@@ -116,7 +116,6 @@ namespace Model
         /// </summary>
         public abstract string GetInfo();
 
-        //TODO: XML (+)
         /// <summary>
         /// Округление величины зарплаты до 2 знака
         /// </summary>
