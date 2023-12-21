@@ -40,7 +40,7 @@ namespace View
         /// <summary>
         /// Форма для фильтрации
         /// </summary>
-        /// <param name="wages">//TODO: XML</param>
+        /// <param name="wages">заработная плата</param>
         public FilterWages(BindingList<WagesBase> wages)
         {
             InitializeComponent();

@@ -121,7 +121,7 @@ namespace Model
         /// Округление величины зарплаты до 2 знака
         /// </summary>
         /// <param name="wage">зарплата</param>
-        /// <returns></returns>
+        /// <returns>округленную зарплату</returns>
         protected double GetRoundedWage(double wage)
         {
             return Math.Round(wage, 2);
