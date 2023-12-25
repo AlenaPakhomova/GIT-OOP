@@ -38,7 +38,7 @@ namespace Model
         /// <returns>размер зарплаты</returns>
         /// <exception cref="ArgumentOutOfRangeException">отрицательное
         /// число в зарплате</exception>
-        public static double CheckPositiveNumber(double number)
+        public double CheckPositiveNumber(double number)
         {
             if (number <= 0)
             {

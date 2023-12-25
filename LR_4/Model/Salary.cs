@@ -115,7 +115,7 @@ namespace Model
         /// <param name="number"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static double CheckDaysInMonth(double number)
+        public double CheckDaysInMonth(double number)
         {
             if (number <= 0)
             {
@@ -144,7 +144,7 @@ namespace Model
         /// <param name="number"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static double CheckWorkingDaysInMonth(double number)
+        public double CheckWorkingDaysInMonth(double number)
         {
             if (number <= 0)
             {
