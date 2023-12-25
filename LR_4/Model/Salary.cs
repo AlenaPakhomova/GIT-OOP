@@ -74,7 +74,6 @@ namespace Model
         public Salary()
         { }
 
-
         /// <summary>
         /// Вычисление зарплаты по окладу
         /// </summary>
@@ -108,6 +107,63 @@ namespace Model
             return $"Зарплата по окладу: Оклад = {SalaryAmount}, " +
                 $"Дни в месяце = {DaysInMonth}," +
                 $" Рабочие дни = {WorkingDays}, ЗП: {Wages}";
+        }
+
+        /// <summary>
+        /// Проверка количества дней в месяце
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double CheckDaysInMonth(double number)
+        {
+            if (number <= 0)
+            {
+                throw new ArgumentException("Количество дней " +
+                    "не может быть отрицательным числом!");
+            }
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
+            else if (number > 31 || number < 28)
+            {
+                throw new ArgumentException("В месяце " +
+                    "может быть от 28 до 31 дня!");
+            }
+            else
+            {
+                return number;
+            }
+        }
+
+
+        /// <summary>
+        /// Проверка количества рабочих дней в месяце
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static double CheckWorkingDaysInMonth(double number)
+        {
+            if (number <= 0)
+            {
+                throw new ArgumentException("Количество дней " +
+                    "не может быть отрицательным числом!");
+            }
+            else if (double.IsNaN(number))
+            {
+                throw new ArgumentException("Нечисловое значение!");
+            }
+            else if (number > 22)
+            {
+                throw new ArgumentException("В месяце " +
+                    "не может быть болше 22 рабочих дней!");
+            }
+            else
+            {
+                return number;
+            }
         }
     }
 }
